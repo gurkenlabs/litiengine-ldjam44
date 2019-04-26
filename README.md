@@ -6,6 +6,11 @@ You can use this repository as a blueprint for LITIengine games and derive your 
 
 :warning: **It's recommended to use the [`v0.4.17-alpha` branch](https://github.com/gurkenlabs/litiengine-ldjam44/tree/v0.4.17-alpha) of this repository if you want to use it as a starting point for your own jam game.** The master branch requires you to also build the engine upon compilation because it references it as a submodule.
 
+The matching utiLITI editor can be downloaded here:
+
+* [utiLITI for Windows](https://github.com/gurkenlabs/litiengine/releases/download/v0.4.17-alpha/utiliti-v0.4.17-alpha-win.zip)
+* [utiLITI for Linux / MacOS](https://github.com/gurkenlabs/litiengine/releases/download/v0.4.17-alpha/utiliti-v0.4.17-alpha-linux-mac.zip)
+
 ## Build & Distribute
 For the jam, we recommend to bundle the JRE with your game because not everyone has the matching Java version installed on
 their machine. This will be done automatically if you use this project template. 
