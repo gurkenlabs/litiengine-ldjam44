@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-  compile project(':litiengine')
+  compile 'de.gurkenlabs:litiengine:0.4.17'
 }
 
 sourceSets {
@@ -35,13 +35,6 @@ jar {
     configurations.compile.collect {
       it.isDirectory() ? it : zipTree(it)
     }
-  }  {
-     exclude 'META-INF/services/**'
-  }
-  
-  // make sure to only include service providers from the litiengine when directly referencing the project
-  from ("${project(':litiengine').projectDir}/resources/") {
-    include 'META-INF/services/**'
   }
   
   // exclude the natives: they will be included in the distribution archive
@@ -76,19 +69,13 @@ launch4j {
 task copyDistributionFiles(type: Copy) {
   def buildFolder = new File(buildDir, 'libs')
   
-  from('litiengine/build/libs') {
-   include '**/*'
-   exclude '**/*.jar'
-   exclude '**/*.zip'
-   exclude 'LICENSE'
-   exclude 'lib/**'
-  }
-  
   from('dist'){
     include 'game.ico'
     include 'config.properties'
     include 'jre/**'
   }
+  
+  from('dist/natives')
   
   into buildFolder
 }
