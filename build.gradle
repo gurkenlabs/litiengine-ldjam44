@@ -11,7 +11,7 @@ apply plugin: 'application'
 archivesBaseName = "LDJAM44 GAME"
 version = "v1.0.0"
 targetCompatibility = "1.8.0"
-mainClassName = "com.litiengine.ldjam44.Program"
+mainClassName = "de.gurkenlabs.ldjam44.Program"
 
 repositories {
   mavenCentral()

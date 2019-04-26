@@ -1,6 +1,9 @@
 package de.gurkenlabs.ldjam44;
 
+import java.awt.event.KeyEvent;
+
 import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.input.Input;
 import de.gurkenlabs.litiengine.resources.Resources;
 
 public class Program {
@@ -35,6 +38,9 @@ public class Program {
     // load the first level (resources for the map were implicitly loaded from the
     // game file)
     // Game.world().loadEnvironment("level1");
+    
+    // make the game exit upon pressing ESCAPE (by default there is no such key binding and the window needs to be shutdown otherwise, e.g. ALT-F4 on Windows)
+    Input.keyboard().onKeyPressed(KeyEvent.VK_ESCAPE, e -> System.exit(0));
 
     Game.start();
   }
