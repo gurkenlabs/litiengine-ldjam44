@@ -1,6 +1,5 @@
 package de.gurkenlabs.ldjam44.entities;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 
@@ -11,7 +10,6 @@ import de.gurkenlabs.litiengine.annotation.EntityInfo;
 import de.gurkenlabs.litiengine.annotation.MovementInfo;
 import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.entities.ICollisionEntity;
-import de.gurkenlabs.litiengine.graphics.CreatureShadowImageEffect;
 import de.gurkenlabs.litiengine.graphics.IRenderable;
 import de.gurkenlabs.litiengine.graphics.RenderType;
 import de.gurkenlabs.litiengine.graphics.Spritesheet;
@@ -38,8 +36,6 @@ public class Player extends Creature implements IRenderable {
     this.dash = new DashAbility(this);
     this.setController(IMovementController.class, new KeyboardEntityController<>(this));
     this.getMovementController().onMoved(this::spawnWalkDust);
-
-    this.getAnimationController().add(new CreatureShadowImageEffect(this, new Color(0, 0, 0, 150)));
   }
 
   public static Player instance() {
@@ -79,7 +75,9 @@ public class Player extends Creature implements IRenderable {
 
   @Override
   public void render(Graphics2D g) {
-    this.strike.render(g);
+    if (Game.config().debug().isDebug()) {
+      this.strike.render(g);
+    }
   }
 
   public DashAbility getDash() {

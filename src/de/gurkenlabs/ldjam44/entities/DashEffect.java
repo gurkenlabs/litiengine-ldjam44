@@ -3,13 +3,13 @@ package de.gurkenlabs.ldjam44.entities;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.abilities.Ability;
 import de.gurkenlabs.litiengine.abilities.effects.Effect;
+import de.gurkenlabs.litiengine.abilities.effects.EffectApplication;
 import de.gurkenlabs.litiengine.abilities.effects.EffectTarget;
 import de.gurkenlabs.litiengine.entities.ICombatEntity;
-import de.gurkenlabs.litiengine.input.Input;
-import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 
 public class DashEffect extends Effect {
   private double angle;
+  private double factor;
 
   public DashEffect(final Ability ability) {
     super(ability, EffectTarget.EXECUTINGENTITY);
@@ -21,17 +21,32 @@ public class DashEffect extends Effect {
     final double maxPixelsPerTick = this.getAbility().getAttributes().getValue().getCurrentValue() / 1000.0 * Math.min(deltaTime, 50);
     Game.physics().move(Player.instance(), this.angle, maxPixelsPerTick);
 
+    if (this.factor != 0) {
+      Player.instance().setWidth(Player.instance().getWidth() * this.factor);
+      Player.instance().setHeight(Player.instance().getHeight() * this.factor);
+    }
     super.update();
   }
 
   @Override
   protected void apply(final ICombatEntity entity) {
     this.angle = Player.instance().getAngle();
-    String dash = "lepus-dash";
-    if (this.angle > 180) {
-      dash = "lepus-dash-left";
-    }
-    // Player.instance().getAnimationController().playAnimation(dash);
+    Player.instance().setWidth(11);
+    Player.instance().setHeight(20);
+    this.factor = 1.025;
+    Game.loop().perform(this.getAbility().getAttributes().getDuration().getCurrentValue() / 2, () -> {
+      this.factor = 0.975;
+    });
+    Player.instance().setScaling(true);
+
     super.apply(entity);
+  }
+
+  @Override
+  protected void cease(EffectApplication appliance) {
+    Player.instance().setWidth(11);
+    Player.instance().setHeight(20);
+    Player.instance().setScaling(false);
+    super.cease(appliance);
   }
 }

@@ -1,6 +1,7 @@
 package de.gurkenlabs.ldjam44.entities;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 import java.util.EnumMap;
 import java.util.Map;
@@ -15,8 +16,7 @@ import de.gurkenlabs.litiengine.annotation.CollisionInfo;
 import de.gurkenlabs.litiengine.annotation.CombatInfo;
 import de.gurkenlabs.litiengine.annotation.EntityInfo;
 import de.gurkenlabs.litiengine.annotation.MovementInfo;
-import de.gurkenlabs.litiengine.environment.Environment;
-import de.gurkenlabs.litiengine.graphics.CreatureShadowImageEffect;
+import de.gurkenlabs.litiengine.graphics.IRenderable;
 import de.gurkenlabs.litiengine.gui.SpeechBubble;
 import de.gurkenlabs.litiengine.gui.SpeechBubbleAppearance;
 import de.gurkenlabs.litiengine.util.MathUtilities;
@@ -26,7 +26,7 @@ import de.gurkenlabs.litiengine.util.MathUtilities;
 @MovementInfo(velocity = 32)
 @CollisionInfo(collisionBoxWidth = 5f, collisionBoxHeight = 8f, collision = true)
 @EntityInfo(width = 17, height = 21)
-public class Enemy extends Mob {
+public class Enemy extends Mob implements IRenderable {
 
   public enum EnemyType {
     leather,
@@ -100,10 +100,10 @@ public class Enemy extends Mob {
   }
 
   @Override
-  public void loaded(Environment environment) {
-    super.loaded(environment);
-
-    this.getAnimationController().add(new CreatureShadowImageEffect(this, new Color(0, 0, 0, 150)));
+  public void render(Graphics2D g) {
+    if (Game.config().debug().isDebug()) {
+      this.strike.render(g);
+    }
   }
 
   public EnemyType getType() {
