@@ -15,11 +15,10 @@ public class Program {
    */
   public static void main(String[] args) {
     // set meta information about the game
-    Game.info().setName("LDJAM 44 GAME");
+    Game.info().setName("SERVUS BONUS");
     Game.info().setSubTitle("");
     Game.info().setVersion("v0.0.1");
     Game.info().setWebsite("https://github.com/gurkenlabs/litiengine-ldjam44");
-    Game.info().setDescription("An example 2D platformer with shooter elements made in the LITIengine");
 
     // init the game infrastructure
     Game.init(args);
