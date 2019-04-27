@@ -233,22 +233,22 @@
       <property name="collisionType" value="STATIC"/>
      </properties>
     </object>
-    <object id="14" type="COLLISIONBOX" x="1622" y="1587" width="27" height="16">
+    <object id="15" type="COLLISIONBOX" x="1622" y="1587" width="27" height="16">
      <properties>
       <property name="collisionType" value="STATIC"/>
      </properties>
     </object>
-    <object id="15" type="COLLISIONBOX" x="1738" y="1629" width="13" height="11">
+    <object id="16" type="COLLISIONBOX" x="1738" y="1629" width="13" height="11">
      <properties>
       <property name="collisionType" value="STATIC"/>
      </properties>
     </object>
-    <object id="16" type="COLLISIONBOX" x="1735" y="1561" width="15" height="15">
+    <object id="17" type="COLLISIONBOX" x="1735" y="1561" width="15" height="15">
      <properties>
       <property name="collisionType" value="STATIC"/>
      </properties>
     </object>
-    <object id="17" type="COLLISIONBOX" x="1652" y="1549" width="19" height="18">
+    <object id="18" type="COLLISIONBOX" x="1652" y="1549" width="19" height="18">
      <properties>
       <property name="collisionType" value="STATIC"/>
      </properties>
@@ -257,6 +257,22 @@
   </map>
  </maps>
  <spriteSheets>
+  <sprite width="15" height="10" name="hit">
+   <image>iVBORw0KGgoAAAANSUhEUgAAAC0AAAAKCAYAAAAgs9cUAAAAVklEQVR42mNgGKngPxDQQw9FBiCr/w8FA+JoYg1BV/sfCQxbR8PUkRtDJDsclxpiHY4uT7HDCVmMT54YRxPSSxWH4wLkeJpcD1HF4bTUS5fkQiu9xAAAY8RWuMkUcx0AAAAASUVORK5CYII=</image>
+   <keyframes>70,70,70</keyframes>
+  </sprite>
+  <sprite width="10" height="15" name="hit-left">
+   <image>iVBORw0KGgoAAAANSUhEUgAAAAoAAAAtCAYAAACXm/ozAAAAVElEQVR42mNgoAT8RwIEFRCliHyr0BVS5nDaKSTajWSbSrJi6ptOXUByMsOqmKACkoKFemmRNgphikkK4AFWTJKbyUo9BFMQ9YoW6viU+nE9CigGAPQlVrhJDd5DAAAAAElFTkSuQmCC</image>
+   <keyframes>70,70,70</keyframes>
+  </sprite>
+  <sprite width="10" height="15" name="hit-right">
+   <image>iVBORw0KGgoAAAANSUhEUgAAAAoAAAAtCAYAAACXm/ozAAAASUlEQVR42u2SMQ4AIAjE+P+ndXXDai8udi6XHFBFGQtIxgMZ2UvNifdprbR1GbRgF9zyeCDzwKjkI9FJcyX3c/xL5GVU1E/9tEwhQla4OUTIvwAAAABJRU5ErkJggg==</image>
+   <keyframes>70,70,70</keyframes>
+  </sprite>
+  <sprite width="15" height="10" name="hit-top">
+   <image>iVBORw0KGgoAAAANSUhEUgAAAC0AAAAKCAYAAAAgs9cUAAAAV0lEQVR42tWUMQ4AIAgD+/9P42TCgmKLGG9uzQWIQIA5cIjSpbAFN7u+Xya8e3CVyXZRvdKMFCMmnVGmrEjPXKtwlGXuVhbulo6mTkmzeeVbxEu+lO5mAOyLVrjOSYc5AAAAAElFTkSuQmCC</image>
+   <keyframes>70,70,70</keyframes>
+  </sprite>
   <sprite width="11" height="20" name="monger-walk-down">
    <image>iVBORw0KGgoAAAANSUhEUgAAACEAAAAUCAYAAAADU1RxAAABCUlEQVR42u2UvwrCMBDG+wAuFlx1c2k33V1chYIP4nv4MM6+jyAOrq5GvsBBuNwld63g4sHR/Pny9Zf0mqb5hxL9sg2UPwewgHiATVpMXk9DltoiD7BZi4nVYhYTL6c2cgqwa3MYPB82Yb47RhGe6GvGHmCr1r07D7BVG0OCmFo/3lqLAUrKUrVbgV3a92UbkKmQxizAmpbGq5vjL+0fr8ChLMBcW/LNgCEEYbqATGmc6yVjrtV8yTuDKH07CYIb0zGnO6Q2gRTrgsSakB8d+utunyUHprakFT+HJtZOQgqtgCWt+oeMMb7dn1/VusRphVsh+LqqseWOkNbVfPla8b4o9Ws36Jg5xAdks8KU75z2QwAAAABJRU5ErkJggg==</image>
    <keyframes>200,240,240</keyframes>

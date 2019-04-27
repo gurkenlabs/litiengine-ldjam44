@@ -35,6 +35,7 @@ public class Program {
     Game.screens().add(new IngameScreen());
 
     GameManager.init();
+    PlayerInput.init();
     
     // load the first level (resources for the map were implicitly loaded from the
     // game file)

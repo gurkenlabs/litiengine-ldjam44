@@ -231,22 +231,22 @@
     <property name="collisionType" value="STATIC"/>
    </properties>
   </object>
-  <object id="14" type="COLLISIONBOX" x="1622" y="1587" width="27" height="16">
+  <object id="15" type="COLLISIONBOX" x="1622" y="1587" width="27" height="16">
    <properties>
     <property name="collisionType" value="STATIC"/>
    </properties>
   </object>
-  <object id="15" type="COLLISIONBOX" x="1738" y="1629" width="13" height="11">
+  <object id="16" type="COLLISIONBOX" x="1738" y="1629" width="13" height="11">
    <properties>
     <property name="collisionType" value="STATIC"/>
    </properties>
   </object>
-  <object id="16" type="COLLISIONBOX" x="1735" y="1561" width="15" height="15">
+  <object id="17" type="COLLISIONBOX" x="1735" y="1561" width="15" height="15">
    <properties>
     <property name="collisionType" value="STATIC"/>
    </properties>
   </object>
-  <object id="17" type="COLLISIONBOX" x="1652" y="1549" width="19" height="18">
+  <object id="18" type="COLLISIONBOX" x="1652" y="1549" width="19" height="18">
    <properties>
     <property name="collisionType" value="STATIC"/>
    </properties>

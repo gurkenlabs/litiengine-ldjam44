@@ -1,13 +1,16 @@
 package de.gurkenlabs.ldjam44.entities;
 
+import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.annotation.CollisionInfo;
+import de.gurkenlabs.litiengine.annotation.CombatInfo;
 import de.gurkenlabs.litiengine.annotation.EntityInfo;
 import de.gurkenlabs.litiengine.annotation.MovementInfo;
 import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.entities.ICollisionEntity;
+import de.gurkenlabs.litiengine.graphics.IRenderable;
 import de.gurkenlabs.litiengine.graphics.RenderType;
 import de.gurkenlabs.litiengine.graphics.Spritesheet;
 import de.gurkenlabs.litiengine.graphics.emitters.AnimationEmitter;
@@ -18,14 +21,17 @@ import de.gurkenlabs.litiengine.resources.Resources;
 @EntityInfo(width = 11, height = 20)
 @MovementInfo(velocity = 30)
 @CollisionInfo(collisionBoxWidth = 5, collisionBoxHeight = 8, collision = true)
-public class Player extends Creature {
+@CombatInfo(hitpoints = 5, team = 1)
+public class Player extends Creature implements IRenderable{
   private static Player instance;
 
   private long lastWalkDust = 0;
+  private final Strike strike;
 
   private Player() {
     super("monger");
 
+    this.strike = new Strike(this);
     this.setController(IMovementController.class, new KeyboardEntityController<>(this));
     this.getMovementController().onMoved(this::spawnWalkDust);
   }
@@ -59,5 +65,14 @@ public class Player extends Creature {
     AnimationEmitter walkDust = new AnimationEmitter(walkDustSprite, walkLocation);
     walkDust.setRenderType(RenderType.NORMAL);
     Game.world().environment().add(walkDust);
+  }
+
+  public Strike getStrike() {
+    return strike;
+  }
+
+  @Override
+  public void render(Graphics2D g) {
+    //this.strike.render(g);
   }
 }
