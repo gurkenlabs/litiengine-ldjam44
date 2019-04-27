@@ -19,7 +19,7 @@ public class CustomCreatureMapObjectLoader extends CreatureMapObjectLoader {
 
     if (creature instanceof Slave) {
       Slave slave = (Slave) creature;
-      slave.setOwner(mapObject.getIntValue("owner", 0));
+      slave.setOwner(mapObject.getStringValue("owner"));
     }
 
     return creature;
