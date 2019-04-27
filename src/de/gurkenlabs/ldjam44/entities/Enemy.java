@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.geom.Point2D;
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.stream.Collectors;
+
+import javax.security.auth.x500.X500Principal;
 
 import de.gurkenlabs.ldjam44.GameManager;
 import de.gurkenlabs.ldjam44.graphics.SpawnEmitter;
@@ -20,7 +23,7 @@ import de.gurkenlabs.litiengine.gui.SpeechBubbleAppearance;
 import de.gurkenlabs.litiengine.util.MathUtilities;
 
 @AnimationInfo(spritePrefix = { "enemy_gold", "enemy_silver", "enemy_leather" })
-@CombatInfo(hitpoints = 5, team = 2)
+@CombatInfo(hitpoints = 5, team = 2, isIndestructible = true)
 @MovementInfo(velocity = 30)
 @CollisionInfo(collisionBoxWidth = 5f, collisionBoxHeight = 8f, collision = true)
 @EntityInfo(width = 17, height = 21)
@@ -51,6 +54,8 @@ public class Enemy extends Mob {
   }
 
   public Enemy() {
+    this.setIndestructible(true);
+
     this.addMessageListener(l -> {
       if (l.getMessage() == null) {
         return;
@@ -61,6 +66,7 @@ public class Enemy extends Mob {
         appearance.setBackgroundColor2(new Color(255, 255, 255, 220));
         SpeechBubble.create(this, "FEEEEELL MY WRATH!!!!!" + this.getType(), appearance, GameManager.SPEECH_BUBBLE_FONT);
         this.setEngaged(true);
+        this.setIndestructible(false);
       }
     });
 
@@ -72,6 +78,13 @@ public class Enemy extends Mob {
           Slave newSlave = new Slave(spawn);
           Game.world().environment().add(new SpawnEmitter(newSlave));
           Game.world().environment().add(newSlave);
+        });
+      }
+      for (Slave s : Game.world().environment().getByType(Slave.class).stream().filter(sla -> sla.getOwner() != null && sla.getOwner().getMapId() == this.getMapId()).collect(Collectors.toList())) {
+        Game.world().environment().add(new SpawnEmitter(s));
+        
+        Game.loop().perform(250, () -> {
+          Game.world().environment().remove(s);
         });
       }
     });

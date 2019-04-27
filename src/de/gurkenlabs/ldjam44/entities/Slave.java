@@ -17,6 +17,7 @@ import de.gurkenlabs.litiengine.graphics.CreatureShadowImageEffect;
 @CollisionInfo(collisionBoxWidth = 3f, collisionBoxHeight = 5f, collision = true)
 @EntityInfo(width = 7, height = 13)
 public class Slave extends Mob {
+  private int owner;
 
   public Slave() {
     this.addController(new SlaveController(this));
@@ -40,5 +41,17 @@ public class Slave extends Mob {
     super.loaded(environment);
 
     this.getAnimationController().add(new CreatureShadowImageEffect(this, new Color(0, 0, 0, 150)));
+  }
+
+  public Enemy getOwner() {
+    if (this.owner == 0) {
+      return null;
+    }
+
+    return Game.world().environment().get(Enemy.class, this.owner);
+  }
+
+  public void setOwner(int owner) {
+    this.owner = owner;
   }
 }

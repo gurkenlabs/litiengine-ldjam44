@@ -32,7 +32,21 @@ public class SlaveController extends MovementController<Slave> {
   public void update() {
     super.update();
 
-    this.walkAroundLikeMFs();
+    if (this.getEntity().getOwner() == null) {
+      this.walkAroundLikeMFs();
+    } else {
+      this.doWhateverOtherSlavesDo();
+    }
+  }
+
+  private void doWhateverOtherSlavesDo() {
+    if (this.angle == 0 || Game.time().since(this.lastAngleChange) > this.nextAngleChange) {
+      this.angle = RANDOM.nextInt(360);
+      this.getEntity().setVelocity(4);
+    }
+
+    this.getEntity().setAngle(this.angle);
+    Game.physics().move(this.getEntity(), this.getEntity().getAngle(), this.getEntity().getTickVelocity());
   }
 
   private void walkAroundLikeMFs() {

@@ -3,7 +3,7 @@ package de.gurkenlabs.ldjam44;
 import java.awt.Font;
 
 import de.gurkenlabs.ldjam44.entities.Enemy;
-import de.gurkenlabs.ldjam44.entities.EnemyMapObjectLoader;
+import de.gurkenlabs.ldjam44.entities.CustomCreatureMapObjectLoader;
 import de.gurkenlabs.ldjam44.entities.Player;
 import de.gurkenlabs.ldjam44.entities.Slave;
 import de.gurkenlabs.litiengine.Game;
@@ -23,7 +23,7 @@ public final class GameManager {
   public static void init() {
     GuiProperties.setDefaultFont(GUI_FONT);
 
-    Environment.registerMapObjectLoader(new EnemyMapObjectLoader());
+    Environment.registerMapObjectLoader(new CustomCreatureMapObjectLoader());
 
     CreatureMapObjectLoader.registerCustomCreatureType(Slave.class);
     CreatureMapObjectLoader.registerCustomCreatureType(Enemy.class);

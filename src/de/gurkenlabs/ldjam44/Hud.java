@@ -21,7 +21,7 @@ public class Hud extends GuiComponent {
     super.render(g);
 
     g.setColor(Color.RED);
-    
+
     for (Enemy enemy : Game.world().environment().getByType(Enemy.class)) {
       if (enemy.isEngaged()) {
         RenderEngine.renderText(g, enemy.getHitPoints().getCurrentValue().toString(), enemy.getCenter());
@@ -29,7 +29,9 @@ public class Hud extends GuiComponent {
     }
 
     long slavesAlive = Game.world().environment().getByType(Slave.class).stream().filter(x -> !x.isDead()).count();
-    TextRenderer.render(g, "Slaves: " + slavesAlive, 150, 150);
+    TextRenderer.render(g, "Slaves: " + slavesAlive, 250, 150);
 
+    long mySlaves = Game.world().environment().getByType(Slave.class).stream().filter(x -> !x.isDead() && x.getOwner() == null).count();
+    TextRenderer.render(g, "My slaves: " + mySlaves, 250, 180);
   }
 }

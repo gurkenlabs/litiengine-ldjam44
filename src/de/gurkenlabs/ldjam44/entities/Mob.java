@@ -16,6 +16,10 @@ public class Mob extends Creature {
   }
 
   private static void spawnHitEmitter(ICombatEntity entity, CombatEntityHitEvent args) {
+    if (args.getDamage() <= 0) {
+      return;
+    }
+
     Emitter emitter = new HitEmitter(entity, 10);
     Game.world().environment().add(emitter);
   }
