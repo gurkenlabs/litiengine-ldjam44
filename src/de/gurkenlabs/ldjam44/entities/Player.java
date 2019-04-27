@@ -1,5 +1,6 @@
 package de.gurkenlabs.ldjam44.entities;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 
@@ -10,6 +11,7 @@ import de.gurkenlabs.litiengine.annotation.EntityInfo;
 import de.gurkenlabs.litiengine.annotation.MovementInfo;
 import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.entities.ICollisionEntity;
+import de.gurkenlabs.litiengine.graphics.CreatureShadowImageEffect;
 import de.gurkenlabs.litiengine.graphics.IRenderable;
 import de.gurkenlabs.litiengine.graphics.RenderType;
 import de.gurkenlabs.litiengine.graphics.Spritesheet;
@@ -22,7 +24,7 @@ import de.gurkenlabs.litiengine.resources.Resources;
 @MovementInfo(velocity = 30)
 @CollisionInfo(collisionBoxWidth = 5, collisionBoxHeight = 8, collision = true)
 @CombatInfo(hitpoints = 5, team = 1)
-public class Player extends Creature implements IRenderable{
+public class Player extends Creature implements IRenderable {
   private static Player instance;
 
   private long lastWalkDust = 0;
@@ -34,6 +36,8 @@ public class Player extends Creature implements IRenderable{
     this.strike = new Strike(this);
     this.setController(IMovementController.class, new KeyboardEntityController<>(this));
     this.getMovementController().onMoved(this::spawnWalkDust);
+
+    this.getAnimationController().add(new CreatureShadowImageEffect(this, new Color(0, 0, 0, 150)));
   }
 
   public static Player instance() {

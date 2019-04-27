@@ -253,10 +253,82 @@
       <property name="collisionType" value="STATIC"/>
      </properties>
     </object>
+    <object id="19" type="CREATURE" x="1453" y="1644" width="17" height="21">
+     <properties>
+      <property name="addShadow" type="bool" value="true"/>
+      <property name="collision" type="bool" value="true"/>
+      <property name="collisionboxHeight" type="float" value="8.4"/>
+      <property name="collisionboxWidth" type="float" value="6.800000000000001"/>
+      <property name="indestructible" type="bool" value="false"/>
+      <property name="spritesheetName" value="enemy_gold"/>
+     </properties>
+    </object>
+    <object id="20" type="CREATURE" x="1531" y="1610" width="17" height="21">
+     <properties>
+      <property name="addShadow" type="bool" value="true"/>
+      <property name="collision" type="bool" value="true"/>
+      <property name="collisionboxHeight" type="float" value="8.4"/>
+      <property name="collisionboxWidth" type="float" value="6.800000000000001"/>
+      <property name="indestructible" type="bool" value="false"/>
+      <property name="spritesheetName" value="enemy_gold"/>
+     </properties>
+    </object>
+    <object id="21" type="CREATURE" x="1447" y="1538" width="17" height="21">
+     <properties>
+      <property name="addShadow" type="bool" value="true"/>
+      <property name="collision" type="bool" value="true"/>
+      <property name="collisionboxHeight" type="float" value="8.4"/>
+      <property name="collisionboxWidth" type="float" value="6.800000000000001"/>
+      <property name="indestructible" type="bool" value="false"/>
+      <property name="spritesheetName" value="enemy_gold"/>
+     </properties>
+    </object>
+    <object id="22" type="CREATURE" x="1561" y="1536" width="17" height="21">
+     <properties>
+      <property name="addShadow" type="bool" value="true"/>
+      <property name="collision" type="bool" value="true"/>
+      <property name="collisionboxHeight" type="float" value="8.4"/>
+      <property name="collisionboxWidth" type="float" value="6.800000000000001"/>
+      <property name="indestructible" type="bool" value="false"/>
+      <property name="spritesheetName" value="enemy_gold"/>
+     </properties>
+    </object>
+    <object id="23" type="CREATURE" x="1592" y="1590" width="17" height="21">
+     <properties>
+      <property name="addShadow" type="bool" value="true"/>
+      <property name="collision" type="bool" value="true"/>
+      <property name="collisionboxHeight" type="float" value="8.4"/>
+      <property name="collisionboxWidth" type="float" value="6.800000000000001"/>
+      <property name="indestructible" type="bool" value="false"/>
+      <property name="spritesheetName" value="enemy_silver"/>
+     </properties>
+    </object>
+    <object id="24" type="CREATURE" x="1586" y="1640" width="17" height="21">
+     <properties>
+      <property name="addShadow" type="bool" value="true"/>
+      <property name="collision" type="bool" value="true"/>
+      <property name="collisionboxHeight" type="float" value="8.4"/>
+      <property name="collisionboxWidth" type="float" value="6.800000000000001"/>
+      <property name="indestructible" type="bool" value="false"/>
+      <property name="spritesheetName" value="enemy_leather"/>
+     </properties>
+    </object>
    </objectgroup>
   </map>
  </maps>
  <spriteSheets>
+  <sprite width="17" height="21" name="enemy_gold-walk-down">
+   <image>iVBORw0KGgoAAAANSUhEUgAAADMAAAAVCAYAAADrVNYBAAABTklEQVR42tWWoQ7CQAyG9wBYNG5oQhCYCd4BxzOAwPIQODwWg0LjkXhe5UgXSsqx0vbaBLjkD9tYv/39d7utqoSxr8epco4IRsj4lWZCAjluJ//fzO28TLm+GUgxgzYAkNKGIgJxM2gjKCsoIpCQUOHkQb/X6rpbPbdLjEQE4mG0kNNmnurFrG0GfmHfaiQiEC+jhUBxLquRiEC8jOftzRuxGokIxMt4SQVVupJ5A3ExLod5kqTlwEVpHd23NMQxRF/wpgV1ncwd597Y+D+sQtZwpEDRJ5XYDDXSBeA+M+A4XVJRlnq3D5iX+PmQi15EMgOc4kTJdaRAKJdthpsOKsiD0wxHb7LUf/JB9/GusZAuI2rIY6ybacqlrZd8aENhjVghWAcGcNtkQuFDmq6sESuE1uXNqEwE+eg0YoXgVIloRvssiUaKIcoVTqrR8u8EJF9d+JbdUQAAAABJRU5ErkJggg==</image>
+   <keyframes>200,200,200</keyframes>
+  </sprite>
+  <sprite width="17" height="21" name="enemy_leather-walk-down">
+   <image>iVBORw0KGgoAAAANSUhEUgAAADMAAAAVCAYAAADrVNYBAAABRElEQVR42u2WMQoCMRBF9wC21nZrLVY2W3gCGzvvIGhr4THsBAuPIB7CYwgeIzJhE4aYODOZAVlw4aORnZc/f8ewTfO/Bnrtu4UbfBPP686l+mUg1QzcAEBqG7IIRM3AjQRJQRaBmIQKN0/GI6/X/RS/1xixCETD8JDH+ejazdI3A5+wlhqxCETL8BAoTiU1YhGIlhEfb9qI1IhFIFpGBN0O66jak0wbiIpx364cJS4HNsV1eC1pqMQgfV3auQPlbi79njOB74VTSBoOFWjwiUU2g43kAFlIz8FHapCkXu0D5jK8PqTCm1BmgFOdKNqHCgRzi82UxoEF6TnddPYhSf03H3gdnloRkjPChqCXw1TcesoHN5SGM2YcSKgDA+mIsEwYjHvRiBSC66QHgKWPrBEpJIyKRTPc/xJppBrCPOGoGi7/DTNPJfnLaGa2AAAAAElFTkSuQmCC</image>
+   <keyframes>200,200,200</keyframes>
+  </sprite>
+  <sprite width="17" height="21" name="enemy_silver-walk-down">
+   <image>iVBORw0KGgoAAAANSUhEUgAAADMAAAAVCAYAAADrVNYBAAABUklEQVR42tWWsQ3CQAxFMwAtNR3UiIqGgh1oEAtQUdAyABIDUNAxA6Kmp6Rll0OOYmSOGNtnS8BJXyQhfvn+uVxSVcI49kepco4IRsj4lWZCApkvt//fzOV6T7m+GUgxgzYAkNKGIgJxM2gjKCsoIpCQUOHkXrdT67ZfPbdLjEQE4mHUkPNmlvqLad0M/MK+1UhEIF5GDYHiXFYjEYF4Gc/bmzdiNRIRiJfxkgqqdCXzBuJi7A6nJEnLgYvSOrpvaYhjiL7gTQtqO5k7zr2x8X9YhazhSIGiTyqxGWqkDcB9ZsBxuqSiLPVuHzAv8fMhF72IZAY4xYmS60iBUC7bDDcdVJCGMxkM32Sp/+SD7uNdYyFtRtSQZqwn45RLWy/50IbCGrFCsA4M4LbJhMKHNF1ZI1YIrcubUZkI8tFqxArBqRLRjPZZEo0UQ5QrnFSj5T8AxgZ831GnFaUAAAAASUVORK5CYII=</image>
+   <keyframes>200,200,200</keyframes>
+  </sprite>
   <sprite width="15" height="10" name="hit">
    <image>iVBORw0KGgoAAAANSUhEUgAAAC0AAAAKCAYAAAAgs9cUAAAAVklEQVR42mNgGKngPxDQQw9FBiCr/w8FA+JoYg1BV/sfCQxbR8PUkRtDJDsclxpiHY4uT7HDCVmMT54YRxPSSxWH4wLkeJpcD1HF4bTUS5fkQiu9xAAAY8RWuMkUcx0AAAAASUVORK5CYII=</image>
    <keyframes>70,70,70</keyframes>
