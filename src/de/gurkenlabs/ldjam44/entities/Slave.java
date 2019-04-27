@@ -1,5 +1,6 @@
 package de.gurkenlabs.ldjam44.entities;
 
+import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.annotation.CombatInfo;
 import de.gurkenlabs.litiengine.annotation.MovementInfo;
 import de.gurkenlabs.litiengine.entities.Creature;
@@ -11,6 +12,9 @@ public class Slave extends Creature {
 
   public Slave() {
     this.addController(new SlaveController(this));
+    this.addDeathListener(l -> {
+      SlaveController.KILL_TICK = Game.time().now();
+    });
   }
 
   @Override

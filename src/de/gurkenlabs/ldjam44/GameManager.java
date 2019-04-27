@@ -5,9 +5,6 @@ import de.gurkenlabs.ldjam44.entities.Slave;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Spawnpoint;
 import de.gurkenlabs.litiengine.environment.CreatureMapObjectLoader;
-import de.gurkenlabs.litiengine.environment.Environment;
-import de.gurkenlabs.litiengine.graphics.Camera;
-import de.gurkenlabs.litiengine.graphics.PositionLockCamera;
 
 public final class GameManager {
 

@@ -1,10 +1,8 @@
 package de.gurkenlabs.ldjam44.entities;
 
-import de.gurkenlabs.litiengine.Game;
-
 import java.awt.geom.Point2D;
 
-import de.gurkenlabs.litiengine.Direction;
+import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.abilities.OffensiveAbility;
 import de.gurkenlabs.litiengine.annotation.AbilityInfo;
 import de.gurkenlabs.litiengine.entities.Creature;
