@@ -607,6 +607,7 @@
     <property name="collisionboxHeight" type="float" value="8.4"/>
     <property name="collisionboxWidth" type="float" value="6.800000000000001"/>
     <property name="indestructible" type="bool" value="true"/>
+    <property name="spawnDirection" value="DOWN"/>
     <property name="spritesheetName" value="enemy_silver"/>
    </properties>
   </object>
@@ -617,6 +618,7 @@
     <property name="collisionboxHeight" type="float" value="8.4"/>
     <property name="collisionboxWidth" type="float" value="6.800000000000001"/>
     <property name="indestructible" type="bool" value="true"/>
+    <property name="spawnDirection" value="DOWN"/>
     <property name="spritesheetName" value="enemy_leather"/>
    </properties>
   </object>
