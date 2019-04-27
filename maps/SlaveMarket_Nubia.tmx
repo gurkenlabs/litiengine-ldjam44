@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="8" tileheight="8" infinite="0" nextlayerid="10" nextobjectid="1">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="8" tileheight="8" infinite="0" nextlayerid="12" nextobjectid="34">
  <tileset firstgid="1" name="Tileset" tilewidth="8" tileheight="8" tilecount="1024" columns="32">
   <image source="../../../gurkenlabs/Jams/ludum-dare-44/art/tilesets/Tileset.png" width="256" height="256"/>
   <terraintypes>
@@ -502,4 +502,242 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="10" name="collision">
+  <object id="16" type="COLLISIONBOX" x="247.833" y="130.667" width="34" height="20">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="17" type="COLLISIONBOX" x="205.833" y="115.667" width="34" height="20">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="18" type="COLLISIONBOX" x="198.833" y="88.6667" width="27" height="16">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="19" type="COLLISIONBOX" x="314.833" y="130.667" width="13" height="11">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="20" type="COLLISIONBOX" x="311.833" y="62.6667" width="15" height="15">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+  <object id="21" type="COLLISIONBOX" x="228.833" y="50.6667" width="19" height="18">
+   <properties>
+    <property name="collisionType" value="STATIC"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="11" name="spawnpoints">
+  <object id="7" type="CREATURE" x="56" y="237.5" width="17" height="21">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="8.4"/>
+    <property name="collisionboxWidth" type="float" value="6.800000000000001"/>
+    <property name="indestructible" type="bool" value="true"/>
+    <property name="spritesheetName" value="enemy_gold"/>
+   </properties>
+  </object>
+  <object id="8" type="CREATURE" x="134" y="203.5" width="17" height="21">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="8.0"/>
+    <property name="collisionboxWidth" value="5.0"/>
+    <property name="indestructible" type="bool" value="true"/>
+    <property name="spritesheetName" value="enemy_gold"/>
+   </properties>
+  </object>
+  <object id="9" type="CREATURE" x="50" y="131.5" width="17" height="21">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="8.4"/>
+    <property name="collisionboxWidth" type="float" value="6.800000000000001"/>
+    <property name="indestructible" type="bool" value="true"/>
+    <property name="spritesheetName" value="enemy_gold"/>
+   </properties>
+  </object>
+  <object id="10" type="CREATURE" x="164" y="129.5" width="17" height="21">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="8.4"/>
+    <property name="collisionboxWidth" type="float" value="6.800000000000001"/>
+    <property name="indestructible" type="bool" value="true"/>
+    <property name="spritesheetName" value="enemy_gold"/>
+   </properties>
+  </object>
+  <object id="11" type="CREATURE" x="195" y="183.5" width="17" height="21">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="8.4"/>
+    <property name="collisionboxWidth" type="float" value="6.800000000000001"/>
+    <property name="indestructible" type="bool" value="true"/>
+    <property name="spritesheetName" value="enemy_silver"/>
+   </properties>
+  </object>
+  <object id="12" type="CREATURE" x="189" y="233.5" width="17" height="21">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="8.4"/>
+    <property name="collisionboxWidth" type="float" value="6.800000000000001"/>
+    <property name="indestructible" type="bool" value="true"/>
+    <property name="spritesheetName" value="enemy_leather"/>
+   </properties>
+  </object>
+  <object id="13" type="CREATURE" x="181" y="212.5" width="7" height="13">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="5.2"/>
+    <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="owner" value="24"/>
+    <property name="spritesheetName" value="slave"/>
+   </properties>
+  </object>
+  <object id="14" type="CREATURE" x="191" y="169.5" width="7" height="13">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="5.2"/>
+    <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="owner" value="23"/>
+    <property name="spritesheetName" value="slave"/>
+   </properties>
+  </object>
+  <object id="15" type="CREATURE" x="202" y="168.5" width="7" height="13">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="5.2"/>
+    <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="owner" value="23"/>
+    <property name="spritesheetName" value="slave"/>
+   </properties>
+  </object>
+  <object id="22" name="enter" type="SPAWNPOINT" x="238" y="198" width="11" height="20"/>
+  <object id="23" type="CREATURE" x="249" y="188" width="7" height="13">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="5.2"/>
+    <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="slave"/>
+   </properties>
+  </object>
+  <object id="24" type="CREATURE" x="260" y="200" width="7" height="13">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="5.0"/>
+    <property name="collisionboxWidth" value="3.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="slave"/>
+   </properties>
+  </object>
+  <object id="25" type="CREATURE" x="274" y="208" width="7" height="13">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="5.2"/>
+    <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="slave"/>
+   </properties>
+  </object>
+  <object id="26" type="CREATURE" x="260" y="183" width="7" height="13">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="5.2"/>
+    <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="slave"/>
+   </properties>
+  </object>
+  <object id="27" type="CREATURE" x="273" y="216" width="7" height="13">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="5.2"/>
+    <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="slave"/>
+   </properties>
+  </object>
+  <object id="28" type="CREATURE" x="268" y="201" width="7" height="13">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="5.2"/>
+    <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="slave"/>
+   </properties>
+  </object>
+  <object id="29" type="CREATURE" x="261" y="193" width="7" height="13">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="5.2"/>
+    <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="slave"/>
+   </properties>
+  </object>
+  <object id="30" type="CREATURE" x="287" y="194" width="7" height="13">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="5.2"/>
+    <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="slave"/>
+   </properties>
+  </object>
+  <object id="31" type="CREATURE" x="299" y="199" width="7" height="13">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="5.2"/>
+    <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="slave"/>
+   </properties>
+  </object>
+  <object id="32" type="CREATURE" x="261" y="175" width="7" height="13">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="5.2"/>
+    <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="slave"/>
+   </properties>
+  </object>
+  <object id="33" type="CREATURE" x="234" y="176" width="7" height="13">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" type="float" value="5.2"/>
+    <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="slave"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>
