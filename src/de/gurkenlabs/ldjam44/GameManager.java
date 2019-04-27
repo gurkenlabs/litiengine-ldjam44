@@ -3,11 +3,13 @@ package de.gurkenlabs.ldjam44;
 import java.awt.Font;
 
 import de.gurkenlabs.ldjam44.entities.Enemy;
+import de.gurkenlabs.ldjam44.entities.EnemyMapObjectLoader;
 import de.gurkenlabs.ldjam44.entities.Player;
 import de.gurkenlabs.ldjam44.entities.Slave;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Spawnpoint;
 import de.gurkenlabs.litiengine.environment.CreatureMapObjectLoader;
+import de.gurkenlabs.litiengine.environment.Environment;
 import de.gurkenlabs.litiengine.gui.GuiProperties;
 import de.gurkenlabs.litiengine.resources.Resources;
 
@@ -20,10 +22,12 @@ public final class GameManager {
 
   public static void init() {
     GuiProperties.setDefaultFont(GUI_FONT);
-    
+
+    Environment.registerMapObjectLoader(new EnemyMapObjectLoader());
+
     CreatureMapObjectLoader.registerCustomCreatureType(Slave.class);
     CreatureMapObjectLoader.registerCustomCreatureType(Enemy.class);
-    
+
     //Camera camera = new PositionLockCamera(Player.instance());
     //camera.setClampToMap(true);
     //Game.world().setCamera(camera);
