@@ -602,7 +602,7 @@
       <property name="spritesheetName" value="enemy_gold"/>
      </properties>
     </object>
-    <object id="11" type="CREATURE" x="8" y="200" width="17" height="21">
+    <object id="11" name="centurio1" type="CREATURE" x="8" y="200" width="17" height="21">
      <properties>
       <property name="addShadow" type="bool" value="true"/>
       <property name="collision" type="bool" value="true"/>
@@ -640,7 +640,7 @@
       <property name="collisionboxHeight" type="float" value="5.2"/>
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
-      <property name="owner" value="11"/>
+      <property name="owner" value="centurio1"/>
       <property name="spritesheetName" value="slave"/>
      </properties>
     </object>
@@ -651,7 +651,7 @@
       <property name="collisionboxHeight" type="float" value="5.2"/>
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
-      <property name="owner" value="11"/>
+      <property name="owner" value="centurio1"/>
       <property name="spritesheetName" value="slave"/>
      </properties>
     </object>
@@ -773,7 +773,7 @@
       <property name="collisionboxHeight" type="float" value="5.2"/>
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
-      <property name="owner" value="11"/>
+      <property name="owner" value="centurio1"/>
       <property name="spritesheetName" value="slave"/>
      </properties>
     </object>
@@ -784,7 +784,7 @@
       <property name="collisionboxHeight" type="float" value="5.2"/>
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
-      <property name="owner" value="11"/>
+      <property name="owner" value="centurio1"/>
       <property name="spritesheetName" value="slave"/>
      </properties>
     </object>
