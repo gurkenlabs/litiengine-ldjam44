@@ -504,7 +504,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
    </layer>
-   <objectgroup id="10" name="collision">
+   <objectgroup id="10" name="collision" visible="0">
     <object id="16" type="COLLISIONBOX" x="0" y="168" width="40" height="3">
      <properties>
       <property name="collisionType" value="STATIC"/>
@@ -613,7 +613,7 @@
       <property name="spritesheetName" value="enemy_silver"/>
      </properties>
     </object>
-    <object id="12" type="CREATURE" x="352" y="152" width="17" height="21">
+    <object id="12" type="CREATURE" x="355" y="152" width="17" height="21">
      <properties>
       <property name="addShadow" type="bool" value="true"/>
       <property name="collision" type="bool" value="true"/>
@@ -632,7 +632,7 @@
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
       <property name="owner" value="24"/>
-      <property name="spritesheetName" value="slave"/>
+      <property name="spritesheetName" value="slave-monger"/>
      </properties>
     </object>
     <object id="14" type="CREATURE" x="10" y="177" width="7" height="13">
@@ -643,7 +643,7 @@
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
       <property name="owner" value="centurio1"/>
-      <property name="spritesheetName" value="slave"/>
+      <property name="spritesheetName" value="slave-centurio"/>
      </properties>
     </object>
     <object id="15" type="CREATURE" x="21" y="176" width="7" height="13">
@@ -654,7 +654,7 @@
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
       <property name="owner" value="centurio1"/>
-      <property name="spritesheetName" value="slave"/>
+      <property name="spritesheetName" value="slave-centurio"/>
      </properties>
     </object>
     <object id="22" name="enter" type="SPAWNPOINT" x="238" y="198" width="11" height="20"/>
@@ -665,7 +665,7 @@
       <property name="collisionboxHeight" type="float" value="5.2"/>
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
-      <property name="spritesheetName" value="slave"/>
+      <property name="spritesheetName" value="slave-monger"/>
      </properties>
     </object>
     <object id="24" type="CREATURE" x="260" y="200" width="7" height="13">
@@ -675,7 +675,7 @@
       <property name="collisionboxHeight" value="5.0"/>
       <property name="collisionboxWidth" value="3.0"/>
       <property name="indestructible" type="bool" value="false"/>
-      <property name="spritesheetName" value="slave"/>
+      <property name="spritesheetName" value="slave-monger"/>
      </properties>
     </object>
     <object id="25" type="CREATURE" x="274" y="208" width="7" height="13">
@@ -685,7 +685,7 @@
       <property name="collisionboxHeight" type="float" value="5.2"/>
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
-      <property name="spritesheetName" value="slave"/>
+      <property name="spritesheetName" value="slave-monger"/>
      </properties>
     </object>
     <object id="26" type="CREATURE" x="260" y="183" width="7" height="13">
@@ -695,7 +695,7 @@
       <property name="collisionboxHeight" type="float" value="5.2"/>
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
-      <property name="spritesheetName" value="slave"/>
+      <property name="spritesheetName" value="slave-monger"/>
      </properties>
     </object>
     <object id="27" type="CREATURE" x="273" y="216" width="7" height="13">
@@ -705,7 +705,7 @@
       <property name="collisionboxHeight" type="float" value="5.2"/>
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
-      <property name="spritesheetName" value="slave"/>
+      <property name="spritesheetName" value="slave-monger"/>
      </properties>
     </object>
     <object id="28" type="CREATURE" x="268" y="201" width="7" height="13">
@@ -715,7 +715,7 @@
       <property name="collisionboxHeight" type="float" value="5.2"/>
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
-      <property name="spritesheetName" value="slave"/>
+      <property name="spritesheetName" value="slave-monger"/>
      </properties>
     </object>
     <object id="29" type="CREATURE" x="261" y="193" width="7" height="13">
@@ -725,7 +725,7 @@
       <property name="collisionboxHeight" type="float" value="5.2"/>
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
-      <property name="spritesheetName" value="slave"/>
+      <property name="spritesheetName" value="slave-monger"/>
      </properties>
     </object>
     <object id="30" type="CREATURE" x="287" y="194" width="7" height="13">
@@ -735,7 +735,7 @@
       <property name="collisionboxHeight" type="float" value="5.2"/>
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
-      <property name="spritesheetName" value="slave"/>
+      <property name="spritesheetName" value="slave-monger"/>
      </properties>
     </object>
     <object id="31" type="CREATURE" x="299" y="199" width="7" height="13">
@@ -745,7 +745,7 @@
       <property name="collisionboxHeight" type="float" value="5.2"/>
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
-      <property name="spritesheetName" value="slave"/>
+      <property name="spritesheetName" value="slave-monger"/>
      </properties>
     </object>
     <object id="32" type="CREATURE" x="261" y="175" width="7" height="13">
@@ -755,7 +755,7 @@
       <property name="collisionboxHeight" type="float" value="5.2"/>
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
-      <property name="spritesheetName" value="slave"/>
+      <property name="spritesheetName" value="slave-monger"/>
      </properties>
     </object>
     <object id="33" type="CREATURE" x="234" y="176" width="7" height="13">
@@ -765,7 +765,7 @@
       <property name="collisionboxHeight" type="float" value="5.2"/>
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
-      <property name="spritesheetName" value="slave"/>
+      <property name="spritesheetName" value="slave-monger"/>
      </properties>
     </object>
     <object id="41" type="CREATURE" x="29" y="185" width="7" height="13">
@@ -776,7 +776,7 @@
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
       <property name="owner" value="centurio1"/>
-      <property name="spritesheetName" value="slave"/>
+      <property name="spritesheetName" value="slave-centurio"/>
      </properties>
     </object>
     <object id="42" type="CREATURE" x="2" y="169" width="7" height="13">
@@ -787,7 +787,7 @@
       <property name="collisionboxWidth" type="float" value="2.8000000000000003"/>
       <property name="indestructible" type="bool" value="false"/>
       <property name="owner" value="centurio1"/>
-      <property name="spritesheetName" value="slave"/>
+      <property name="spritesheetName" value="slave-centurio"/>
      </properties>
     </object>
    </objectgroup>
@@ -805,11 +805,15 @@
    <keyframes>200,200,200</keyframes>
   </sprite>
   <sprite width="19" height="16" name="enemy_leather-dead">
-   <image>iVBORw0KGgoAAAANSUhEUgAAABMAAAAQCAYAAAD0xERiAAAA10lEQVR42mNgwAMWqRn/B+Ed+QH/Qfwny4r+Y8M4DXi+Y8Z/GAYZAsMwjSDxM/Mb/suL8mA3sNjO8j8M26kbgjWD2MiGbasJhVsCMwykBsUwkCQuw5ANRDYMhmFqQIaBaKJc1q2qhNVlB00MwJgol8EMwhZmyAbhjQQYABkEi00QG6QJRMMwQYNgNsIwLFZhBqDLwzBeVyEbRrYh2NIdNkPQXYpVM8hLsJQPwviCgKAr0Q3Dxifau8iaYekM3TBkV+INI3TDYOkN3TCiADaXkG0YvqKIkGEAUsvIpZo/ymEAAAAASUVORK5CYII=</image>
+   <image>iVBORw0KGgoAAAANSUhEUgAAABMAAAAQCAYAAAD0xERiAAAA30lEQVR42p2SMQrCQBBFcxZB7UTRJk1uIFho5SEEbS3s7Rc7wUIPIIa09p7AWvAYI3/hw7hMdpcMfGY2mX352dmiiMRlMBWo2SwE6891K5ZaAd/mJBQgFDfi+et8EOecDdxVpVDVcOI3o9awer/yIEAIQ88fDA1tMA3UMDpnD2DIWc6O/Z7p7Dkbe2U5I8g6Mw2KDoEBEKeJGpuQqSSIX6Q4VQLC91TUlYZ1hlj3zoKETqOQ+20p5XoksSPIckkQxBo5Bk26Qg7BITB5Thr2fsxNd9kRutHroktYv5hy9gPwQbyqU0DTAQAAAABJRU5ErkJggg==</image>
+  </sprite>
+  <sprite width="17" height="21" name="enemy_leather-idle-down">
+   <image>iVBORw0KGgoAAAANSUhEUgAAAFUAAAAVCAYAAAA3raI2AAABnUlEQVR42u2YTUoDQRCF5zRxJ4irbHKDQBa60jsIunWRUwzuBBd6AFFyCE/gWvAYLTVQTdF021312poQ01BkMuR9vHmvJ3/DcFzHdRDrbrUMc+oPan0934Z0UMY+lDPbJpFBEMQSDKrvWW6PgmEfMhAeS6g5vaUYtJwSx9UHvXgcx2m+dw/xWGtE6tHdjpRb4nj6mCAfj9uw2FxPodAjPdcakXprqD3K5UlL9vQxQaSYYVYjcqe+318G73J50pI9fQx04RwsjyUQRN+rXL6WXMmePiKIDPFYPjF76HuUU+K4+djdbEJtUI53uTkOqlf5eFqcB5pcGHT+9eUiTo2D6FsK7rFJXBhpqPT1gY8piOXVaZzfgskxNPoSAyl3Nga9X/DPsXQ4lBYQcRB9iSE5LeXsBYNDzW1zGcbn27pqBNHXONpyaFYnZxDD7INDJQPpaHcqoudFupSlLYd1kmNhoD4G9JbJMbR6yZC3oLYc1lEQKAPxkTVC5zW7rHQxrfpaINpy5bGVgfjIGrH89/hXDEu5czPie2vpecv6r4wf5fRpUFUri8sAAAAASUVORK5CYII=</image>
+   <keyframes>300,300,300,300,300</keyframes>
   </sprite>
   <sprite width="17" height="21" name="enemy_leather-walk-down">
-   <image>iVBORw0KGgoAAAANSUhEUgAAADMAAAAVCAYAAADrVNYBAAABRElEQVR42u2WMQoCMRBF9wC21nZrLVY2W3gCGzvvIGhr4THsBAuPIB7CYwgeIzJhE4aYODOZAVlw4aORnZc/f8ewTfO/Bnrtu4UbfBPP686l+mUg1QzcAEBqG7IIRM3AjQRJQRaBmIQKN0/GI6/X/RS/1xixCETD8JDH+ejazdI3A5+wlhqxCETL8BAoTiU1YhGIlhEfb9qI1IhFIFpGBN0O66jak0wbiIpx364cJS4HNsV1eC1pqMQgfV3auQPlbi79njOB74VTSBoOFWjwiUU2g43kAFlIz8FHapCkXu0D5jK8PqTCm1BmgFOdKNqHCgRzi82UxoEF6TnddPYhSf03H3gdnloRkjPChqCXw1TcesoHN5SGM2YcSKgDA+mIsEwYjHvRiBSC66QHgKWPrBEpJIyKRTPc/xJppBrCPOGoGi7/DTNPJfnLaGa2AAAAAElFTkSuQmCC</image>
-   <keyframes>200,200,200</keyframes>
+   <image>iVBORw0KGgoAAAANSUhEUgAAADMAAAAVCAYAAADrVNYBAAABQklEQVR42u2WQQrCMBBFe5q6E8SVm95A6EJXegdBty48RXEnuNADiNJDeALXgseITGCGGBqTyQxIwcJgWszrm98QUhT/q6fXppqY3jfxPK2NX78MJJvhNgCQ3IY0AhEz3EawuCCNQFRChT83TWPr1e5pnCOiEYiEYSH3w86U9dI2A79wzxXRCETKsBB3MsK4IhqBSBn0eQGAlbNENAKRMgh0286pcncyaSAiRruqTaxSGfBSdx7eX84zqpSGfEZyosdybKC6moDnKSI+A3YhHMO8yWJIFeJ8CzM5DA0RWA7AcLdULGTEhEIeqQ4kgseHXBHkxFJ9XKfRZiQO1IxExGVVg9FHpcqEPFgOCPElOCLu4TCUbMpS7fLgOohFfAZI4Biec0SkDuoi/ph79Pc9WF9FSwSXikYzXcwskWxIhKk95w1fwuEf6NSaEAAAAABJRU5ErkJggg==</image>
+   <keyframes>250,250,250</keyframes>
   </sprite>
   <sprite width="21" height="17" name="enemy_silver-dead">
    <image>iVBORw0KGgoAAAANSUhEUgAAABUAAAARCAYAAAAyhueAAAAAxUlEQVR42mNgIBJ0z97yf5GaMRxj4zOQCpANAbGjMjv+o4tRbCgMU8XQy9Pzqe99qhoKAyBDSdZ04PSd/9gwehiSZaC8KM//bTWhYO+iGwyLeaJ8AdMM0oRsKAgjxzjMUDt1w//FdpZgjGIgzDsghTADQRhmGLqhMHlkQ0E0Qe+T41IQhht00MTgPwyDw01VCYyJCVN0QzHCFN1gjNgHWQYyFEiTFPvIFsBcjA+TlWaRgwaGYQaC2AyUAGwGM1ADwAwkRi0Awhiwj2kFmIcAAAAASUVORK5CYII=</image>
@@ -848,9 +852,6 @@
   <sprite width="7" height="13" name="slave-centurio-walk">
    <image>iVBORw0KGgoAAAANSUhEUgAAABwAAAANCAYAAAC6hw6qAAAA5klEQVR42rWTMQ7CMAxFPTLSgZGRjQ3EhMTIWgmJgaEzI3eAhTtwCMRFOAKHYGBM5Ui/+rJipwuWrLT/+TtuqohUYrOYJZsyIkKfB/H8e91CXtPZHzbV/Nzb1OwOmWMt1Vnd8wngZb/MIlY26jvnmGE8n4SQjgfBes336I7xP7RNNc7bJr+/uzYns6gpfHzkw4b2/LUYE5/WU5d5TeFTjnqsUiqAhgJmvKFlvKHnG77y+7ym1XySk+8T62BshM6aephZPhgxkb3EqteYHbTmy9BOb1nJiHpvGI+JPf9/s7I4xhj4S74eYJ7lZdDMq5sAAAAASUVORK5CYII=</image>
    <keyframes>300,200,200,200</keyframes>
-  </sprite>
-  <sprite width="7" height="13" name="slave-idle">
-   <image>iVBORw0KGgoAAAANSUhEUgAAAAcAAAANCAYAAABlyXS1AAAAcUlEQVR42mNgAAIzVdH/DNgASAIbhiu43xnwX9A++P/3TS1wGkUSJICM4bphRsEAitEZNoIo9sGNBTGiTAT+gxSAMIgPoxlgqpAVwCU/b2gGSxrLcvyHYZiJcBeDdMJ0YwQGSALmOAxJmDEoxuFSBAIAJJh3e3jN6IMAAAAASUVORK5CYII=</image>
   </sprite>
   <sprite width="13" height="8" name="slave-monger-dead">
    <image>iVBORw0KGgoAAAANSUhEUgAAAA0AAAAICAYAAAAiJnXPAAAAgklEQVR42mNgIAKYqYr+h2G44PdNLf/RFYLEDu3fA1Z4vzMAjFE0ghRM6OsBYysT/f8gfreqElwRiF/grgOmUWw7aGIA1gTTANM0Jy4MLAbTANcEUgDSBHIOLk0gm+CaYKaANIA0gjBIA8wAmPMwbILZBrMRhtEVo2hAB8iaYWxkeQC++aTuMk2qdQAAAABJRU5ErkJggg==</image>

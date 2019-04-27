@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.geom.Point2D;
 
 import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.annotation.AnimationInfo;
 import de.gurkenlabs.litiengine.annotation.CollisionInfo;
 import de.gurkenlabs.litiengine.annotation.CombatInfo;
 import de.gurkenlabs.litiengine.annotation.EntityInfo;
@@ -16,6 +17,7 @@ import de.gurkenlabs.litiengine.graphics.CreatureShadowImageEffect;
 @CombatInfo(hitpoints = 1, team = 2)
 @CollisionInfo(collisionBoxWidth = 3f, collisionBoxHeight = 5f, collision = true)
 @EntityInfo(width = 7, height = 13)
+@AnimationInfo(spritePrefix = { "slave-centurio", "slave-monger" })
 public class Slave extends Mob {
   private String owner;
 
