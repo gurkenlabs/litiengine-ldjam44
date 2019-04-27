@@ -6,11 +6,10 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import javax.security.auth.x500.X500Principal;
-
 import de.gurkenlabs.ldjam44.GameManager;
 import de.gurkenlabs.ldjam44.graphics.SpawnEmitter;
 import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.Valign;
 import de.gurkenlabs.litiengine.annotation.AnimationInfo;
 import de.gurkenlabs.litiengine.annotation.CollisionInfo;
 import de.gurkenlabs.litiengine.annotation.CombatInfo;
@@ -71,6 +70,11 @@ public class Enemy extends Mob {
     });
 
     this.addDeathListener(l -> {
+      if (this.getType() == EnemyType.silver) {
+        this.setCollisionBoxValign(Valign.MIDDLE);
+      } else {
+        this.setCollisionBoxValign(Valign.TOP);
+      }
       for (int i = 0; i < slaves.get(this.getType()); i++) {
         Point2D spawn = new Point2D.Double(this.getCenter().getX() + MathUtilities.randomInRange(-10, 10), this.getCenter().getY() + MathUtilities.randomInRange(-10, 10));
 
@@ -82,7 +86,7 @@ public class Enemy extends Mob {
       }
       for (Slave s : Game.world().environment().getByType(Slave.class).stream().filter(sla -> sla.getOwner() != null && sla.getOwner().getMapId() == this.getMapId()).collect(Collectors.toList())) {
         Game.world().environment().add(new SpawnEmitter(s));
-        
+
         Game.loop().perform(250, () -> {
           Game.world().environment().remove(s);
         });

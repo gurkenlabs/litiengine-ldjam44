@@ -2,8 +2,8 @@ package de.gurkenlabs.ldjam44;
 
 import java.awt.Font;
 
-import de.gurkenlabs.ldjam44.entities.Enemy;
 import de.gurkenlabs.ldjam44.entities.CustomCreatureMapObjectLoader;
+import de.gurkenlabs.ldjam44.entities.Enemy;
 import de.gurkenlabs.ldjam44.entities.Player;
 import de.gurkenlabs.ldjam44.entities.Slave;
 import de.gurkenlabs.litiengine.Game;
