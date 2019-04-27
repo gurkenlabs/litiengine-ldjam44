@@ -40,6 +40,8 @@ public class Enemy extends Mob {
   private static final Map<EnemyType, Integer> hp = new EnumMap<>(EnemyType.class);
 
   private EnemyType type = EnemyType.leather;
+
+  private final EnemyStrike strike;
   private boolean engaged;
 
   static {
@@ -54,6 +56,9 @@ public class Enemy extends Mob {
 
   public Enemy() {
     this.setIndestructible(true);
+    this.strike = new EnemyStrike(this);
+
+    this.addController(new EnemyController(this));
 
     this.addMessageListener(l -> {
       if (l.getMessage() == null) {
@@ -121,5 +126,9 @@ public class Enemy extends Mob {
 
   public void setEngaged(boolean engaged) {
     this.engaged = engaged;
+  }
+
+  public Strike getStrike() {
+    return strike;
   }
 }
