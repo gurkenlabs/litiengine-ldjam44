@@ -22,6 +22,10 @@ public class Hud extends GuiComponent {
 
     g.setColor(Color.RED);
 
+    if (Game.world().environment() == null) {
+      return;
+    }
+
     for (Enemy enemy : Game.world().environment().getByType(Enemy.class)) {
       if (enemy.isEngaged()) {
         RenderEngine.renderText(g, enemy.getHitPoints().getCurrentValue().toString(), enemy.getCenter());

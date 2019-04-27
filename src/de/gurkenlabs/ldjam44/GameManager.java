@@ -10,6 +10,8 @@ import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Spawnpoint;
 import de.gurkenlabs.litiengine.environment.CreatureMapObjectLoader;
 import de.gurkenlabs.litiengine.environment.Environment;
+import de.gurkenlabs.litiengine.graphics.Camera;
+import de.gurkenlabs.litiengine.graphics.PositionLockCamera;
 import de.gurkenlabs.litiengine.gui.GuiProperties;
 import de.gurkenlabs.litiengine.resources.Resources;
 
@@ -28,10 +30,9 @@ public final class GameManager {
     CreatureMapObjectLoader.registerCustomCreatureType(Slave.class);
     CreatureMapObjectLoader.registerCustomCreatureType(Enemy.class);
 
-    //Camera camera = new PositionLockCamera(Player.instance());
-    //camera.setClampToMap(true);
-    //Game.world().setCamera(camera);
-    Game.world().camera().setFocus(1680, 1593);
+    Camera camera = new PositionLockCamera(Player.instance());
+    camera.setClampToMap(true);
+    Game.world().setCamera(camera);
 
     // add default game logic for when a level was loaded
     Game.world().addLoadedListener(e -> {
