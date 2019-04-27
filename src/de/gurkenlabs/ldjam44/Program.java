@@ -26,7 +26,7 @@ public class Program {
     // set the icon for the game (this has to be done after initialization because
     // the ScreenManager will not be present otherwise)
     Game.window().setIconImage(Resources.images().get("icon.png"));
-    Game.graphics().setBaseRenderScale(4.001f);
+    Game.graphics().setBaseRenderScale(5f);
 
     // load data from the utiLITI game file
     Resources.load("game.litidata");
@@ -34,9 +34,11 @@ public class Program {
     // add the screens that will help you organize the different states of your game
     Game.screens().add(new IngameScreen());
 
+    GameManager.init();
+    
     // load the first level (resources for the map were implicitly loaded from the
     // game file)
-    // Game.world().loadEnvironment("level1");
+    Game.world().loadEnvironment("test");
     
     // make the game exit upon pressing ESCAPE (by default there is no such key binding and the window needs to be shutdown otherwise, e.g. ALT-F4 on Windows)
     Input.keyboard().onKeyPressed(KeyEvent.VK_ESCAPE, e -> System.exit(0));
