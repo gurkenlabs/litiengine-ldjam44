@@ -15,6 +15,10 @@ public final class PlayerInput {
       Player.instance().getStrike().cast();
     });
 
+    Input.keyboard().onKeyPressed(KeyEvent.VK_CONTROL, e -> {
+      Player.instance().getDash().cast();
+    });
+
     Input.keyboard().onKeyPressed(KeyEvent.VK_E, e -> {
       for (ICombatEntity entity : Game.world().environment().findCombatEntities(GeometricUtilities.extrude(Player.instance().getBoundingBox(), 2))) {
         if (entity instanceof Enemy) {

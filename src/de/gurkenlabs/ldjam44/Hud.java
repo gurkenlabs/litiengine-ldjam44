@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import de.gurkenlabs.ldjam44.entities.Enemy;
+import de.gurkenlabs.ldjam44.entities.Player;
 import de.gurkenlabs.ldjam44.entities.Slave;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.graphics.RenderEngine;
@@ -37,5 +38,10 @@ public class Hud extends GuiComponent {
 
     long mySlaves = Game.world().environment().getByType(Slave.class).stream().filter(x -> !x.isDead() && x.getOwner() == null).count();
     TextRenderer.render(g, "My slaves: " + mySlaves, 250, 180);
+
+    if (Player.instance().isDead()) {
+      g.setFont(g.getFont().deriveFont(20f));
+      TextRenderer.render(g, "YOU ARE DEAD", Game.window().getCenter());
+    }
   }
 }

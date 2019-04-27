@@ -29,11 +29,13 @@ public class Player extends Creature implements IRenderable {
 
   private long lastWalkDust = 0;
   private final Strike strike;
+  private final DashAbility dash;
 
   private Player() {
     super("monger");
 
     this.strike = new Strike(this);
+    this.dash = new DashAbility(this);
     this.setController(IMovementController.class, new KeyboardEntityController<>(this));
     this.getMovementController().onMoved(this::spawnWalkDust);
 
@@ -77,6 +79,10 @@ public class Player extends Creature implements IRenderable {
 
   @Override
   public void render(Graphics2D g) {
-    //this.strike.render(g);
+    this.strike.render(g);
+  }
+
+  public DashAbility getDash() {
+    return dash;
   }
 }

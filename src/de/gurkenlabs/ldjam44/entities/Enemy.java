@@ -23,7 +23,7 @@ import de.gurkenlabs.litiengine.util.MathUtilities;
 
 @AnimationInfo(spritePrefix = { "enemy_gold", "enemy_silver", "enemy_leather" })
 @CombatInfo(hitpoints = 5, team = 2, isIndestructible = true)
-@MovementInfo(velocity = 30)
+@MovementInfo(velocity = 32)
 @CollisionInfo(collisionBoxWidth = 5f, collisionBoxHeight = 8f, collision = true)
 @EntityInfo(width = 17, height = 21)
 public class Enemy extends Mob {
