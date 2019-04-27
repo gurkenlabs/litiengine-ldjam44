@@ -26,6 +26,10 @@ public class HitEffect extends Effect {
 
   @Override
   public void apply(final ICombatEntity affectedEntity) {
+    if (affectedEntity.isIndestructible()) {
+      return;
+    }
+
     super.apply(affectedEntity);
     final int damage = this.offensiveAbility.getAttackDamage();
     final boolean killed = affectedEntity.hit(damage, this.getAbility());
