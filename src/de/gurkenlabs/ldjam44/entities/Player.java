@@ -4,10 +4,11 @@ import de.gurkenlabs.litiengine.annotation.CollisionInfo;
 import de.gurkenlabs.litiengine.annotation.EntityInfo;
 import de.gurkenlabs.litiengine.annotation.MovementInfo;
 import de.gurkenlabs.litiengine.entities.Creature;
+import de.gurkenlabs.litiengine.entities.ICollisionEntity;
 import de.gurkenlabs.litiengine.input.KeyboardEntityController;
 
 @EntityInfo(width = 11, height = 20)
-@MovementInfo(velocity = 70)
+@MovementInfo(velocity = 30)
 @CollisionInfo(collisionBoxWidth = 5, collisionBoxHeight = 8, collision = true)
 public class Player extends Creature {
   private static Player instance;
@@ -24,6 +25,11 @@ public class Player extends Creature {
     }
 
     return instance;
+  }
+  
+  @Override
+  public boolean canCollideWith(final ICollisionEntity otherEntity) {
+    return !(otherEntity instanceof Slave);
   }
 
 }
