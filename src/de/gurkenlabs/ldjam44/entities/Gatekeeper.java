@@ -1,10 +1,13 @@
 package de.gurkenlabs.ldjam44.entities;
 
 import de.gurkenlabs.ldjam44.GameManager;
+import de.gurkenlabs.ldjam44.entities.Player.PlayerState;
+import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.annotation.CollisionInfo;
 import de.gurkenlabs.litiengine.annotation.CombatInfo;
 import de.gurkenlabs.litiengine.annotation.EntityInfo;
 import de.gurkenlabs.litiengine.entities.Creature;
+import de.gurkenlabs.litiengine.environment.Environment;
 import de.gurkenlabs.litiengine.gui.SpeechBubble;
 
 @EntityInfo(width = 11, height = 20)
@@ -27,6 +30,7 @@ public class Gatekeeper extends Creature {
           text = "WELL DONE! YOU CAN PASS!";
           // TODO: IMPLEMENT TRANSITION
         }
+
         SpeechBubble.create(this, text, GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
       }
 
@@ -39,5 +43,17 @@ public class Gatekeeper extends Creature {
 
   public void setRequiredSlaves(int requiredSlaves) {
     this.requiredSlaves = requiredSlaves;
+  }
+
+  @Override
+  public void loaded(Environment environment) {
+    super.loaded(environment);
+
+    Game.loop().perform(1000, () -> {
+      SpeechBubble.create(this, "WELCOME! NOONE HAS EVER HAD MORE THAN " + this.getRequiredSlaves() + " SLAVES AROUND HERE!", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
+      Game.loop().perform(2000, () -> {
+        Player.instance().setState(PlayerState.CONTROLLABLE);
+      });
+    });
   }
 }

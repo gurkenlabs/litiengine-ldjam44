@@ -37,11 +37,17 @@ import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 @CollisionInfo(collisionBoxWidth = 5, collisionBoxHeight = 8, collision = true)
 @CombatInfo(hitpoints = 5, team = 1)
 public class Player extends Creature implements IRenderable {
-  private static Player instance;
+  public enum PlayerState {
+    CONTROLLABLE,
+    LOCKED
+  }
 
-  private long lastWalkDust = 0;
+  private static Player instance;
   private final Strike strike;
   private final JumpAbility dash;
+
+  private long lastWalkDust = 0;
+  private PlayerState state = PlayerState.LOCKED;
 
   private Player() {
     super("monger");
@@ -50,6 +56,9 @@ public class Player extends Creature implements IRenderable {
     this.dash = new JumpAbility(this);
     this.setController(IMovementController.class, new KeyboardEntityController<>(this));
     this.getMovementController().onMoved(this::spawnWalkDust);
+    this.getMovementController().onMovementCheck(e -> {
+      return this.getState() == PlayerState.CONTROLLABLE;
+    });
 
     this.initAnimationController();
     this.addHitListener(e -> {
@@ -63,7 +72,7 @@ public class Player extends Creature implements IRenderable {
     }
 
     Game.world().camera().shake(1, 30, 250);
-    
+
     Emitter emitter = new HitEmitter(entity, 10);
     Game.world().environment().add(emitter);
 
@@ -148,5 +157,13 @@ public class Player extends Creature implements IRenderable {
   protected void updateAnimationController() {
     super.updateAnimationController();
     this.initAnimationController();
+  }
+
+  public PlayerState getState() {
+    return state;
+  }
+
+  public void setState(PlayerState state) {
+    this.state = state;
   }
 }
