@@ -80,7 +80,10 @@ public class EnemyController extends MovementController<Enemy> {
       return;
     }
 
-    if (Player.instance().getCenter().distance(this.getEntity().getCenter()) < this.getEntity().getStrike().getAttributes().getImpact().getCurrentValue()) {
+    if (!this.preparing
+        && !this.preparingStomp
+        && Player.instance().getCenter().distance(this.getEntity().getCenter()) < this.getEntity().getStrike().getAttributes().getImpact().getCurrentValue()
+        && !Player.instance().isDead()) {
       this.state = EnemyState.STRIKE;
       return;
     }

@@ -62,6 +62,8 @@ public class Player extends Creature implements IRenderable {
       return;
     }
 
+    Game.world().camera().shake(1, 30, 250);
+    
     Emitter emitter = new HitEmitter(entity, 10);
     Game.world().environment().add(emitter);
 
