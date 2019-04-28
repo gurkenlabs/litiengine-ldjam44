@@ -3,6 +3,7 @@ package de.gurkenlabs.ldjam44.entities;
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
+import java.util.logging.Logger;
 
 import de.gurkenlabs.ldjam44.abilities.JumpAbility;
 import de.gurkenlabs.ldjam44.abilities.Strike;
@@ -56,6 +57,10 @@ public class Player extends Creature implements IRenderable {
 
   @Override
   public boolean canCollideWith(final ICollisionEntity otherEntity) {
+    if (this.dash.isActive()) {
+      return !(otherEntity instanceof Creature);
+    }
+
     return !(otherEntity instanceof Slave);
   }
 

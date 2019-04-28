@@ -13,8 +13,8 @@ public class SlaveController extends MovementController<Slave> {
   private static final int ANGLE_CHANGE_RANDOM_DELAY = 1000;
   private static final int FEARED = 3000;
   private static final int MAX_FEARED = 6000;
-  private static final int MIN_RANGE = 15;
-  private static final int RETURN_RANGE = 30;
+  private static final int MIN_RANGE = 20;
+  private static final int RETURN_RANGE = 40;
   private static final int MAX_RANGE = 50;
   private static final Random RANDOM = new Random();
   private long lastAngleChange;

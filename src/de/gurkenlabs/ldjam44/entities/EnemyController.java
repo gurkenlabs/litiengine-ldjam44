@@ -58,7 +58,7 @@ public class EnemyController extends MovementController<Enemy> {
       this.getEntity().getCharge().cast();
       break;
     case PREPARE_STOMP:
-      return;
+      break;
     case STOMP:
       this.getEntity().getStomp().cast();
       break;
@@ -79,14 +79,15 @@ public class EnemyController extends MovementController<Enemy> {
       return;
     }
 
-    if (preparingStomp && Game.time().since(this.prepareStompStart) >= STOMP_PREPARE_DURATION) {
+    if (preparingStomp && this.prepareStompStart != 0 && Game.time().since(this.prepareStompStart) >= STOMP_PREPARE_DURATION) {
       this.preparingStomp = false;
 
       this.state = EnemyState.STOMP;
       return;
     }
 
-    if (!this.preparing 
+    // STOMP
+    if (!this.preparing
         && this.getEntity().getStomp().getRemainingCooldownInSeconds() == 0
         && this.getEntity().getType() == EnemyType.gold
         && Player.instance().getCenter().distance(this.getEntity().getCenter()) < this.getEntity().getStomp().getAttributes().getImpact().getCurrentValue()) {
@@ -104,20 +105,24 @@ public class EnemyController extends MovementController<Enemy> {
 
           this.getEntity().getAnimationController().playAnimation(prepare);
         }
+        
+        this.getEntity().setScaling(true);
+        this.getEntity().setWidth(17);
+        this.getEntity().setHeight(21);
       }
-
+     
       return;
     }
 
-    if (preparing && Game.time().since(this.prepareStart) >= CHARGE_PREPARE_DURATION) {
+    if (preparing && this.prepareStart != 0 && Game.time().since(this.prepareStart) >= CHARGE_PREPARE_DURATION) {
       this.preparing = false;
       this.state = EnemyState.CHARGE;
       return;
     }
 
-    if (!this.preparingStomp 
-        && this.getEntity().getCharge().getRemainingCooldownInSeconds() == 0 
-        && this.getEntity().getType() != EnemyType.leather 
+    if (!this.preparingStomp
+        && this.getEntity().getCharge().getRemainingCooldownInSeconds() == 0
+        && this.getEntity().getType() != EnemyType.leather
         && Player.instance().getCenter().distance(this.getEntity().getCenter()) > CHARGE_DIST) {
       this.state = EnemyState.PREPARE_CHARGE;
 

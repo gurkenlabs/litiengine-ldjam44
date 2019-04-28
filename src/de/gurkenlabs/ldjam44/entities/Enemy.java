@@ -26,8 +26,10 @@ import de.gurkenlabs.litiengine.annotation.CollisionInfo;
 import de.gurkenlabs.litiengine.annotation.CombatInfo;
 import de.gurkenlabs.litiengine.annotation.EntityInfo;
 import de.gurkenlabs.litiengine.annotation.MovementInfo;
+import de.gurkenlabs.litiengine.environment.Environment;
 import de.gurkenlabs.litiengine.graphics.IRenderable;
 import de.gurkenlabs.litiengine.graphics.RenderEngine;
+import de.gurkenlabs.litiengine.graphics.RenderType;
 import de.gurkenlabs.litiengine.graphics.Spritesheet;
 import de.gurkenlabs.litiengine.graphics.animation.Animation;
 import de.gurkenlabs.litiengine.graphics.animation.IAnimationController;
@@ -91,7 +93,7 @@ public class Enemy extends Mob implements IRenderable {
         return;
       }
 
-      if (l.getMessage().equals(SLAVE_TRIGGER)) {
+      if (!this.engaged && l.getMessage().equals(SLAVE_TRIGGER)) {
         SpeechBubbleAppearance appearance = new SpeechBubbleAppearance(new Color(16, 20, 19), new Color(255, 255, 255, 150), new Color(16, 20, 19), 5);
         appearance.setBackgroundColor2(new Color(255, 255, 255, 220));
         SpeechBubble.create(this, "FEEEEELL MY WRATH!!!!!", appearance, GameManager.SPEECH_BUBBLE_FONT);
@@ -155,22 +157,29 @@ public class Enemy extends Mob implements IRenderable {
       }
     }
 
-    double stompPrep = this.getController(EnemyController.class).getStompPreparation();
-    if (stompPrep != 0 && !this.isDead()) {
-      g.setStroke(new BasicStroke(2f));
-      g.setColor(new Color(255, 255, 0, 200));
-      Shape s = this.stomp.calculateImpactArea();
-      RenderEngine.renderOutline(g, s);
-      double radius = this.stomp.getAttributes().getImpact().getCurrentValue() * stompPrep;
-      double x = s.getBounds2D().getX() + (s.getBounds2D().getWidth() - radius) / 2.0;
-      double y = s.getBounds2D().getY() + (s.getBounds2D().getHeight() - radius) / 2.0;
-      Ellipse2D current = new Ellipse2D.Double(x, y, radius, radius);
-      RenderEngine.renderShape(g, current);
-    }
-
     if (Game.config().debug().isDebugEnabled()) {
       this.strike.render(g);
     }
+  }
+
+  @Override
+  public void loaded(Environment environment) {
+    environment.addRenderListener(RenderType.GROUND, (g, l) -> {
+      double stompPrep = this.getController(EnemyController.class).getStompPreparation();
+      if (stompPrep != 0 && !this.isDead()) {
+        g.setStroke(new BasicStroke(2f));
+        g.setColor(new Color(255, 255, 0, 200));
+        Shape s = this.stomp.calculateImpactArea();
+        RenderEngine.renderOutline(g, s);
+        double radius = this.stomp.getAttributes().getImpact().getCurrentValue() * stompPrep;
+        double x = s.getBounds2D().getX() + (s.getBounds2D().getWidth() - radius) / 2.0;
+        double y = s.getBounds2D().getY() + (s.getBounds2D().getHeight() - radius) / 2.0;
+        Ellipse2D current = new Ellipse2D.Double(x, y, radius, radius);
+        g.setColor(new Color(255, 255, 0, 50));
+        RenderEngine.renderShape(g, current);
+      }
+    });
+    super.loaded(environment);
   }
 
   public EnemyType getType() {
