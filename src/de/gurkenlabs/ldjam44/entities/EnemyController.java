@@ -10,17 +10,23 @@ public class EnemyController extends MovementController<Enemy> {
   private static final int CHARGE_DIST = 20;
   private static final int CHARGE_PREPARE_DURATION = 2000;
 
+  private static final int STOMP_PREPARE_DURATION = 3000;
+
   public enum EnemyState {
     IDLE,
     CHASE,
     STRIKE,
     PREPARE_CHARGE,
     CHARGE,
+    PREPARE_STOMP,
+    STOMP,
   }
 
   private EnemyState state = EnemyState.IDLE;
   private long prepareStart;
+  private long prepareStompStart;
   private boolean preparing;
+  private boolean preparingStomp;
 
   public EnemyController(Enemy mobileEntity) {
     super(mobileEntity);
@@ -47,10 +53,14 @@ public class EnemyController extends MovementController<Enemy> {
       Game.physics().move(this.getEntity(), this.getEntity().getAngle(), this.getEntity().getTickVelocity());
       break;
     case PREPARE_CHARGE:
-
-      break;
+      return;
     case CHARGE:
       this.getEntity().getCharge().cast();
+      break;
+    case PREPARE_STOMP:
+      return;
+    case STOMP:
+      this.getEntity().getStomp().cast();
       break;
     case IDLE:
     default:
@@ -69,22 +79,79 @@ public class EnemyController extends MovementController<Enemy> {
       return;
     }
 
-    if (this.getEntity().getCharge().getRemainingCooldownInSeconds() == 0 && this.getEntity().getType() != EnemyType.leather && Player.instance().getCenter().distance(this.getEntity().getCenter()) > CHARGE_DIST) {
+    if (preparingStomp && Game.time().since(this.prepareStompStart) >= STOMP_PREPARE_DURATION) {
+      this.preparingStomp = false;
+
+      this.state = EnemyState.STOMP;
+      return;
+    }
+
+    if (!this.preparing 
+        && this.getEntity().getStomp().getRemainingCooldownInSeconds() == 0
+        && this.getEntity().getType() == EnemyType.gold
+        && Player.instance().getCenter().distance(this.getEntity().getCenter()) < this.getEntity().getStomp().getAttributes().getImpact().getCurrentValue()) {
+      this.state = EnemyState.PREPARE_STOMP;
+
+      if (!this.preparingStomp) {
+        if (MathUtilities.probabilityIsTrue(0.5)) {
+          this.prepareStompStart = Game.time().now();
+          this.preparingStomp = true;
+
+          String prepare = this.getEntity().getSpritePrefix() + "-prepare";
+          if (GeometricUtilities.calcRotationAngleInDegrees(this.getEntity().getCollisionBoxCenter(), Player.instance().getCenter()) > 180) {
+            prepare += "-left";
+          }
+
+          this.getEntity().getAnimationController().playAnimation(prepare);
+        }
+      }
+
+      return;
+    }
+
+    if (preparing && Game.time().since(this.prepareStart) >= CHARGE_PREPARE_DURATION) {
+      this.preparing = false;
+      this.state = EnemyState.CHARGE;
+      return;
+    }
+
+    if (!this.preparingStomp 
+        && this.getEntity().getCharge().getRemainingCooldownInSeconds() == 0 
+        && this.getEntity().getType() != EnemyType.leather 
+        && Player.instance().getCenter().distance(this.getEntity().getCenter()) > CHARGE_DIST) {
       this.state = EnemyState.PREPARE_CHARGE;
-      
-      if(!this.preparing) {
+
+      if (!this.preparing) {
         this.prepareStart = Game.time().now();
         this.preparing = true;
+
+        String prepare = this.getEntity().getSpritePrefix() + "-prepare";
+        if (GeometricUtilities.calcRotationAngleInDegrees(this.getEntity().getCollisionBoxCenter(), Player.instance().getCenter()) > 180) {
+          prepare += "-left";
+        }
+
+        this.getEntity().getAnimationController().playAnimation(prepare);
       }
-      
-      if(Game.time().since(this.prepareStart) >= CHARGE_PREPARE_DURATION) {
-        this.preparing = false;
-        this.state = EnemyState.CHARGE;
-      }
-      
+
       return;
     }
 
     this.state = EnemyState.CHASE;
+  }
+
+  public double getPreparation() {
+    if (!this.preparing) {
+      return 0;
+    }
+
+    return Game.time().since(this.prepareStart) / (double) CHARGE_PREPARE_DURATION;
+  }
+
+  public double getStompPreparation() {
+    if (!this.preparingStomp) {
+      return 0;
+    }
+
+    return Game.time().since(this.prepareStompStart) / (double) STOMP_PREPARE_DURATION;
   }
 }

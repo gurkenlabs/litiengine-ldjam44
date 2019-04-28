@@ -83,7 +83,7 @@ public class Player extends Creature implements IRenderable {
 
   @Override
   public void render(Graphics2D g) {
-    if (Game.config().debug().isDebug()) {
+    if (Game.config().debug().isDebugEnabled()) {
       this.strike.render(g);
     }
   }
@@ -101,7 +101,13 @@ public class Player extends Creature implements IRenderable {
     final BufferedImage rightJump = Imaging.flipSpritesHorizontally(jump);
     Spritesheet rightJumpSprite = Resources.spritesheets().load(rightJump, "monger-jump-right", jump.getSpriteWidth(), jump.getSpriteHeight());
     controller.add(new Animation(rightJumpSprite, false));
-    
+
     controller.setDefaultAnimation(controller.getAnimation("monger-idle"));
+  }
+
+  @Override
+  protected void updateAnimationController() {
+    super.updateAnimationController();
+    this.initAnimationController();
   }
 }
