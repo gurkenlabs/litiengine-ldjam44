@@ -68,6 +68,7 @@ public class Enemy extends Mob implements IRenderable {
   private final Charge charge;
   private final Stomp stomp;
   private boolean engaged;
+  private boolean engaging;
 
   static {
     hp.put(EnemyType.leather, 5);
@@ -104,7 +105,7 @@ public class Enemy extends Mob implements IRenderable {
         SpeechBubbleAppearance appearance = new SpeechBubbleAppearance(new Color(16, 20, 19), new Color(255, 255, 255, 150), new Color(16, 20, 19), 5);
         appearance.setBackgroundColor2(new Color(255, 255, 255, 220));
         SpeechBubble.create(this, "FEEEEELL MY WRATH!!!!!", appearance, GameManager.SPEECH_BUBBLE_FONT);
-
+        this.setEngaging(true);
         Game.loop().perform(2000, () -> {
           this.setEngaged(true);
           this.setIndestructible(false);
@@ -256,5 +257,13 @@ public class Enemy extends Mob implements IRenderable {
 
   public Stomp getStomp() {
     return stomp;
+  }
+
+  public boolean isEngaging() {
+    return engaging;
+  }
+
+  public void setEngaging(boolean engaging) {
+    this.engaging = engaging;
   }
 }

@@ -1,5 +1,6 @@
 package de.gurkenlabs.ldjam44.entities;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
@@ -7,19 +8,24 @@ import java.util.logging.Logger;
 
 import de.gurkenlabs.ldjam44.abilities.JumpAbility;
 import de.gurkenlabs.ldjam44.abilities.Strike;
+import de.gurkenlabs.ldjam44.graphics.HitEmitter;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.annotation.CollisionInfo;
 import de.gurkenlabs.litiengine.annotation.CombatInfo;
 import de.gurkenlabs.litiengine.annotation.EntityInfo;
 import de.gurkenlabs.litiengine.annotation.MovementInfo;
+import de.gurkenlabs.litiengine.entities.CombatEntityHitEvent;
 import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.entities.ICollisionEntity;
+import de.gurkenlabs.litiengine.entities.ICombatEntity;
 import de.gurkenlabs.litiengine.graphics.IRenderable;
+import de.gurkenlabs.litiengine.graphics.OverlayPixelsImageEffect;
 import de.gurkenlabs.litiengine.graphics.RenderType;
 import de.gurkenlabs.litiengine.graphics.Spritesheet;
 import de.gurkenlabs.litiengine.graphics.animation.Animation;
 import de.gurkenlabs.litiengine.graphics.animation.IAnimationController;
 import de.gurkenlabs.litiengine.graphics.emitters.AnimationEmitter;
+import de.gurkenlabs.litiengine.graphics.emitters.Emitter;
 import de.gurkenlabs.litiengine.input.KeyboardEntityController;
 import de.gurkenlabs.litiengine.physics.IMovementController;
 import de.gurkenlabs.litiengine.resources.Resources;
@@ -46,6 +52,21 @@ public class Player extends Creature implements IRenderable {
     this.getMovementController().onMoved(this::spawnWalkDust);
 
     this.initAnimationController();
+    this.addHitListener(e -> {
+      spawnHitEmitter(e.getEntity(), e);
+    });
+  }
+
+  private static void spawnHitEmitter(ICombatEntity entity, CombatEntityHitEvent args) {
+    if (args.getDamage() <= 0) {
+      return;
+    }
+
+    Emitter emitter = new HitEmitter(entity, 10);
+    Game.world().environment().add(emitter);
+
+    args.getEntity().getAnimationController().add(new OverlayPixelsImageEffect(120, new Color(255, 255, 255, 200)));
+    Game.loop().perform(130, () -> args.getEntity().getAnimationController().add(new OverlayPixelsImageEffect(120, new Color(255, 0, 0, 200))));
   }
 
   public static Player instance() {
@@ -102,7 +123,7 @@ public class Player extends Creature implements IRenderable {
     return Game.world().environment().findCombatEntities(GeometricUtilities.extrude(this.getBoundingBox(), 2)).stream().anyMatch(x -> {
       if (x instanceof Enemy) {
         Enemy e = (Enemy) x;
-        return !e.isEngaged();
+        return !e.isEngaged() && !e.isEngaging();
       }
       return false;
     });
