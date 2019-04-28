@@ -147,7 +147,7 @@ public class MenuScreen extends Screen implements IUpdateable {
     ImageRenderer.render(g, Imaging.horizontalFlip(CLOUD2), -CLOUD2.getWidth() + Game.time().now() * 0.6 % (CLOUD2.getWidth() + Game.window().getResolution().getWidth()) + cloud2Offset, cloud1Offset);
     ImageRenderer.render(g, Imaging.horizontalFlip(CLOUD3), -CLOUD3.getWidth() + Game.time().now() * 0.7 % (CLOUD3.getWidth() + Game.window().getResolution().getWidth()) + cloud3Offset, cloud2Offset);
     ImageRenderer.render(g, Imaging.horizontalFlip(CLOUD4), -CLOUD4.getWidth() + Game.time().now() * 0.8 % (CLOUD4.getWidth() + Game.window().getResolution().getWidth()) + cloud4Offset, cloud4Offset);
-    ImageRenderer.render(g, STATUE, -STATUE.getWidth() + Game.time().now() % (STATUE.getWidth() + Game.window().getResolution().getWidth()), 0);
+    ImageRenderer.render(g, STATUE, -STATUE.getWidth() + Game.time().now() % (STATUE.getWidth() + Game.window().getResolution().getWidth()), Game.window().getResolution().getHeight() - STATUE.getHeight());
 
   }
 }
