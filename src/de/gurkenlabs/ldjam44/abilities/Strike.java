@@ -20,10 +20,13 @@ import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 @AbilityInfo(name = "Strike", cooldown = 700, range = 0, impact = 13, impactAngle = 360, value = 1, duration = 400, multiTarget = true, origin = AbilityOrigin.DIMENSION_CENTER)
 public class Strike extends OffensiveAbility {
 
+  private final HitEffect hitEffect;
+
   public Strike(Creature executor) {
     super(executor);
 
-    this.addEffect(new HitEffect(this));
+    this.hitEffect = new HitEffect(this);
+    this.addEffect(this.hitEffect);
 
     if (executor instanceof Player) {
       this.addEffect(new ScreenShakeEffect(this, 1, 100));
@@ -77,5 +80,9 @@ public class Strike extends OffensiveAbility {
       dashEmitter.setRenderType(renderType);
       Game.world().environment().add(dashEmitter);
     });
+  }
+
+  public HitEffect getHitEffect() {
+    return this.hitEffect;
   }
 }

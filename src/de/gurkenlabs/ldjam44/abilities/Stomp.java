@@ -12,6 +12,7 @@ public class Stomp extends OffensiveAbility {
     super(executor);
     
     this.addEffect(new HitEffect(this));
+    this.addEffect(new ScreenShakeEffect(this, 2, 200));
   }
   
   @Override

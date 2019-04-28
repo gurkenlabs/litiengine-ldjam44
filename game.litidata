@@ -842,12 +842,28 @@
    <image>iVBORw0KGgoAAAANSUhEUgAAAAoAAAAtCAYAAACXm/ozAAAAVElEQVR42mNgoAT8RwIEFRCliHyr0BVS5nDaKSTajWSbSrJi6ptOXUByMsOqmKACkoKFemmRNgphikkK4AFWTJKbyUo9BFMQ9YoW6viU+nE9CigGAPQlVrhJDd5DAAAAAElFTkSuQmCC</image>
    <keyframes>70,70,70</keyframes>
   </sprite>
+  <sprite width="10" height="15" name="hit-left-red">
+   <image>iVBORw0KGgoAAAANSUhEUgAAAAoAAAAtCAYAAACXm/ozAAAAV0lEQVR42mNgoASc15b6D8MEFRCliHyr0BVS5nDaKSTajWSbSrJi6ptOXUByMsOqmKACkoKFemmRNgphikkK4AFWTJKbyUo9BFMQ9YoW6viU+nE9CigGAKBpsmNbSWLJAAAAAElFTkSuQmCC</image>
+   <keyframes>70,70,70</keyframes>
+  </sprite>
+  <sprite width="15" height="10" name="hit-red">
+   <image>iVBORw0KGgoAAAANSUhEUgAAAC0AAAAKCAYAAAAgs9cUAAAAWUlEQVR42mNgGKngvLbUf3roocgAZPUg9oA5mlhD0NXC+JR4fNA7GqaO3Bgi2eG41BDrcHR5ih1OyGJ88sQ4mpBeqjgcFybH0+R6iCoOp6VeuiQXWuklBgAAR6KyYx/rDLgAAAAASUVORK5CYII=</image>
+   <keyframes>70,70,70</keyframes>
+  </sprite>
   <sprite width="10" height="15" name="hit-right">
    <image>iVBORw0KGgoAAAANSUhEUgAAAAoAAAAtCAYAAACXm/ozAAAASUlEQVR42u2SMQ4AIAjE+P+ndXXDai8udi6XHFBFGQtIxgMZ2UvNifdprbR1GbRgF9zyeCDzwKjkI9FJcyX3c/xL5GVU1E/9tEwhQla4OUTIvwAAAABJRU5ErkJggg==</image>
    <keyframes>70,70,70</keyframes>
   </sprite>
+  <sprite width="10" height="15" name="hit-right-red">
+   <image>iVBORw0KGgoAAAANSUhEUgAAAAoAAAAtCAYAAACXm/ozAAAATUlEQVR42mNgIBWc15b6D8MkKSZZA20UU89U2imk3DSCioiKGZICmLqAZF+SrYE2CZgkTw6QQuqYRl1F1E051I8J2ismyaPUN3UUEAQAbhiyY4HHgb8AAAAASUVORK5CYII=</image>
+   <keyframes>70,70,70</keyframes>
+  </sprite>
   <sprite width="15" height="10" name="hit-top">
    <image>iVBORw0KGgoAAAANSUhEUgAAAC0AAAAKCAYAAAAgs9cUAAAAV0lEQVR42tWUMQ4AIAgD+/9P42TCgmKLGG9uzQWIQIA5cIjSpbAFN7u+Xya8e3CVyXZRvdKMFCMmnVGmrEjPXKtwlGXuVhbulo6mTkmzeeVbxEu+lO5mAOyLVrjOSYc5AAAAAElFTkSuQmCC</image>
+   <keyframes>70,70,70</keyframes>
+  </sprite>
+  <sprite width="15" height="10" name="hit-top-red">
+   <image>iVBORw0KGgoAAAANSUhEUgAAAC0AAAAKCAYAAAAgs9cUAAAAXklEQVR42mNgwAHOa0v9h2EGEgEleskCyBaiY1rqRdZPNQcTMhCfGmL1MlA7SolxFDkOoygZEaOZEkfD1NHVwbjUkpNuKXYwvR2NK9TJcjS56ikpFhkGEgxJR9MbAADs77JjtIB5twAAAABJRU5ErkJggg==</image>
    <keyframes>70,70,70</keyframes>
   </sprite>
   <sprite width="11" height="20" name="monger-idle">

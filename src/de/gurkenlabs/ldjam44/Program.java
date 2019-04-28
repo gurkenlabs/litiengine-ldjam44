@@ -25,7 +25,7 @@ public class Program {
 
     // init the game infrastructure
     Game.init(args);
-
+    Input.mouse().setGrabMouse(false);
     // set the icon for the game (this has to be done after initialization
     // because
     // the ScreenManager will not be present otherwise)

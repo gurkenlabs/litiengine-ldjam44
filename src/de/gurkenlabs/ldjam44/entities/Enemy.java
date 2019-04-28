@@ -206,7 +206,7 @@ public class Enemy extends Mob implements IRenderable {
     this.engaged = engaged;
   }
 
-  public Strike getStrike() {
+  public EnemyStrike getStrike() {
     return strike;
   }
 
