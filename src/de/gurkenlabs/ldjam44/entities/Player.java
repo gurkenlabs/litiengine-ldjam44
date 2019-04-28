@@ -24,6 +24,7 @@ import de.gurkenlabs.litiengine.input.KeyboardEntityController;
 import de.gurkenlabs.litiengine.physics.IMovementController;
 import de.gurkenlabs.litiengine.resources.Resources;
 import de.gurkenlabs.litiengine.util.Imaging;
+import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 
 @EntityInfo(width = 11, height = 20)
 @MovementInfo(velocity = 30)
@@ -95,6 +96,16 @@ public class Player extends Creature implements IRenderable {
 
   public JumpAbility getDash() {
     return dash;
+  }
+
+  public boolean canTrigger() {
+    return Game.world().environment().findCombatEntities(GeometricUtilities.extrude(this.getBoundingBox(), 2)).stream().anyMatch(x -> {
+      if (x instanceof Enemy) {
+        Enemy e = (Enemy) x;
+        return !e.isEngaged();
+      }
+      return false;
+    });
   }
 
   private void initAnimationController() {

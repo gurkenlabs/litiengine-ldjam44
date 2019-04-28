@@ -44,8 +44,10 @@ public class EnemyController extends MovementController<Enemy> {
 
     switch (this.state) {
     case STRIKE:
-      this.getEntity().setAngle(GeometricUtilities.calcRotationAngleInDegrees(this.getEntity().getCenter(), Player.instance().getCenter()));
-      this.getEntity().getStrike().cast();
+      if (this.getEntity().canCast()) {
+        this.getEntity().setAngle(GeometricUtilities.calcRotationAngleInDegrees(this.getEntity().getCenter(), Player.instance().getCenter()));
+        this.getEntity().getStrike().cast();
+      }
       break;
     case CHASE:
       double angle = MathUtilities.randomInRange(-10, 10) + (int) GeometricUtilities.calcRotationAngleInDegrees(this.getEntity().getCenter(), Player.instance().getCenter());
@@ -55,12 +57,16 @@ public class EnemyController extends MovementController<Enemy> {
     case PREPARE_CHARGE:
       return;
     case CHARGE:
-      this.getEntity().getCharge().cast();
+      if (this.getEntity().canCast()) {
+        this.getEntity().getCharge().cast();
+      }
       break;
     case PREPARE_STOMP:
       break;
     case STOMP:
-      this.getEntity().getStomp().cast();
+      if (this.getEntity().canCast()) {
+        this.getEntity().getStomp().cast();
+      }
       break;
     case IDLE:
     default:
@@ -105,12 +111,12 @@ public class EnemyController extends MovementController<Enemy> {
 
           this.getEntity().getAnimationController().playAnimation(prepare);
         }
-        
+
         this.getEntity().setScaling(true);
         this.getEntity().setWidth(17);
         this.getEntity().setHeight(21);
       }
-     
+
       return;
     }
 

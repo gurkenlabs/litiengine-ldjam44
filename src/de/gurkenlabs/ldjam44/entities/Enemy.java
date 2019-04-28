@@ -46,6 +46,9 @@ import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 @CollisionInfo(collisionBoxWidth = 5f, collisionBoxHeight = 8f, collision = true)
 @EntityInfo(width = 17, height = 21)
 public class Enemy extends Mob implements IRenderable {
+  public static int GCD = 2000;
+
+  private long lastCast;
 
   public enum EnemyType {
     leather,
@@ -85,6 +88,10 @@ public class Enemy extends Mob implements IRenderable {
     this.strike = new EnemyStrike(this);
     this.charge = new Charge(this);
     this.stomp = new Stomp(this);
+
+    this.strike.onCast(e -> this.lastCast = Game.time().now());
+    this.charge.onCast(e -> this.lastCast = Game.time().now());
+    this.stomp.onCast(e -> this.lastCast = Game.time().now());
 
     this.addController(new EnemyController(this));
     this.initAnimationController();
@@ -212,6 +219,10 @@ public class Enemy extends Mob implements IRenderable {
 
   public Charge getCharge() {
     return charge;
+  }
+
+  public boolean canCast() {
+    return Game.time().since(this.lastCast) > GCD;
   }
 
   private void initAnimationController() {
