@@ -38,7 +38,7 @@ public class EnemyController extends MovementController<Enemy> {
 
     this.evaluateState();
 
-    if (!this.getEntity().isEngaged() || this.getEntity().isDead()) {
+    if (!this.getEntity().isEngaged() || this.getEntity().isDead() || Player.instance().isDead()) {
       return;
     }
 

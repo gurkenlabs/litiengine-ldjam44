@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import de.gurkenlabs.ldjam44.GameManager;
 import de.gurkenlabs.ldjam44.entities.Enemy;
 import de.gurkenlabs.ldjam44.entities.Player;
+import de.gurkenlabs.ldjam44.entities.Player.PlayerState;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.graphics.ImageRenderer;
 import de.gurkenlabs.litiengine.graphics.RenderEngine;
@@ -43,7 +44,7 @@ public class Hud extends GuiComponent {
     TextRenderer.render(g, "Slaves: " + GameManager.getAliveSlaveCount(), 250, 150);
     TextRenderer.render(g, "My slaves: " + GameManager.getOwnSlaveCount(), 250, 180);
     TextRenderer.render(g, "Required: " + GameManager.getRequiredSlaveCount(), 250, 210);
-    
+
     if (Player.instance().isDead()) {
       g.setFont(g.getFont().deriveFont(20f));
       TextRenderer.render(g, "YOU ARE DEAD", Game.window().getCenter());
@@ -53,7 +54,7 @@ public class Hud extends GuiComponent {
   }
 
   private void renderUseButton(Graphics2D g) {
-    if (Player.instance().canTrigger()) {
+    if (Player.instance().getState() == PlayerState.CONTROLLABLE && (Player.instance().canTrigger() || Player.instance().canTalkToGateKeeper())) {
       BufferedImage useButton = this.useButtonAnimationController.getCurrentSprite(48, 48);
 
       final Point2D loc = Game.world().camera().getViewportLocation(Player.instance().getCenter());

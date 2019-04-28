@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 
+import de.gurkenlabs.ldjam44.GameManager;
 import de.gurkenlabs.ldjam44.abilities.JumpAbility;
 import de.gurkenlabs.ldjam44.abilities.Strike;
 import de.gurkenlabs.ldjam44.graphics.HitEmitter;
@@ -137,6 +138,15 @@ public class Player extends Creature implements IRenderable {
       }
       return false;
     });
+  }
+
+  public boolean canTalkToGateKeeper() {
+    Gatekeeper keeper = GameManager.getGateKeeper();
+    if (keeper == null) {
+      return false;
+    }
+
+    return keeper.getBoundingBox().intersects(GeometricUtilities.extrude(this.getBoundingBox(), 2));
   }
 
   private void initAnimationController() {

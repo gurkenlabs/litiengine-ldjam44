@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import de.gurkenlabs.ldjam44.entities.Enemy;
 import de.gurkenlabs.ldjam44.entities.Gatekeeper;
 import de.gurkenlabs.ldjam44.entities.Player;
+import de.gurkenlabs.ldjam44.entities.Player.PlayerState;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.ICombatEntity;
 import de.gurkenlabs.litiengine.input.Input;
@@ -13,14 +14,25 @@ import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 public final class PlayerInput {
   public static void init() {
     Input.keyboard().onKeyPressed(KeyEvent.VK_SPACE, e -> {
+      if (Player.instance().getState() != PlayerState.CONTROLLABLE) {
+        return;
+      }
+
       Player.instance().getStrike().cast();
     });
 
     Input.keyboard().onKeyPressed(KeyEvent.VK_SHIFT, e -> {
+      if (Player.instance().getState() != PlayerState.CONTROLLABLE) {
+        return;
+      }
       Player.instance().getDash().cast();
     });
 
     Input.keyboard().onKeyPressed(KeyEvent.VK_E, e -> {
+      if (Player.instance().getState() != PlayerState.CONTROLLABLE) {
+        return;
+      }
+
       boolean triggered = false;
       for (ICombatEntity entity : Game.world().environment().findCombatEntities(GeometricUtilities.extrude(Player.instance().getBoundingBox(), 2))) {
         if (entity instanceof Enemy) {
