@@ -51,7 +51,7 @@ public class Gatekeeper extends Creature {
 
     Game.loop().perform(1000, () -> {
       SpeechBubble.create(this, "WELCOME! NOONE HAS EVER HAD MORE THAN " + this.getRequiredSlaves() + " SLAVES AROUND HERE!", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
-      Game.loop().perform(2000, () -> {
+      Game.loop().perform(4000, () -> {
         Player.instance().setState(PlayerState.CONTROLLABLE);
       });
     });

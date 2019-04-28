@@ -657,7 +657,7 @@
       <property name="spritesheetName" value="slave-centurio"/>
      </properties>
     </object>
-    <object id="22" name="enter" type="SPAWNPOINT" x="208" y="112" width="11" height="20"/>
+    <object id="22" name="enter" type="SPAWNPOINT" x="208" y="88" width="11" height="20"/>
     <object id="23" type="CREATURE" x="249" y="188" width="7" height="13">
      <properties>
       <property name="addShadow" type="bool" value="true"/>

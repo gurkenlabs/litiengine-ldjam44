@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="8" tileheight="8" infinite="0" nextobjectid="34" nextlayerid="12" name="SlaveMarket_Nubia">
  <tileset firstgid="1" name="Tileset" tilewidth="8" tileheight="8" tilecount="1024" columns="32">
-  <image source="Tileset.png" width="256" height="256"/>
+  <image source="../../../gurkenlabs/Jams/ludum-dare-44/art/tilesets/Tileset.png" width="256" height="256"/>
   <terraintypes>
    <terrain name="Sand" tile="67"/>
   </terraintypes>
@@ -655,7 +655,7 @@
     <property name="spritesheetName" value="slave-centurio"/>
    </properties>
   </object>
-  <object id="22" name="enter" type="SPAWNPOINT" x="208" y="112" width="11" height="20"/>
+  <object id="22" name="enter" type="SPAWNPOINT" x="208" y="88" width="11" height="20"/>
   <object id="23" type="CREATURE" x="249" y="188" width="7" height="13">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
