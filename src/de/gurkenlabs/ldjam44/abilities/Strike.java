@@ -8,6 +8,7 @@ import de.gurkenlabs.ldjam44.entities.Player;
 import de.gurkenlabs.ldjam44.graphics.StrikeEmitter;
 import de.gurkenlabs.litiengine.Direction;
 import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.abilities.AbilityOrigin;
 import de.gurkenlabs.litiengine.abilities.OffensiveAbility;
 import de.gurkenlabs.litiengine.annotation.AbilityInfo;
 import de.gurkenlabs.litiengine.entities.Creature;
@@ -16,7 +17,7 @@ import de.gurkenlabs.litiengine.graphics.emitters.SpritesheetEmitter;
 import de.gurkenlabs.litiengine.resources.Resources;
 import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 
-@AbilityInfo(name = "Strike", cooldown = 700, range = 0, impact = 13, impactAngle = 360, value = 1, duration = 400, multiTarget = true)
+@AbilityInfo(name = "Strike", cooldown = 700, range = 0, impact = 13, impactAngle = 360, value = 1, duration = 400, multiTarget = true, origin = AbilityOrigin.DIMENSION_CENTER)
 public class Strike extends OffensiveAbility {
 
   public Strike(Creature executor) {

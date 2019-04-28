@@ -1,8 +1,10 @@
 package de.gurkenlabs.ldjam44.entities;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
+import java.awt.Shape;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
@@ -14,6 +16,7 @@ import java.util.stream.Collectors;
 import de.gurkenlabs.ldjam44.GameManager;
 import de.gurkenlabs.ldjam44.abilities.Charge;
 import de.gurkenlabs.ldjam44.abilities.EnemyStrike;
+import de.gurkenlabs.ldjam44.abilities.Stomp;
 import de.gurkenlabs.ldjam44.abilities.Strike;
 import de.gurkenlabs.ldjam44.graphics.SpawnEmitter;
 import de.gurkenlabs.litiengine.Game;
@@ -23,13 +26,10 @@ import de.gurkenlabs.litiengine.annotation.CollisionInfo;
 import de.gurkenlabs.litiengine.annotation.CombatInfo;
 import de.gurkenlabs.litiengine.annotation.EntityInfo;
 import de.gurkenlabs.litiengine.annotation.MovementInfo;
-import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.graphics.IRenderable;
 import de.gurkenlabs.litiengine.graphics.RenderEngine;
-import de.gurkenlabs.litiengine.graphics.ShapeRenderer;
 import de.gurkenlabs.litiengine.graphics.Spritesheet;
 import de.gurkenlabs.litiengine.graphics.animation.Animation;
-import de.gurkenlabs.litiengine.graphics.animation.CreatureAnimationController;
 import de.gurkenlabs.litiengine.graphics.animation.IAnimationController;
 import de.gurkenlabs.litiengine.gui.SpeechBubble;
 import de.gurkenlabs.litiengine.gui.SpeechBubbleAppearance;
@@ -40,7 +40,7 @@ import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 
 @AnimationInfo(spritePrefix = { "enemy_gold", "enemy_silver", "enemy_leather" })
 @CombatInfo(hitpoints = 5, team = 2, isIndestructible = true)
-@MovementInfo(velocity = 32)
+@MovementInfo(velocity = 30)
 @CollisionInfo(collisionBoxWidth = 5f, collisionBoxHeight = 8f, collision = true)
 @EntityInfo(width = 17, height = 21)
 public class Enemy extends Mob implements IRenderable {
@@ -55,11 +55,13 @@ public class Enemy extends Mob implements IRenderable {
 
   private static final Map<EnemyType, Integer> slaves = new EnumMap<>(EnemyType.class);
   private static final Map<EnemyType, Integer> hp = new EnumMap<>(EnemyType.class);
+  private static final Map<EnemyType, Integer> velocity = new EnumMap<>(EnemyType.class);
 
   private EnemyType type = EnemyType.leather;
 
   private final EnemyStrike strike;
   private final Charge charge;
+  private final Stomp stomp;
   private boolean engaged;
 
   static {
@@ -70,12 +72,17 @@ public class Enemy extends Mob implements IRenderable {
     slaves.put(EnemyType.leather, 1);
     slaves.put(EnemyType.silver, 2);
     slaves.put(EnemyType.gold, 3);
+
+    velocity.put(EnemyType.leather, 30);
+    velocity.put(EnemyType.silver, 30);
+    velocity.put(EnemyType.gold, 33);
   }
 
   public Enemy() {
     this.setIndestructible(true);
     this.strike = new EnemyStrike(this);
     this.charge = new Charge(this);
+    this.stomp = new Stomp(this);
 
     this.addController(new EnemyController(this));
     this.initAnimationController();
@@ -131,19 +138,37 @@ public class Enemy extends Mob implements IRenderable {
   @Override
   public void render(Graphics2D g) {
     double prep = this.getController(EnemyController.class).getPreparation();
-    if (prep != 0) {
+    if (prep != 0 && !this.isDead()) {
       double angle = GeometricUtilities.calcRotationAngleInDegrees(this.getCollisionBoxCenter(), Player.instance().getCenter());
-      int dots = (int) (prep / 0.2);
-
-      double delta = 15;
+      int dots = (int) (prep / 0.125);
+      double delta = 10;
       g.setColor(new Color(0, 100, 100, 255));
+
+      for (int i = 0; i < 7; i++) {
+        Point2D target = GeometricUtilities.project(this.getCollisionBoxCenter(), angle, delta + delta * i);
+        RenderEngine.renderOutline(g, new Rectangle2D.Double(target.getX() - 0.5, target.getY() - 0.5, 1, 1));
+      }
+
       for (int i = 0; i < dots; i++) {
         Point2D target = GeometricUtilities.project(this.getCollisionBoxCenter(), angle, delta + delta * i);
         RenderEngine.renderShape(g, new Rectangle2D.Double(target.getX() - 0.5, target.getY() - 0.5, 1, 1));
       }
     }
 
-    if (Game.config().debug().isDebug()) {
+    double stompPrep = this.getController(EnemyController.class).getStompPreparation();
+    if (stompPrep != 0 && !this.isDead()) {
+      g.setStroke(new BasicStroke(2f));
+      g.setColor(new Color(255, 255, 0, 200));
+      Shape s = this.stomp.calculateImpactArea();
+      RenderEngine.renderOutline(g, s);
+      double radius = this.stomp.getAttributes().getImpact().getCurrentValue() * stompPrep;
+      double x = s.getBounds2D().getX() + (s.getBounds2D().getWidth() - radius) / 2.0;
+      double y = s.getBounds2D().getY() + (s.getBounds2D().getHeight() - radius) / 2.0;
+      Ellipse2D current = new Ellipse2D.Double(x, y, radius, radius);
+      RenderEngine.renderShape(g, current);
+    }
+
+    if (Game.config().debug().isDebugEnabled()) {
       this.strike.render(g);
     }
   }
@@ -160,6 +185,8 @@ public class Enemy extends Mob implements IRenderable {
   private void initByType() {
     this.getHitPoints().setMaxValue(hp.get(this.getType()));
     this.getHitPoints().setToMaxValue();
+
+    this.setVelocity(velocity.get(this.getType()));
   }
 
   public boolean isEngaged() {
@@ -205,5 +232,9 @@ public class Enemy extends Mob implements IRenderable {
   protected void updateAnimationController() {
     super.updateAnimationController();
     this.initAnimationController();
+  }
+
+  public Stomp getStomp() {
+    return stomp;
   }
 }

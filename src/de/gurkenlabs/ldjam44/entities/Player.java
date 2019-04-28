@@ -83,7 +83,7 @@ public class Player extends Creature implements IRenderable {
 
   @Override
   public void render(Graphics2D g) {
-    if (Game.config().debug().isDebug()) {
+    if (Game.config().debug().isDebugEnabled()) {
       this.strike.render(g);
     }
   }
