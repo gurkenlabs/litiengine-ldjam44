@@ -187,16 +187,16 @@ public class Enemy extends Mob implements IRenderable {
       final BufferedImage leftPrepare = Imaging.flipSpritesHorizontally(prepare);
       Spritesheet prepareLeft = Resources.spritesheets().load(leftPrepare, "enemy_silver-prepare-left", prepare.getSpriteWidth(), prepare.getSpriteHeight());
 
-      controller.add(new Animation(prepare, false));
-      controller.add(new Animation(prepareLeft, false));
+      controller.add(new Animation(prepare, false, 500, 500, 1000));
+      controller.add(new Animation(prepareLeft, false, 500, 500, 1000));
     } else if (this.getSpritePrefix().equals("enemy_gold")) {
       Spritesheet prepare = Resources.spritesheets().get("enemy_gold-prepare");
 
       final BufferedImage leftPrepare = Imaging.flipSpritesHorizontally(prepare);
       Spritesheet prepareLeft = Resources.spritesheets().load(leftPrepare, "enemy_gold-prepare-left", prepare.getSpriteWidth(), prepare.getSpriteHeight());
 
-      controller.add(new Animation(prepare, false));
-      controller.add(new Animation(prepareLeft, false));
+      controller.add(new Animation(prepare, false, 500, 500, 1000));
+      controller.add(new Animation(prepareLeft, false, 500, 500, 1000));
 
     }
   }
