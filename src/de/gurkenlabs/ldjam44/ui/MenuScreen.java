@@ -17,23 +17,24 @@ import de.gurkenlabs.litiengine.util.Imaging;
 import de.gurkenlabs.litiengine.util.MathUtilities;
 
 public class MenuScreen extends Screen implements IUpdateable {
-  public static final Font MENU_FONT = Resources.fonts().get("Roman.ttf").deriveFont(40f);
+  public static final Font MENU_FONT = Resources.fonts().get("CAESAR.ttf").deriveFont(40f);
+  public static final Font GUI_FONT = Resources.fonts().get("Roman.ttf").deriveFont(40f);
   public static final Color ROMAN_RED = new Color(140, 16, 16);
+  public static final Color BUTTON_RED = new Color(140, 16, 16, 200);
+  public static final Color BUTTON_BLACK = new Color(0, 0, 0, 200);
 
   private static final BufferedImage LOGO_COIN = Resources.images().get("logo_pass2.png");
-  private static final BufferedImage LOGO_TEXT = Resources.images().get("text_transparent.png");
-  private static final BufferedImage LOGO_LAURELS = Resources.images().get("laurels_transparent.png");
   private static final BufferedImage BG = Imaging.scale(Resources.images().get("menu_bg.png"), Game.window().getWidth(), Game.window().getHeight());
   private static final BufferedImage CLOUD1 = Imaging.scale(Resources.images().get("cloud1.png"), 6f);
+  private static final BufferedImage CLOUD2 = Imaging.scale(Resources.images().get("cloud2.png"), 6f);
+  private static final BufferedImage CLOUD3 = Imaging.scale(Resources.images().get("cloud3.png"), 6f);
+  private static final BufferedImage CLOUD4 = Imaging.scale(Resources.images().get("cloud4.png"), 6f);
   int cloud1Offset = MathUtilities.randomInRange(-40, 30) * 6;
   int cloud2Offset = MathUtilities.randomInRange(-40, 30) * 6;
   int cloud3Offset = MathUtilities.randomInRange(-40, 30) * 6;
   int cloud4Offset = MathUtilities.randomInRange(-40, 30) * 6;
-  private static final BufferedImage CLOUD2 = Imaging.scale(Resources.images().get("cloud2.png"), 6f);
-  private static final BufferedImage CLOUD3 = Imaging.scale(Resources.images().get("cloud3.png"), 6f);
-  private static final BufferedImage CLOUD4 = Imaging.scale(Resources.images().get("cloud4.png"), 6f);
   private static final BufferedImage STATUE = Imaging.scale(Resources.images().get("statue.png"), 6f);
-  private static final String COPYRIGHT = "© 2019 GURKENLABS.DE";
+  private static final String COPYRIGHT = "2019 GURKENLABS.DE";
 
   public long lastPlayed;
 
@@ -51,9 +52,9 @@ public class MenuScreen extends Screen implements IUpdateable {
   protected void initializeComponents() {
     final double centerX = Game.window().getResolution().getWidth() / 2.0;
     final double centerY = Game.window().getResolution().getHeight() * 1 / 2;
-    final double buttonWidth = 600;
+    final double buttonWidth = 450;
 
-    this.mainMenu = new Menu(Game.window().getResolution().getWidth() * 5 / 8, Game.window().getResolution().getHeight() * 1 / 12 + LOGO_COIN.getHeight() / 2 - centerY / 4, buttonWidth, centerY / 2, "Play", "Instructions",
+    this.mainMenu = new Menu(centerX - buttonWidth / 2, centerY * 1.3, buttonWidth, centerY / 2, "Play", "Instructions",
         "Exit");
 
     this.getComponents().add(this.mainMenu);
@@ -77,7 +78,6 @@ public class MenuScreen extends Screen implements IUpdateable {
         break;
       }
     });
-    this.getAppearance().setBackgroundColor1(Color.BLUE);
   }
 
   @Override
@@ -89,8 +89,13 @@ public class MenuScreen extends Screen implements IUpdateable {
 
     this.mainMenu.getCellComponents().forEach(comp -> {
       comp.setFont(MENU_FONT);
-      comp.getAppearance().setForeColor(ROMAN_RED);
+      comp.getAppearance().setForeColor(Color.WHITE);
+      comp.getAppearance().setBackgroundColor1(BUTTON_BLACK);
+      comp.getAppearanceHovered().setBackgroundColor1(BUTTON_RED);
+      comp.getAppearance().setTransparentBackground(false);
+      comp.getAppearanceHovered().setTransparentBackground(false);
       comp.getAppearance().setTextAntialiasing(RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+      comp.getAppearanceHovered().setTextAntialiasing(RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
     });
   }
 
@@ -103,12 +108,10 @@ public class MenuScreen extends Screen implements IUpdateable {
     final double logoY = Game.window().getResolution().getHeight() * 1 / 12;
     ImageRenderer.render(g, LOGO_COIN, logoX, logoY);
     // ImageRenderer.render(g, LOGO_TEXT, logoX, logoY);
-
+    g.setFont(GUI_FONT.deriveFont(20f));
     final double stringWidth = g.getFontMetrics().stringWidth(COPYRIGHT);
     g.setColor(Color.WHITE);
-    g.setFont(g.getFont().deriveFont(20f));
-    TextRenderer.renderWithOutline(g, COPYRIGHT, Game.window().getResolution().getWidth() - stringWidth * 1.5,
-        Game.window().getResolution().getHeight() - LOGO_TEXT.getHeight() / 2.0, Color.BLACK);
+    TextRenderer.renderWithOutline(g, COPYRIGHT, centerX - stringWidth / 2, Game.window().getResolution().getHeight() * 19 / 20, Color.BLACK, RenderingHints.VALUE_ANTIALIAS_ON);
     super.render(g);
   }
 
@@ -147,7 +150,7 @@ public class MenuScreen extends Screen implements IUpdateable {
     ImageRenderer.render(g, Imaging.horizontalFlip(CLOUD2), -CLOUD2.getWidth() + Game.time().now() * 0.6 % (CLOUD2.getWidth() + Game.window().getResolution().getWidth()) + cloud2Offset, cloud1Offset);
     ImageRenderer.render(g, Imaging.horizontalFlip(CLOUD3), -CLOUD3.getWidth() + Game.time().now() * 0.7 % (CLOUD3.getWidth() + Game.window().getResolution().getWidth()) + cloud3Offset, cloud2Offset);
     ImageRenderer.render(g, Imaging.horizontalFlip(CLOUD4), -CLOUD4.getWidth() + Game.time().now() * 0.8 % (CLOUD4.getWidth() + Game.window().getResolution().getWidth()) + cloud4Offset, cloud4Offset);
-    ImageRenderer.render(g, STATUE, -STATUE.getWidth() + Game.time().now() % (STATUE.getWidth() + Game.window().getResolution().getWidth()), Game.window().getResolution().getHeight() - STATUE.getHeight());
+    ImageRenderer.render(g, STATUE, Game.window().getResolution().getWidth() - Game.time().now() % (STATUE.getWidth() + Game.window().getResolution().getWidth()), Game.window().getResolution().getHeight() - STATUE.getHeight());
 
   }
 }
