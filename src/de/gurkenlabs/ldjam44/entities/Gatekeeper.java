@@ -10,6 +10,7 @@ import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.environment.Environment;
 import de.gurkenlabs.litiengine.gui.SpeechBubble;
 import de.gurkenlabs.litiengine.gui.SpeechBubbleListener;
+import de.gurkenlabs.litiengine.resources.Resources;
 
 @EntityInfo(width = 11, height = 20)
 @CollisionInfo(collisionBoxWidth = 5, collisionBoxHeight = 8, collision = true)
@@ -18,6 +19,7 @@ public class Gatekeeper extends Creature {
   public static final String MESSAGE_FINISH = "FINISH";
 
   private int requiredSlaves;
+  private String nextLevel;
 
   public Gatekeeper() {
     this.addMessageListener(l -> {
@@ -29,10 +31,23 @@ public class Gatekeeper extends Creature {
         String text = "YOU REQUIRE AT LEAST " + this.requiredSlaves + " SLAVES TO PASS!";
         if (GameManager.getOwnSlaveCount() >= this.getRequiredSlaves()) {
           text = "WELL DONE! YOU CAN PASS!";
-          // TODO: IMPLEMENT TRANSITION
-        }
+          Game.audio().playSound(Resources.sounds().get("success"));
+          SpeechBubble bubble = SpeechBubble.create(this, text, GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
+          bubble.setTextDisplayTime(4000);
+          Player.instance().setState(PlayerState.LOCKED);
 
-        SpeechBubble.create(this, text, GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
+          bubble.addListener(new SpeechBubbleListener() {
+            @Override
+            public void hidden() {
+
+              // remove player before unloading the environment or the instance's animation controller will be disposed
+              Game.world().environment().remove(Player.instance());
+              Game.world().loadEnvironment(getNextLevel());
+            }
+          });
+        } else {
+          SpeechBubble.create(this, text, GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
+        }
       }
 
     });
@@ -61,5 +76,13 @@ public class Gatekeeper extends Creature {
         }
       });
     });
+  }
+
+  public String getNextLevel() {
+    return nextLevel;
+  }
+
+  public void setNextLevel(String nextLevel) {
+    this.nextLevel = nextLevel;
   }
 }

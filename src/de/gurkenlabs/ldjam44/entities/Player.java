@@ -10,6 +10,7 @@ import de.gurkenlabs.ldjam44.abilities.JumpAbility;
 import de.gurkenlabs.ldjam44.abilities.Strike;
 import de.gurkenlabs.ldjam44.graphics.HitEmitter;
 import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.IUpdateable;
 import de.gurkenlabs.litiengine.annotation.CollisionInfo;
 import de.gurkenlabs.litiengine.annotation.CombatInfo;
 import de.gurkenlabs.litiengine.annotation.EntityInfo;
@@ -36,7 +37,7 @@ import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 @MovementInfo(velocity = 30)
 @CollisionInfo(collisionBoxWidth = 5, collisionBoxHeight = 8, collision = true)
 @CombatInfo(hitpoints = 5, team = 1)
-public class Player extends Creature implements IRenderable {
+public class Player extends Creature implements IRenderable, IUpdateable {
   public enum PlayerState {
     CONTROLLABLE,
     LOCKED
@@ -60,10 +61,11 @@ public class Player extends Creature implements IRenderable {
       return this.getState() == PlayerState.CONTROLLABLE;
     });
 
-    this.initAnimationController();
     this.addHitListener(e -> {
       spawnHitEmitter(e.getEntity(), e);
     });
+    
+    this.setMapId(100000);
   }
 
   private static void spawnHitEmitter(ICombatEntity entity, CombatEntityHitEvent args) {
@@ -151,7 +153,6 @@ public class Player extends Creature implements IRenderable {
 
   private void initAnimationController() {
     IAnimationController controller = this.getAnimationController();
-
     Spritesheet jump = Resources.spritesheets().get("monger-jump");
     controller.add(new Animation(jump, false));
 
@@ -174,5 +175,9 @@ public class Player extends Creature implements IRenderable {
 
   public void setState(PlayerState state) {
     this.state = state;
+  }
+
+  @Override
+  public void update() {
   }
 }

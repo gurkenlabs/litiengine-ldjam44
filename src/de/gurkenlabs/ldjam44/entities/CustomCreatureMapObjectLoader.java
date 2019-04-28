@@ -25,6 +25,7 @@ public class CustomCreatureMapObjectLoader extends CreatureMapObjectLoader {
     if (creature instanceof Gatekeeper) {
       Gatekeeper keeper = (Gatekeeper) creature;
       keeper.setRequiredSlaves(mapObject.getIntValue("required"));
+      keeper.setNextLevel(mapObject.getStringValue("next"));
     }
 
     return creature;
