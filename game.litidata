@@ -1385,7 +1385,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
    </layer>
-   <objectgroup id="10" name="collision" visible="1">
+   <objectgroup id="10" name="collision">
     <object id="16" type="COLLISIONBOX" x="0" y="168" width="40" height="3">
      <properties>
       <property name="collisionType" value="STATIC"/>

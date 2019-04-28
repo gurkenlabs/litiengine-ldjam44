@@ -12,6 +12,7 @@ import de.gurkenlabs.ldjam44.entities.Player.PlayerState;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.graphics.ImageRenderer;
 import de.gurkenlabs.litiengine.graphics.RenderEngine;
+import de.gurkenlabs.litiengine.graphics.Spritesheet;
 import de.gurkenlabs.litiengine.graphics.TextRenderer;
 import de.gurkenlabs.litiengine.graphics.animation.AnimationController;
 import de.gurkenlabs.litiengine.gui.GuiComponent;
@@ -19,10 +20,15 @@ import de.gurkenlabs.litiengine.resources.Resources;
 
 public class Hud extends GuiComponent {
   public final AnimationController useButtonAnimationController = new AnimationController(Resources.spritesheets().get("hud-use-button"));
+  public final AnimationController arrowAnimationController;
 
   protected Hud() {
     super(0, 0, Game.window().getResolution().getWidth(), Game.window().getResolution().getHeight());
     Game.loop().attach(this.useButtonAnimationController);
+
+    Spritesheet arrow = Resources.spritesheets().load(Resources.images().get("arrow.png"), "arrow", 23, 28);
+    this.arrowAnimationController = new AnimationController(arrow);
+    Game.loop().attach(this.arrowAnimationController);
   }
 
   @Override
@@ -38,6 +44,13 @@ public class Hud extends GuiComponent {
     for (Enemy enemy : Game.world().environment().getByType(Enemy.class)) {
       if (enemy.isEngaged()) {
         RenderEngine.renderText(g, enemy.getHitPoints().getCurrentValue().toString(), enemy.getCenter());
+      }
+
+      if (Player.instance().getState() == PlayerState.CONTROLLABLE && !enemy.isEngaged() && !enemy.isEngaging()) {
+        BufferedImage arrow = this.arrowAnimationController.getCurrentSprite(46, 56);
+
+        final Point2D loc = Game.world().camera().getViewportLocation(enemy.getCenter());
+        ImageRenderer.render(g, arrow, (loc.getX() * Game.world().camera().getRenderScale() - arrow.getWidth() / 2.0), loc.getY() * Game.world().camera().getRenderScale() - (arrow.getHeight() * 2.5));
       }
     }
 
@@ -59,7 +72,7 @@ public class Hud extends GuiComponent {
       BufferedImage useButton = this.useButtonAnimationController.getCurrentSprite(48, 48);
 
       final Point2D loc = Game.world().camera().getViewportLocation(Player.instance().getCenter());
-      ImageRenderer.render(g, useButton, (loc.getX() * Game.graphics().getBaseRenderScale() - useButton.getWidth() / 2.0), loc.getY() * Game.graphics().getBaseRenderScale() - (useButton.getHeight() * 2.5));
+      ImageRenderer.render(g, useButton, (loc.getX() * Game.world().camera().getRenderScale() - useButton.getWidth() / 2.0), loc.getY() * Game.world().camera().getRenderScale() - (useButton.getHeight() * 2.5));
     }
   }
 }
