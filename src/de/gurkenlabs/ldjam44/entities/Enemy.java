@@ -102,9 +102,7 @@ public class Enemy extends Mob implements IRenderable {
       }
 
       if (!this.engaged && l.getMessage().equals(SLAVE_TRIGGER)) {
-        SpeechBubbleAppearance appearance = new SpeechBubbleAppearance(new Color(16, 20, 19), new Color(255, 255, 255, 150), new Color(16, 20, 19), 5);
-        appearance.setBackgroundColor2(new Color(255, 255, 255, 220));
-        SpeechBubble.create(this, "FEEEEELL MY WRATH!!!!!", appearance, GameManager.SPEECH_BUBBLE_FONT);
+        SpeechBubble.create(this, "FEEEEELL MY WRATH!!!!!", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
         this.setEngaging(true);
         Game.loop().perform(2000, () -> {
           this.setEngaged(true);

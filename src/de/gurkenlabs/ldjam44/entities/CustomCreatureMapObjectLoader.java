@@ -22,6 +22,11 @@ public class CustomCreatureMapObjectLoader extends CreatureMapObjectLoader {
       slave.setOwner(mapObject.getStringValue("owner"));
     }
 
+    if (creature instanceof Gatekeeper) {
+      Gatekeeper keeper = (Gatekeeper) creature;
+      keeper.setRequiredSlaves(mapObject.getIntValue("required"));
+    }
+
     return creature;
   }
 }

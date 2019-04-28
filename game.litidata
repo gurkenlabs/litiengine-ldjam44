@@ -657,7 +657,7 @@
       <property name="spritesheetName" value="slave-centurio"/>
      </properties>
     </object>
-    <object id="22" name="enter" type="SPAWNPOINT" x="238" y="198" width="11" height="20"/>
+    <object id="22" name="enter" type="SPAWNPOINT" x="208" y="112" width="11" height="20"/>
     <object id="23" type="CREATURE" x="249" y="188" width="7" height="13">
      <properties>
       <property name="addShadow" type="bool" value="true"/>
@@ -790,6 +790,18 @@
       <property name="spritesheetName" value="slave-centurio"/>
      </properties>
     </object>
+    <object id="43" name="keeper" type="CREATURE" x="192" y="88" width="11" height="20">
+     <properties>
+      <property name="addShadow" type="bool" value="true"/>
+      <property name="collision" type="bool" value="true"/>
+      <property name="collisionboxHeight" type="float" value="8.0"/>
+      <property name="collisionboxWidth" value="5.0"/>
+      <property name="indestructible" type="bool" value="true"/>
+      <property name="required" value="15"/>
+      <property name="scaling" type="bool" value="true"/>
+      <property name="spritesheetName" value="gatekeeper"/>
+     </properties>
+    </object>
    </objectgroup>
   </map>
  </maps>
@@ -833,6 +845,10 @@
   <sprite width="17" height="21" name="enemy_silver-walk">
    <image>iVBORw0KGgoAAAANSUhEUgAAADMAAAAVCAYAAADrVNYBAAABUklEQVR42tWWsQ3CQAxFMwAtNR3UiIqGgh1oEAtQUdAyABIDUNAxA6Kmp6Rll0OOYmSOGNtnS8BJXyQhfvn+uVxSVcI49kepco4IRsj4lWZCApkvt//fzOV6T7m+GUgxgzYAkNKGIgJxM2gjKCsoIpCQUOHkXrdT67ZfPbdLjEQE4mHUkPNmlvqLad0M/MK+1UhEIF5GDYHiXFYjEYF4Gc/bmzdiNRIRiJfxkgqqdCXzBuJi7A6nJEnLgYvSOrpvaYhjiL7gTQtqO5k7zr2x8X9YhazhSIGiTyqxGWqkDcB9ZsBxuqSiLPVuHzAv8fMhF72IZAY4xYmS60iBUC7bDDcdVJCGMxkM32Sp/+SD7uNdYyFtRtSQZqwn45RLWy/50IbCGrFCsA4M4LbJhMKHNF1ZI1YIrcubUZkI8tFqxArBqRLRjPZZEo0UQ5QrnFSj5T8AxgZ831GnFaUAAAAASUVORK5CYII=</image>
    <keyframes>200,200,200</keyframes>
+  </sprite>
+  <sprite width="11" height="20" name="gatekeeper-idle">
+   <image>iVBORw0KGgoAAAANSUhEUgAAACEAAAAUCAYAAAADU1RxAAABDElEQVR42tWUvQ3CMBBGPQAtFDRQ0dBSIOpIlJRZgSITMAEDMEeWYBQkKmbA5KxcdLmc/xI7EpY+Jb48ns7EsVL/Pr71QdNrKja6AducP9usV128jYR0zKUuOdSej/sgVn9oxzFi41wuTIDBe9EdIzZNCmKoS2x9q/SpvBgWrjCX2KiOY8RQkxYnNpFNLPA2Lp+YvsI2ygemFOtmXI+VCfyrGDqyiyn7en80H7BQFQqPFcOmLrZnK9/b9FBwwWPF+DvOQ+jz3ikpwVPEeM8XCek14IMHHbfzEDH1cn7QBBUjjJFgqO32hYlX3AxkKS9+FVRMYxO7Nu8UtoPpZpubVbZ3Oier+AHlOjFTsj+iEkKsRpC3kQAAAABJRU5ErkJggg==</image>
+   <keyframes>200,400,200</keyframes>
   </sprite>
   <sprite width="15" height="10" name="hit">
    <image>iVBORw0KGgoAAAANSUhEUgAAAC0AAAAKCAYAAAAgs9cUAAAAVklEQVR42mNgGKngPxDQQw9FBiCr/w8FA+JoYg1BV/sfCQxbR8PUkRtDJDsclxpiHY4uT7HDCVmMT54YRxPSSxWH4wLkeJpcD1HF4bTUS5fkQiu9xAAAY8RWuMkUcx0AAAAASUVORK5CYII=</image>

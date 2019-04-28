@@ -5,10 +5,12 @@ import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 
+import de.gurkenlabs.ldjam44.GameManager;
 import de.gurkenlabs.ldjam44.entities.Enemy;
 import de.gurkenlabs.ldjam44.entities.Player;
 import de.gurkenlabs.ldjam44.entities.Slave;
 import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.GameMetrics;
 import de.gurkenlabs.litiengine.graphics.ImageRenderer;
 import de.gurkenlabs.litiengine.graphics.RenderEngine;
 import de.gurkenlabs.litiengine.graphics.TextRenderer;
@@ -40,12 +42,10 @@ public class Hud extends GuiComponent {
       }
     }
 
-    long slavesAlive = Game.world().environment().getByType(Slave.class).stream().filter(x -> !x.isDead()).count();
-    TextRenderer.render(g, "Slaves: " + slavesAlive, 250, 150);
-
-    long mySlaves = Game.world().environment().getByType(Slave.class).stream().filter(x -> !x.isDead() && x.getOwner() == null).count();
-    TextRenderer.render(g, "My slaves: " + mySlaves, 250, 180);
-
+    TextRenderer.render(g, "Slaves: " + GameManager.getAliveSlaveCount(), 250, 150);
+    TextRenderer.render(g, "My slaves: " + GameManager.getOwnSlaveCount(), 250, 180);
+    TextRenderer.render(g, "Required: " + GameManager.getRequiredSlaveCount(), 250, 210);
+    
     if (Player.instance().isDead()) {
       g.setFont(g.getFont().deriveFont(20f));
       TextRenderer.render(g, "YOU ARE DEAD", Game.window().getCenter());
