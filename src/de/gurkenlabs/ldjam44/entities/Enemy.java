@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import de.gurkenlabs.ldjam44.GameManager;
+import de.gurkenlabs.ldjam44.abilities.Charge;
 import de.gurkenlabs.ldjam44.abilities.EnemyStrike;
 import de.gurkenlabs.ldjam44.abilities.Strike;
 import de.gurkenlabs.ldjam44.graphics.SpawnEmitter;
@@ -45,6 +46,7 @@ public class Enemy extends Mob implements IRenderable {
   private EnemyType type = EnemyType.leather;
 
   private final EnemyStrike strike;
+  private final Charge charge;
   private boolean engaged;
 
   static {
@@ -60,6 +62,7 @@ public class Enemy extends Mob implements IRenderable {
   public Enemy() {
     this.setIndestructible(true);
     this.strike = new EnemyStrike(this);
+    this.charge = new Charge(this);
 
     this.addController(new EnemyController(this));
 
@@ -140,5 +143,9 @@ public class Enemy extends Mob implements IRenderable {
 
   public Strike getStrike() {
     return strike;
+  }
+
+  public Charge getCharge() {
+    return charge;
   }
 }
