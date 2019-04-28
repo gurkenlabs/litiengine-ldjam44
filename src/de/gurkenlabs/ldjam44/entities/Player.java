@@ -101,7 +101,13 @@ public class Player extends Creature implements IRenderable {
     final BufferedImage rightJump = Imaging.flipSpritesHorizontally(jump);
     Spritesheet rightJumpSprite = Resources.spritesheets().load(rightJump, "monger-jump-right", jump.getSpriteWidth(), jump.getSpriteHeight());
     controller.add(new Animation(rightJumpSprite, false));
-    
+
     controller.setDefaultAnimation(controller.getAnimation("monger-idle"));
+  }
+
+  @Override
+  protected void updateAnimationController() {
+    super.updateAnimationController();
+    this.initAnimationController();
   }
 }

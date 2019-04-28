@@ -2,7 +2,10 @@ package de.gurkenlabs.ldjam44.entities;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
@@ -20,10 +23,20 @@ import de.gurkenlabs.litiengine.annotation.CollisionInfo;
 import de.gurkenlabs.litiengine.annotation.CombatInfo;
 import de.gurkenlabs.litiengine.annotation.EntityInfo;
 import de.gurkenlabs.litiengine.annotation.MovementInfo;
+import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.graphics.IRenderable;
+import de.gurkenlabs.litiengine.graphics.RenderEngine;
+import de.gurkenlabs.litiengine.graphics.ShapeRenderer;
+import de.gurkenlabs.litiengine.graphics.Spritesheet;
+import de.gurkenlabs.litiengine.graphics.animation.Animation;
+import de.gurkenlabs.litiengine.graphics.animation.CreatureAnimationController;
+import de.gurkenlabs.litiengine.graphics.animation.IAnimationController;
 import de.gurkenlabs.litiengine.gui.SpeechBubble;
 import de.gurkenlabs.litiengine.gui.SpeechBubbleAppearance;
+import de.gurkenlabs.litiengine.resources.Resources;
+import de.gurkenlabs.litiengine.util.Imaging;
 import de.gurkenlabs.litiengine.util.MathUtilities;
+import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 
 @AnimationInfo(spritePrefix = { "enemy_gold", "enemy_silver", "enemy_leather" })
 @CombatInfo(hitpoints = 5, team = 2, isIndestructible = true)
@@ -65,7 +78,7 @@ public class Enemy extends Mob implements IRenderable {
     this.charge = new Charge(this);
 
     this.addController(new EnemyController(this));
-
+    this.initAnimationController();
     this.addMessageListener(l -> {
       if (l.getMessage() == null) {
         return;
@@ -74,9 +87,12 @@ public class Enemy extends Mob implements IRenderable {
       if (l.getMessage().equals(SLAVE_TRIGGER)) {
         SpeechBubbleAppearance appearance = new SpeechBubbleAppearance(new Color(16, 20, 19), new Color(255, 255, 255, 150), new Color(16, 20, 19), 5);
         appearance.setBackgroundColor2(new Color(255, 255, 255, 220));
-        SpeechBubble.create(this, "FEEEEELL MY WRATH!!!!!" + this.getType(), appearance, GameManager.SPEECH_BUBBLE_FONT);
-        this.setEngaged(true);
-        this.setIndestructible(false);
+        SpeechBubble.create(this, "FEEEEELL MY WRATH!!!!!", appearance, GameManager.SPEECH_BUBBLE_FONT);
+
+        Game.loop().perform(2000, () -> {
+          this.setEngaged(true);
+          this.setIndestructible(false);
+        });
       }
     });
 
@@ -114,6 +130,19 @@ public class Enemy extends Mob implements IRenderable {
 
   @Override
   public void render(Graphics2D g) {
+    double prep = this.getController(EnemyController.class).getPreparation();
+    if (prep != 0) {
+      double angle = GeometricUtilities.calcRotationAngleInDegrees(this.getCollisionBoxCenter(), Player.instance().getCenter());
+      int dots = (int) (prep / 0.2);
+
+      double delta = 15;
+      g.setColor(new Color(0, 100, 100, 255));
+      for (int i = 0; i < dots; i++) {
+        Point2D target = GeometricUtilities.project(this.getCollisionBoxCenter(), angle, delta + delta * i);
+        RenderEngine.renderShape(g, new Rectangle2D.Double(target.getX() - 0.5, target.getY() - 0.5, 1, 1));
+      }
+    }
+
     if (Game.config().debug().isDebug()) {
       this.strike.render(g);
     }
@@ -147,5 +176,34 @@ public class Enemy extends Mob implements IRenderable {
 
   public Charge getCharge() {
     return charge;
+  }
+
+  private void initAnimationController() {
+    IAnimationController controller = this.getAnimationController();
+
+    if (this.getSpritePrefix().equals("enemy_silver")) {
+      Spritesheet prepare = Resources.spritesheets().get("enemy_silver-prepare");
+
+      final BufferedImage leftPrepare = Imaging.flipSpritesHorizontally(prepare);
+      Spritesheet prepareLeft = Resources.spritesheets().load(leftPrepare, "enemy_silver-prepare-left", prepare.getSpriteWidth(), prepare.getSpriteHeight());
+
+      controller.add(new Animation(prepare, false));
+      controller.add(new Animation(prepareLeft, false));
+    } else if (this.getSpritePrefix().equals("enemy_gold")) {
+      Spritesheet prepare = Resources.spritesheets().get("enemy_gold-prepare");
+
+      final BufferedImage leftPrepare = Imaging.flipSpritesHorizontally(prepare);
+      Spritesheet prepareLeft = Resources.spritesheets().load(leftPrepare, "enemy_gold-prepare-left", prepare.getSpriteWidth(), prepare.getSpriteHeight());
+
+      controller.add(new Animation(prepare, false));
+      controller.add(new Animation(prepareLeft, false));
+
+    }
+  }
+
+  @Override
+  protected void updateAnimationController() {
+    super.updateAnimationController();
+    this.initAnimationController();
   }
 }

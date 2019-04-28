@@ -47,7 +47,6 @@ public class EnemyController extends MovementController<Enemy> {
       Game.physics().move(this.getEntity(), this.getEntity().getAngle(), this.getEntity().getTickVelocity());
       break;
     case PREPARE_CHARGE:
-
       break;
     case CHARGE:
       this.getEntity().getCharge().cast();
@@ -71,20 +70,35 @@ public class EnemyController extends MovementController<Enemy> {
 
     if (this.getEntity().getCharge().getRemainingCooldownInSeconds() == 0 && this.getEntity().getType() != EnemyType.leather && Player.instance().getCenter().distance(this.getEntity().getCenter()) > CHARGE_DIST) {
       this.state = EnemyState.PREPARE_CHARGE;
-      
-      if(!this.preparing) {
+
+      if (!this.preparing) {
         this.prepareStart = Game.time().now();
         this.preparing = true;
+
+        String prepare = this.getEntity().getSpritePrefix() + "-prepare";
+        if (GeometricUtilities.calcRotationAngleInDegrees(this.getEntity().getCollisionBoxCenter(), Player.instance().getCenter()) > 180) {
+          prepare += "-left";
+        }
+
+        this.getEntity().getAnimationController().playAnimation(prepare);
       }
-      
-      if(Game.time().since(this.prepareStart) >= CHARGE_PREPARE_DURATION) {
+
+      if (Game.time().since(this.prepareStart) >= CHARGE_PREPARE_DURATION) {
         this.preparing = false;
         this.state = EnemyState.CHARGE;
       }
-      
+
       return;
     }
 
     this.state = EnemyState.CHASE;
+  }
+
+  public double getPreparation() {
+    if (!this.preparing) {
+      return 0;
+    }
+
+    return Game.time().since(this.prepareStart) / (double) CHARGE_PREPARE_DURATION;
   }
 }

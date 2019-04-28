@@ -36,6 +36,10 @@ public class ChargeEffect extends Effect {
     super.update();
   }
 
+  public double getAngle() {
+    return this.angle;
+  }
+
   @Override
   protected void apply(final ICombatEntity entity) {
     this.angle = GeometricUtilities.calcRotationAngleInDegrees(this.getAbility().getExecutor().getCenter(), Player.instance().getCenter());
