@@ -1,5 +1,7 @@
 package de.gurkenlabs.ldjam44.entities;
 
+import java.text.MessageFormat;
+
 import de.gurkenlabs.ldjam44.GameManager;
 import de.gurkenlabs.ldjam44.entities.Player.PlayerState;
 import de.gurkenlabs.litiengine.Game;
@@ -11,15 +13,23 @@ import de.gurkenlabs.litiengine.environment.Environment;
 import de.gurkenlabs.litiengine.gui.SpeechBubble;
 import de.gurkenlabs.litiengine.gui.SpeechBubbleListener;
 import de.gurkenlabs.litiengine.resources.Resources;
+import de.gurkenlabs.litiengine.util.ArrayUtilities;
 
 @EntityInfo(width = 11, height = 20)
 @CollisionInfo(collisionBoxWidth = 5, collisionBoxHeight = 8, collision = true)
 @CombatInfo(isIndestructible = true)
 public class Gatekeeper extends Creature {
   public static final String MESSAGE_FINISH = "FINISH";
+  private static final String[] rudeLines;
+  private static final String[] goalLines;
 
   private int requiredSlaves;
   private String nextLevel;
+
+  static {
+    rudeLines = Resources.strings().getList("rude.txt");
+    goalLines = Resources.strings().getList("goal.txt");
+  }
 
   public Gatekeeper() {
     this.addMessageListener(l -> {
@@ -28,9 +38,9 @@ public class Gatekeeper extends Creature {
       }
 
       if (l.getMessage().equals(MESSAGE_FINISH)) {
-        String text = "YOU REQUIRE AT LEAST " + this.requiredSlaves + " SLAVES TO PASS!";
+        String text = "You need to trade me " + this.requiredSlaves + " slaves to advance!";
         if (GameManager.getOwnSlaveCount() >= this.getRequiredSlaves()) {
-          text = "WELL DONE! YOU CAN PASS!";
+          text = "WELL DONE! Now I can take you to " + GameManager.getCity(this.getNextLevel()) + ".";
           Game.audio().playSound(Resources.sounds().get("success"));
           SpeechBubble bubble = SpeechBubble.create(this, text, GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
           bubble.setTextDisplayTime(4000);
@@ -67,7 +77,9 @@ public class Gatekeeper extends Creature {
 
     Game.loop().perform(1000, () -> {
 
-      SpeechBubble bubble = SpeechBubble.create(this, "WELCOME! NOONE HAS EVER HAD MORE THAN " + this.getRequiredSlaves() + " SLAVES AROUND HERE!", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
+      String rude = ArrayUtilities.getRandom(rudeLines);
+      String goal = MessageFormat.format(ArrayUtilities.getRandom(goalLines), GameManager.getCity(Game.world().environment().getMap().getName()), this.getRequiredSlaves());
+      SpeechBubble bubble = SpeechBubble.create(this, rude + " " + goal, GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
       bubble.setTextDisplayTime(5000);
       bubble.addListener(new SpeechBubbleListener() {
         @Override

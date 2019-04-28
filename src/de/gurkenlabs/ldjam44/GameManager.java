@@ -2,6 +2,8 @@ package de.gurkenlabs.ldjam44;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import de.gurkenlabs.ldjam44.entities.CustomCreatureMapObjectLoader;
 import de.gurkenlabs.ldjam44.entities.DecorMob;
@@ -10,6 +12,7 @@ import de.gurkenlabs.ldjam44.entities.Gatekeeper;
 import de.gurkenlabs.ldjam44.entities.HealthPot;
 import de.gurkenlabs.ldjam44.entities.Player;
 import de.gurkenlabs.ldjam44.entities.Slave;
+import de.gurkenlabs.ldjam44.entities.Enemy.EnemyType;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Spawnpoint;
 import de.gurkenlabs.litiengine.environment.CreatureMapObjectLoader;
@@ -26,8 +29,19 @@ public final class GameManager {
   public static final Font SPEECH_BUBBLE_FONT = GUI_FONT.deriveFont(4f);
   public static final SpeechBubbleAppearance SPEECH_BUBBLE_APPEARANCE = new SpeechBubbleAppearance(new Color(16, 20, 19), new Color(255, 255, 255, 150), new Color(16, 20, 19), 5);
 
+  private static final Map<String, String> cityNames = new ConcurrentHashMap<>();
   static {
     SPEECH_BUBBLE_APPEARANCE.setBackgroundColor2(new Color(255, 255, 255, 220));
+    cityNames.put("level0", "Belum");
+    cityNames.put("level1", "Salernum");
+    cityNames.put("level2", "Forum Livii");
+    cityNames.put("level3", "Bononia");
+    cityNames.put("level4", "Aquileia");
+    cityNames.put("level5", "Pistoria");
+    cityNames.put("level6", "Placentia");
+    cityNames.put("level7", "Ariminum");
+    cityNames.put("level8", "Florentia");
+    cityNames.put("level9", "Roma");
   }
 
   private GameManager() {
@@ -51,7 +65,7 @@ public final class GameManager {
     Game.world().setCamera(camera);
 
     // add default game logic for when a level was loaded
-    
+
     Game.world().addLoadedListener(e -> {
 
       // spawn the player instance on the spawn point with the name "enter"
@@ -81,5 +95,13 @@ public final class GameManager {
     }
 
     return keeper.getRequiredSlaves();
+  }
+
+  public static String getCity(String levelName) {
+    if (!cityNames.containsKey(levelName)) {
+      return "this city";
+    }
+
+    return cityNames.get(levelName);
   }
 }
