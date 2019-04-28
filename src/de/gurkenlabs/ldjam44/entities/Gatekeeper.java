@@ -9,6 +9,7 @@ import de.gurkenlabs.litiengine.annotation.EntityInfo;
 import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.environment.Environment;
 import de.gurkenlabs.litiengine.gui.SpeechBubble;
+import de.gurkenlabs.litiengine.gui.SpeechBubbleListener;
 
 @EntityInfo(width = 11, height = 20)
 @CollisionInfo(collisionBoxWidth = 5, collisionBoxHeight = 8, collision = true)
@@ -50,9 +51,14 @@ public class Gatekeeper extends Creature {
     super.loaded(environment);
 
     Game.loop().perform(1000, () -> {
-      SpeechBubble.create(this, "WELCOME! NOONE HAS EVER HAD MORE THAN " + this.getRequiredSlaves() + " SLAVES AROUND HERE!", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
-      Game.loop().perform(4000, () -> {
-        Player.instance().setState(PlayerState.CONTROLLABLE);
+
+      SpeechBubble bubble = SpeechBubble.create(this, "WELCOME! NOONE HAS EVER HAD MORE THAN " + this.getRequiredSlaves() + " SLAVES AROUND HERE!", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
+      bubble.setTextDisplayTime(5000);
+      bubble.addListener(new SpeechBubbleListener() {
+        @Override
+        public void hidden() {
+          Player.instance().setState(PlayerState.CONTROLLABLE);
+        }
       });
     });
   }

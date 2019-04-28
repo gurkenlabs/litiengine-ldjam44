@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
-import java.util.logging.Logger;
 
 import de.gurkenlabs.ldjam44.abilities.JumpAbility;
 import de.gurkenlabs.ldjam44.abilities.Strike;

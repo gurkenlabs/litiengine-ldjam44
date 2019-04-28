@@ -1,9 +1,7 @@
 package de.gurkenlabs.ldjam44.abilities;
 
 import java.awt.geom.Point2D;
-import java.util.stream.Collectors;
 
-import de.gurkenlabs.ldjam44.entities.Enemy;
 import de.gurkenlabs.ldjam44.entities.Player;
 import de.gurkenlabs.ldjam44.graphics.StrikeEmitter;
 import de.gurkenlabs.litiengine.Direction;

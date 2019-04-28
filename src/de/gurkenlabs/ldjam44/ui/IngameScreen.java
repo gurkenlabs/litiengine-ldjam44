@@ -1,7 +1,6 @@
 package de.gurkenlabs.ldjam44.ui;
 
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
 
 import de.gurkenlabs.ldjam44.entities.Player;
