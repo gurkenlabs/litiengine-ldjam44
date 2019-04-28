@@ -41,6 +41,7 @@ public class Hud extends GuiComponent {
       }
     }
 
+    TextRenderer.render(g, "HP:" + Player.instance().getHitPoints().getCurrentValue() + "/" + Player.instance().getHitPoints().getMaxValue(), 250, 120);
     TextRenderer.render(g, "Slaves: " + GameManager.getAliveSlaveCount(), 250, 150);
     TextRenderer.render(g, "My slaves: " + GameManager.getOwnSlaveCount(), 250, 180);
     TextRenderer.render(g, "Required: " + GameManager.getRequiredSlaveCount(), 250, 210);

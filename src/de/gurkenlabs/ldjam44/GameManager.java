@@ -4,14 +4,17 @@ import java.awt.Color;
 import java.awt.Font;
 
 import de.gurkenlabs.ldjam44.entities.CustomCreatureMapObjectLoader;
+import de.gurkenlabs.ldjam44.entities.DecorMob;
 import de.gurkenlabs.ldjam44.entities.Enemy;
 import de.gurkenlabs.ldjam44.entities.Gatekeeper;
+import de.gurkenlabs.ldjam44.entities.HealthPot;
 import de.gurkenlabs.ldjam44.entities.Player;
 import de.gurkenlabs.ldjam44.entities.Slave;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Spawnpoint;
 import de.gurkenlabs.litiengine.environment.CreatureMapObjectLoader;
 import de.gurkenlabs.litiengine.environment.Environment;
+import de.gurkenlabs.litiengine.environment.PropMapObjectLoader;
 import de.gurkenlabs.litiengine.graphics.Camera;
 import de.gurkenlabs.litiengine.graphics.PositionLockCamera;
 import de.gurkenlabs.litiengine.gui.GuiProperties;
@@ -35,9 +38,13 @@ public final class GameManager {
 
     Environment.registerMapObjectLoader(new CustomCreatureMapObjectLoader());
 
+    CreatureMapObjectLoader.registerCustomCreatureType(DecorMob.class);
+
     CreatureMapObjectLoader.registerCustomCreatureType(Slave.class);
     CreatureMapObjectLoader.registerCustomCreatureType(Enemy.class);
     CreatureMapObjectLoader.registerCustomCreatureType(Gatekeeper.class);
+
+    PropMapObjectLoader.registerCustomPropType(HealthPot.class);
 
     Camera camera = new PositionLockCamera(Player.instance());
     camera.setClampToMap(true);

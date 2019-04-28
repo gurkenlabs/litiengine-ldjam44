@@ -46,6 +46,10 @@ public final class PlayerInput {
         return;
       }
 
+      if (!Player.instance().canTalkToGateKeeper()) {
+        return;
+      }
+
       Gatekeeper keeper = GameManager.getGateKeeper();
       if (keeper == null) {
         return;
