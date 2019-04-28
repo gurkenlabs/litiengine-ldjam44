@@ -2,8 +2,9 @@ package de.gurkenlabs.ldjam44.entities;
 
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
+import java.awt.image.BufferedImage;
 
-import de.gurkenlabs.ldjam44.abilities.DashAbility;
+import de.gurkenlabs.ldjam44.abilities.JumpAbility;
 import de.gurkenlabs.ldjam44.abilities.Strike;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.annotation.CollisionInfo;
@@ -15,10 +16,13 @@ import de.gurkenlabs.litiengine.entities.ICollisionEntity;
 import de.gurkenlabs.litiengine.graphics.IRenderable;
 import de.gurkenlabs.litiengine.graphics.RenderType;
 import de.gurkenlabs.litiengine.graphics.Spritesheet;
+import de.gurkenlabs.litiengine.graphics.animation.Animation;
+import de.gurkenlabs.litiengine.graphics.animation.IAnimationController;
 import de.gurkenlabs.litiengine.graphics.emitters.AnimationEmitter;
 import de.gurkenlabs.litiengine.input.KeyboardEntityController;
 import de.gurkenlabs.litiengine.physics.IMovementController;
 import de.gurkenlabs.litiengine.resources.Resources;
+import de.gurkenlabs.litiengine.util.Imaging;
 
 @EntityInfo(width = 11, height = 20)
 @MovementInfo(velocity = 30)
@@ -29,15 +33,17 @@ public class Player extends Creature implements IRenderable {
 
   private long lastWalkDust = 0;
   private final Strike strike;
-  private final DashAbility dash;
+  private final JumpAbility dash;
 
   private Player() {
     super("monger");
 
     this.strike = new Strike(this);
-    this.dash = new DashAbility(this);
+    this.dash = new JumpAbility(this);
     this.setController(IMovementController.class, new KeyboardEntityController<>(this));
     this.getMovementController().onMoved(this::spawnWalkDust);
+
+    this.initAnimationController();
   }
 
   public static Player instance() {
@@ -82,7 +88,20 @@ public class Player extends Creature implements IRenderable {
     }
   }
 
-  public DashAbility getDash() {
+  public JumpAbility getDash() {
     return dash;
+  }
+
+  private void initAnimationController() {
+    IAnimationController controller = this.getAnimationController();
+
+    Spritesheet jump = Resources.spritesheets().get("monger-jump");
+    controller.add(new Animation(jump, false));
+
+    final BufferedImage rightJump = Imaging.flipSpritesHorizontally(jump);
+    Spritesheet rightJumpSprite = Resources.spritesheets().load(rightJump, "monger-jump-right", jump.getSpriteWidth(), jump.getSpriteHeight());
+    controller.add(new Animation(rightJumpSprite, false));
+    
+    controller.setDefaultAnimation(controller.getAnimation("monger-idle"));
   }
 }

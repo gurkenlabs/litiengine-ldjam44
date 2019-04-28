@@ -5,10 +5,10 @@ import de.gurkenlabs.litiengine.annotation.AbilityInfo;
 import de.gurkenlabs.litiengine.entities.Creature;
 
 @AbilityInfo(name = "Dash", cooldown = 1500, value = 80, duration = 500)
-public class DashAbility extends Ability {
+public class JumpAbility extends Ability {
 
-  public DashAbility(final Creature executor) {
+  public JumpAbility(final Creature executor) {
     super(executor);
-    this.getEffects().add(new DashEffect(this));
+    this.getEffects().add(new JumpEffect(this));
   }
 }

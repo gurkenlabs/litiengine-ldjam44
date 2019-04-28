@@ -838,6 +838,14 @@
    <image>iVBORw0KGgoAAAANSUhEUgAAAC0AAAAKCAYAAAAgs9cUAAAAV0lEQVR42tWUMQ4AIAgD+/9P42TCgmKLGG9uzQWIQIA5cIjSpbAFN7u+Xya8e3CVyXZRvdKMFCMmnVGmrEjPXKtwlGXuVhbulo6mTkmzeeVbxEu+lO5mAOyLVrjOSYc5AAAAAElFTkSuQmCC</image>
    <keyframes>70,70,70</keyframes>
   </sprite>
+  <sprite width="11" height="20" name="monger-idle">
+   <image>iVBORw0KGgoAAAANSUhEUgAAACEAAAAUCAYAAAADU1RxAAAA/0lEQVR42uVUMQ7CMAzMA1hAYoWtC93KzsKKVImH8A+ewQOY+Q8SYmBlJXCRLJnUJnFDWYh0ampfLufIiXP/NOrZxBO+S+5hIKltImcaRu60azsQ15jIBsOIz6ejAOjRHCgiWwwjtt80frzaBg6++FdPIpc8lOHhqnsN0jpUTQDmaqPxzT+Rrf2DAZOE5HXKJedW9zguPcDNUqyMbDCMnKQrruGb1te756ZKDFt0XSzGNympzqLrpEbTyFp1lOur6+LKeAW51UkmkKsW6w7EXsNiiaz1hFZZLI64NNS3QiJr11MyLJ2ERfeNfL7ckmSLsEXX8QZLvRFDccXO/gX3CSJU2s9ky9XYAAAAAElFTkSuQmCC</image>
+   <keyframes>200,200,200</keyframes>
+  </sprite>
+  <sprite width="14" height="20" name="monger-jump">
+   <image>iVBORw0KGgoAAAANSUhEUgAAACoAAAAUCAYAAAD7s6+GAAABGklEQVR42uWTMQ7CMAxFewAmJFbYutCtHIEViZtwD47BAZgZ2bkCB0AqKytBrvRRcO20cUqEhCWrkWP3Od9JUfyjVfOpg/8s1M/P1mwslPZPu23HLYeMajIWSnuL2aR1ysWafMghTZOwQCm+39StUw3WfeCkSVigIeC3JmGGUs69aVofqox1EiYo7WF9KGtHDmDKe4h6WACGoM/jyuFL7gMRG0uUjjoxUNQgh9dgnSqIqI7fWHV7ON44b5Q3hxo/rvEsU3hDcblRhJ8hroGlGn6PtXxJkL5JiEr5RdoPyuXacUczIYYkSIgzqFENTDHJtHvNlZME6b0CmjqhQ/mNni/Xj0ZDylgmZ1In1WIEGU2dWMspiNlyCpLVXjWC/o8GBZLKAAAAAElFTkSuQmCC</image>
+   <keyframes>150,200,150</keyframes>
+  </sprite>
   <sprite width="11" height="20" name="monger-walk-down">
    <image>iVBORw0KGgoAAAANSUhEUgAAACEAAAAUCAYAAAADU1RxAAABCUlEQVR42u2UvwrCMBDG+wAuFlx1c2k33V1chYIP4nv4MM6+jyAOrq5GvsBBuNwld63g4sHR/Pny9Zf0mqb5hxL9sg2UPwewgHiATVpMXk9DltoiD7BZi4nVYhYTL6c2cgqwa3MYPB82Yb47RhGe6GvGHmCr1r07D7BVG0OCmFo/3lqLAUrKUrVbgV3a92UbkKmQxizAmpbGq5vjL+0fr8ChLMBcW/LNgCEEYbqATGmc6yVjrtV8yTuDKH07CYIb0zGnO6Q2gRTrgsSakB8d+utunyUHprakFT+HJtZOQgqtgCWt+oeMMb7dn1/VusRphVsh+LqqseWOkNbVfPla8b4o9Ws36Jg5xAdks8KU75z2QwAAAABJRU5ErkJggg==</image>
    <keyframes>200,240,240</keyframes>
