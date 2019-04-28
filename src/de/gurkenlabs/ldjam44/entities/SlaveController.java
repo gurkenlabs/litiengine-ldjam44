@@ -41,8 +41,10 @@ public class SlaveController extends MovementController<Slave> {
 
   private void doWhateverOtherSlavesDo() {
     if (this.angle == 0 || Game.time().since(this.lastAngleChange) > this.nextAngleChange) {
+      this.lastAngleChange = Game.time().now();
+      this.calculateNextAngleChange();
       this.angle = RANDOM.nextInt(360);
-      this.getEntity().setVelocity(4);
+      this.getEntity().setVelocity(2);
     }
 
     this.getEntity().setAngle(this.angle);

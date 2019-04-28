@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Collectors;
 
 import de.gurkenlabs.ldjam44.GameManager;
@@ -34,6 +35,7 @@ import de.gurkenlabs.litiengine.graphics.animation.Animation;
 import de.gurkenlabs.litiengine.graphics.animation.IAnimationController;
 import de.gurkenlabs.litiengine.gui.SpeechBubble;
 import de.gurkenlabs.litiengine.resources.Resources;
+import de.gurkenlabs.litiengine.util.ArrayUtilities;
 import de.gurkenlabs.litiengine.util.Imaging;
 import de.gurkenlabs.litiengine.util.MathUtilities;
 import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
@@ -59,6 +61,7 @@ public class Enemy extends Mob implements IRenderable {
   private static final Map<EnemyType, Integer> slaves = new EnumMap<>(EnemyType.class);
   private static final Map<EnemyType, Integer> hp = new EnumMap<>(EnemyType.class);
   private static final Map<EnemyType, Integer> velocity = new EnumMap<>(EnemyType.class);
+  private static final String[] engagementLines;
 
   private EnemyType type = EnemyType.leather;
 
@@ -69,6 +72,7 @@ public class Enemy extends Mob implements IRenderable {
   private boolean engaging;
 
   static {
+    engagementLines = Resources.strings().getList("engagement-lines.txt");
     hp.put(EnemyType.leather, 5);
     hp.put(EnemyType.silver, 7);
     hp.put(EnemyType.gold, 10);
@@ -99,8 +103,8 @@ public class Enemy extends Mob implements IRenderable {
         return;
       }
 
-      if (!this.engaged && l.getMessage().equals(SLAVE_TRIGGER)) {
-        SpeechBubble.create(this, "FEEEEELL MY WRATH!!!!!", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
+      if (!this.engaged && !this.engaging && l.getMessage().equals(SLAVE_TRIGGER)) {
+        SpeechBubble.create(this, ArrayUtilities.getRandom(engagementLines), GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
         this.setEngaging(true);
         Game.loop().perform(2000, () -> {
           this.setEngaged(true);
