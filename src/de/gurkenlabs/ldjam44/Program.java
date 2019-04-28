@@ -2,6 +2,8 @@ package de.gurkenlabs.ldjam44;
 
 import java.awt.event.KeyEvent;
 
+import de.gurkenlabs.ldjam44.ui.IngameScreen;
+import de.gurkenlabs.ldjam44.ui.MenuScreen;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.input.Input;
 import de.gurkenlabs.litiengine.resources.Resources;
@@ -11,7 +13,8 @@ public class Program {
   /**
    * The main entry point for the Game.
    * 
-   * @param args The command line arguments.
+   * @param args
+   *          The command line arguments.
    */
   public static void main(String[] args) {
     // set meta information about the game
@@ -23,7 +26,8 @@ public class Program {
     // init the game infrastructure
     Game.init(args);
 
-    // set the icon for the game (this has to be done after initialization because
+    // set the icon for the game (this has to be done after initialization
+    // because
     // the ScreenManager will not be present otherwise)
     Game.window().setIconImage(Resources.images().get("icon.png"));
     Game.graphics().setBaseRenderScale(5f);
@@ -31,17 +35,19 @@ public class Program {
     // load data from the utiLITI game file
     Resources.load("game.litidata");
 
-    // add the screens that will help you organize the different states of your game
+    // add the screens that will help you organize the different states of your
+    // game
     Game.screens().add(new IngameScreen());
+    Game.screens().add(new MenuScreen());
 
     GameManager.init();
     PlayerInput.init();
-    
-    // load the first level (resources for the map were implicitly loaded from the
-    // game file)
-    Game.world().loadEnvironment("SlaveMarket_Nubia");
-    
-    // make the game exit upon pressing ESCAPE (by default there is no such key binding and the window needs to be shutdown otherwise, e.g. ALT-F4 on Windows)
+
+    Game.screens().display("MENU");
+
+    // make the game exit upon pressing ESCAPE (by default there is no such key
+    // binding and the window needs to be shutdown otherwise, e.g. ALT-F4 on
+    // Windows)
     Input.keyboard().onKeyPressed(KeyEvent.VK_ESCAPE, e -> System.exit(0));
 
     Game.start();
