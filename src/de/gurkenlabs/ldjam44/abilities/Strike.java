@@ -61,21 +61,23 @@ public class Strike extends OffensiveAbility {
       switch (Direction.fromAngle(angle)) {
       case RIGHT:
         x -= 2;
+        y -= 5;
         sprite = "hit-right";
         break;
       case LEFT:
         x -= 10;
+        y -= 5;
         sprite = "hit-left";
         break;
       case UP:
         x -= 8;
-        y -= 3;
+        y -= 8;
         sprite = "hit-top";
         renderType = RenderType.SURFACE;
         break;
       default:
         x -= 8;
-        y += 7;
+        y += 2;
         break;
       }
 
