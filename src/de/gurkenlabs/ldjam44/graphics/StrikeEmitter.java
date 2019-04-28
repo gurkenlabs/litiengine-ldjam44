@@ -1,4 +1,4 @@
-package de.gurkenlabs.ldjam44.entities;
+package de.gurkenlabs.ldjam44.graphics;
 
 import java.awt.geom.Point2D;
 

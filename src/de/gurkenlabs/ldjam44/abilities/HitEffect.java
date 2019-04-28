@@ -1,4 +1,4 @@
-package de.gurkenlabs.ldjam44.entities;
+package de.gurkenlabs.ldjam44.abilities;
 
 import java.awt.Shape;
 import java.awt.geom.Line2D;

@@ -1,4 +1,4 @@
-package de.gurkenlabs.ldjam44.entities;
+package de.gurkenlabs.ldjam44.abilities;
 
 import de.gurkenlabs.litiengine.abilities.Ability;
 import de.gurkenlabs.litiengine.annotation.AbilityInfo;

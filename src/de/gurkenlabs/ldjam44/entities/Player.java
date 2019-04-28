@@ -3,6 +3,8 @@ package de.gurkenlabs.ldjam44.entities;
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 
+import de.gurkenlabs.ldjam44.abilities.DashAbility;
+import de.gurkenlabs.ldjam44.abilities.Strike;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.annotation.CollisionInfo;
 import de.gurkenlabs.litiengine.annotation.CombatInfo;

@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 import de.gurkenlabs.ldjam44.GameManager;
+import de.gurkenlabs.ldjam44.abilities.EnemyStrike;
+import de.gurkenlabs.ldjam44.abilities.Strike;
 import de.gurkenlabs.ldjam44.graphics.SpawnEmitter;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.Valign;
@@ -80,20 +83,27 @@ public class Enemy extends Mob implements IRenderable {
       } else {
         this.setCollisionBoxValign(Valign.TOP);
       }
-      for (int i = 0; i < slaves.get(this.getType()); i++) {
-        Point2D spawn = new Point2D.Double(this.getCenter().getX() + MathUtilities.randomInRange(-10, 10), this.getCenter().getY() + MathUtilities.randomInRange(-10, 10));
 
-        Game.loop().perform(500 * (i + 1), () -> {
-          Slave newSlave = new Slave(spawn);
-          Game.world().environment().add(new SpawnEmitter(newSlave));
-          Game.world().environment().add(newSlave);
-        });
-      }
-      for (Slave s : Game.world().environment().getByType(Slave.class).stream().filter(sla -> sla.getOwner() != null && sla.getOwner().getMapId() == this.getMapId()).collect(Collectors.toList())) {
+      // despawn owned slaves
+      List<Slave> ownedSlaves = Game.world().environment().getByType(Slave.class).stream().filter(sla -> sla.getOwner() != null && sla.getOwner().getMapId() == this.getMapId()).collect(Collectors.toList());
+      for (Slave s : ownedSlaves) {
         Game.world().environment().add(new SpawnEmitter(s));
 
         Game.loop().perform(250, () -> {
           Game.world().environment().remove(s);
+        });
+      }
+
+      // spawn player slaves
+      int spawns = !ownedSlaves.isEmpty() ? ownedSlaves.size() : slaves.get(this.getType());
+      for (int i = 0; i < spawns; i++) {
+        Point2D spawn = new Point2D.Double(this.getCenter().getX() + MathUtilities.randomInRange(-10, 10), this.getCenter().getY() + MathUtilities.randomInRange(-10, 10));
+
+        Game.loop().perform(500 * (i + 1), () -> {
+          Slave newSlave = new Slave(spawn);
+          newSlave.setSpritePrefix("slave-monger");
+          Game.world().environment().add(new SpawnEmitter(newSlave));
+          Game.world().environment().add(newSlave);
         });
       }
     });

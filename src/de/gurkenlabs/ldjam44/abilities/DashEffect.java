@@ -1,5 +1,8 @@
-package de.gurkenlabs.ldjam44.entities;
+package de.gurkenlabs.ldjam44.abilities;
 
+import de.gurkenlabs.ldjam44.entities.Player;
+import de.gurkenlabs.ldjam44.graphics.LandEmitter;
+import de.gurkenlabs.ldjam44.graphics.SpawnEmitter;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.abilities.Ability;
 import de.gurkenlabs.litiengine.abilities.effects.Effect;
@@ -47,6 +50,8 @@ public class DashEffect extends Effect {
     Player.instance().setWidth(11);
     Player.instance().setHeight(20);
     Player.instance().setScaling(false);
+
+    Game.world().environment().add(new LandEmitter(Player.instance()));
     super.cease(appliance);
   }
 }

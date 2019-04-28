@@ -1,8 +1,11 @@
-package de.gurkenlabs.ldjam44.entities;
+package de.gurkenlabs.ldjam44.abilities;
 
 import java.awt.geom.Point2D;
 import java.util.stream.Collectors;
 
+import de.gurkenlabs.ldjam44.entities.Enemy;
+import de.gurkenlabs.ldjam44.entities.Player;
+import de.gurkenlabs.ldjam44.graphics.StrikeEmitter;
 import de.gurkenlabs.litiengine.Direction;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.abilities.OffensiveAbility;
@@ -16,10 +19,15 @@ import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 @AbilityInfo(name = "Strike", cooldown = 700, range = 0, impact = 13, impactAngle = 360, value = 1, duration = 400, multiTarget = true)
 public class Strike extends OffensiveAbility {
 
-  protected Strike(Creature executor) {
+  public Strike(Creature executor) {
     super(executor);
 
     this.addEffect(new HitEffect(this));
+
+    if (executor instanceof Player) {
+      this.addEffect(new ScreenShakeEffect(this, 1, 100));
+    }
+
     this.onCast(e -> {
 
       RenderType renderType = RenderType.OVERLAY;

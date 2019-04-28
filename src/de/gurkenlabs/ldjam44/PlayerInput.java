@@ -15,7 +15,7 @@ public final class PlayerInput {
       Player.instance().getStrike().cast();
     });
 
-    Input.keyboard().onKeyPressed(KeyEvent.VK_CONTROL, e -> {
+    Input.keyboard().onKeyPressed(KeyEvent.VK_SHIFT, e -> {
       Player.instance().getDash().cast();
     });
 
