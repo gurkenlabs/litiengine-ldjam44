@@ -176,33 +176,6 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="81" name="walls" width="41" height="23">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,89,89,89,89,89,89,89,89,89,89,89,89,89,89,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,89,89,89,89,89,89,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,89,89,89,89,89,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-</data>
- </layer>
  <layer id="82" name="props" width="41" height="23">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -317,18 +290,45 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <layer id="81" name="walls" width="41" height="23">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
  <layer id="85" name="walls_OVERLAY1" width="41" height="23">
   <properties>
    <property name="RENDERTYPE" value="OVERLAY"/>
   </properties>
   <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,0,0,57,57,57,57,57,57,57,57,57,57,57,57,57,57,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,25,25,25,25,25,25,0,0,0,0,0,0,89,89,89,89,89,89,89,89,89,89,89,89,89,89,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,57,57,57,57,57,57,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,89,89,89,89,89,89,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,25,25,25,25,25,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,57,57,57,57,57,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,89,89,89,89,89,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -352,11 +352,11 @@
    <property name="RENDERTYPE" value="OVERLAY"/>
   </properties>
   <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,0,0,58,58,58,58,58,58,58,58,58,58,58,58,58,58,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,58,58,58,58,58,58,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,58,58,58,58,58,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -382,14 +382,14 @@
    <property name="RENDERTYPE" value="OVERLAY"/>
   </properties>
   <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,0,0,26,0,0,0,0,0,0,0,0,0,0,0,0,90,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,26,0,0,0,0,90,0,0,0,0,0,0,26,0,0,0,0,0,0,0,0,0,0,0,0,90,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,26,0,0,0,0,90,0,0,0,0,0,0,26,0,0,0,0,0,0,0,0,0,0,0,0,90,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,26,0,0,0,0,90,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,26,0,0,0,0,90,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,26,0,0,0,90,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,26,0,0,0,90,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,26,0,0,0,90,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,26,0,0,0,90,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -437,15 +437,19 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="10" name="collision">
+ <objectgroup id="10" name="collision" visible="1">
+  <object id="23" type="COLLISIONBOX" x="8" y="0" width="312" height="8"/>
+  <object id="42" type="COLLISIONBOX" x="320" y="0" width="8" height="146"/>
   <object id="1" type="COLLISIONBOX" x="0" y="0" width="8" height="144"/>
-  <object id="2" type="COLLISIONBOX" x="292" y="32" width="4" height="32"/>
-  <object id="3" type="COLLISIONBOX" x="212" y="0" width="4" height="24"/>
-  <object id="4" type="COLLISIONBOX" x="104" y="0" width="4" height="24"/>
-  <object id="5" type="COLLISIONBOX" x="52" y="8" width="4" height="32"/>
-  <object id="6" type="COLLISIONBOX" x="8" y="8" width="4" height="32"/>
+  <object id="20" type="COLLISIONBOX" x="0" y="144" width="328" height="40"/>
+  <object id="67" type="COLLISIONBOX" x="104" y="25" width="116" height="3"/>
+  <object id="63" type="COLLISIONBOX" x="264" y="43" width="2" height="14"/>
+  <object id="64" type="COLLISIONBOX" x="266" y="43" width="20" height="3"/>
+  <object id="62" type="COLLISIONBOX" x="286" y="43" width="2" height="14"/>
+  <object id="61" type="COLLISIONBOX" x="266" y="54" width="20" height="3"/>
+  <object id="68" type="COLLISIONBOX" x="104" y="8" width="4" height="19"/>
  </objectgroup>
- <objectgroup id="11" name="spawnpoints">
+ <objectgroup id="11" name="spawnpoints" visible="1">
   <object id="7" name="enter" type="SPAWNPOINT" x="73" y="122" width="11" height="20"/>
   <object id="8" name="keeper" type="CREATURE" x="59" y="116" width="11" height="20">
    <properties>
@@ -482,7 +486,7 @@
     <property name="spritesheetName" value="enemy_silver"/>
    </properties>
   </object>
-  <object id="11" name="paolo blanco" type="CREATURE" x="24" y="35" width="17" height="21">
+  <object id="11" name="paolo blanco" type="CREATURE" x="35" y="42" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -493,7 +497,7 @@
     <property name="spritesheetName" value="enemy_leather"/>
    </properties>
   </object>
-  <object id="12" type="CREATURE" x="23" y="9" width="7" height="13">
+  <object id="12" type="CREATURE" x="27" y="18" width="7" height="13">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -504,7 +508,7 @@
     <property name="spritesheetName" value="slave-centurio"/>
    </properties>
   </object>
-  <object id="13" type="CREATURE" x="32" y="17" width="7" height="13">
+  <object id="13" type="CREATURE" x="41" y="17" width="7" height="13">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -570,7 +574,7 @@
     <property name="spritesheetName" value="enemy_leather"/>
    </properties>
   </object>
-  <object id="19" type="CREATURE" x="280" y="42" width="7" height="13">
+  <object id="19" type="CREATURE" x="277" y="41" width="7" height="13">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -582,8 +586,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="12" name="props">
-  <object id="20" type="COLLISIONBOX" x="0" y="144" width="328" height="16"/>
+ <objectgroup id="12" name="props" visible="1">
   <object id="21" type="CREATURE" x="157" y="127" width="4" height="4">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
@@ -597,8 +600,6 @@
     <property name="spritesheetName" value="decormob-cockroach"/>
    </properties>
   </object>
-  <object id="22" type="COLLISIONBOX" x="320" y="0" width="8" height="144"/>
-  <object id="23" type="COLLISIONBOX" x="8" y="0" width="96" height="8"/>
   <object id="24" type="CREATURE" x="32" y="112" width="4" height="4">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
@@ -625,7 +626,6 @@
     <property name="spritesheetName" value="decormob-cockroach"/>
    </properties>
   </object>
-  <object id="26" type="COLLISIONBOX" x="256" y="32" width="4" height="32"/>
   <object id="29" type="CREATURE" x="121" y="98" width="4" height="4">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
@@ -639,11 +639,7 @@
     <property name="spritesheetName" value="decormob-cockroach"/>
    </properties>
   </object>
-  <object id="30" type="COLLISIONBOX" x="260" y="56" width="32" height="8"/>
-  <object id="31" type="COLLISIONBOX" x="260" y="32" width="32" height="6"/>
-  <object id="32" type="COLLISIONBOX" x="108" y="16" width="104" height="8"/>
-  <object id="33" type="COLLISIONBOX" x="12" y="32" width="40" height="8"/>
-  <object id="39" type="CREATURE" x="264" y="43" width="7" height="13">
+  <object id="39" type="CREATURE" x="266" y="40" width="7" height="13">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -654,9 +650,6 @@
     <property name="spritesheetName" value="slave-centurio"/>
    </properties>
   </object>
-  <object id="40" type="COLLISIONBOX" x="12" y="8" width="40" height="6"/>
-  <object id="41" type="COLLISIONBOX" x="216" y="0" width="104" height="8"/>
-  <object id="42" type="COLLISIONBOX" x="108" y="0" width="104" height="6"/>
   <object id="43" type="EMITTER" x="48" y="113" width="8" height="8">
    <properties>
     <property name="RENDERTYPE" value="OVERLAY"/>
@@ -769,7 +762,7 @@
     <property name="spritesheetName" value="amphora1"/>
    </properties>
   </object>
-  <object id="51" type="PROP" x="163" y="28" width="8" height="11">
+  <object id="51" type="PROP" x="185" y="52" width="8" height="11">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -779,7 +772,7 @@
     <property name="spritesheetName" value="amphora3"/>
    </properties>
   </object>
-  <object id="52" type="PROP" x="136" y="29" width="8" height="11">
+  <object id="52" type="PROP" x="145" y="35" width="8" height="11">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -789,7 +782,7 @@
     <property name="spritesheetName" value="amphora3"/>
    </properties>
   </object>
-  <object id="53" type="PROP" x="128" y="29" width="8" height="11">
+  <object id="53" type="PROP" x="119" y="51" width="8" height="11">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -799,7 +792,7 @@
     <property name="spritesheetName" value="amphora3"/>
    </properties>
   </object>
-  <object id="54" type="PROP" x="122" y="28" width="8" height="11">
+  <object id="54" type="PROP" x="119" y="38" width="8" height="11">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -849,5 +842,49 @@
     <property name="spritesheetName" value="table3"/>
    </properties>
   </object>
+  <object id="60" type="PROP" x="264" y="33" width="24" height="23">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="false"/>
+    <property name="collisionboxHeight" value="23.0"/>
+    <property name="collisionboxWidth" value="24.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="cage1"/>
+   </properties>
+  </object>
+  <object id="65" type="PROP" x="106" y="0" width="56" height="27">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="false"/>
+    <property name="collisionboxHeight" value="27.0"/>
+    <property name="collisionboxWidth" value="56.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="cage2"/>
+   </properties>
+  </object>
+  <object id="66" type="PROP" x="162" y="0" width="56" height="27">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="false"/>
+    <property name="collisionboxHeight" value="27.0"/>
+    <property name="collisionboxWidth" value="56.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="cage2"/>
+   </properties>
+  </object>
+  <object id="69" type="COLLISIONBOX" x="216" y="8" width="4" height="19"/>
+  <object id="70" type="PROP" x="3" y="7" width="56" height="27">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="false"/>
+    <property name="collisionboxHeight" value="27.0"/>
+    <property name="collisionboxWidth" value="56.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="cage2"/>
+   </properties>
+  </object>
+  <object id="71" type="COLLISIONBOX" x="57" y="18" width="4" height="19"/>
+  <object id="72" type="COLLISIONBOX" x="8" y="32" width="49" height="5"/>
+  <object id="73" type="COLLISIONBOX" x="8" y="18" width="49" height="4"/>
  </objectgroup>
 </map>
