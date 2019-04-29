@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="15" height="17" tilewidth="8" tileheight="8" infinite="0" nextlayerid="41" nextobjectid="5">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="15" height="17" tilewidth="8" tileheight="8" infinite="0" nextobjectid="5" nextlayerid="41" name="level0">
  <properties>
   <property name="AMBIENTLIGHT" value="#00ffffff"/>
   <property name="GRAVITY" type="int" value="0"/>
@@ -383,5 +383,18 @@
  <objectgroup id="12" name="props">
   <object id="9" type="COLLISIONBOX" x="0" y="89" width="120" height="12"/>
   <object id="12" type="COLLISIONBOX" x="0" y="16" width="40" height="8"/>
+  <object id="13" type="CREATURE" x="108" y="76" width="4" height="4">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="false"/>
+    <property name="collisionValign" value="MIDDLE"/>
+    <property name="collisionboxHeight" value="2.0"/>
+    <property name="collisionboxWidth" type="float" value="2.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="scaling" type="bool" value="true"/>
+    <property name="spawnDirection" value="DOWN"/>
+    <property name="spritesheetName" value="decormob-cockroach"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

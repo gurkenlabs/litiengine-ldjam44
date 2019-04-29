@@ -5,9 +5,8 @@ import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 
-import com.jcraft.jogg.Buffer;
-
 import de.gurkenlabs.ldjam44.GameManager;
+import de.gurkenlabs.ldjam44.GameManager.GameState;
 import de.gurkenlabs.ldjam44.entities.Enemy;
 import de.gurkenlabs.ldjam44.entities.Gatekeeper;
 import de.gurkenlabs.ldjam44.entities.Player;
@@ -48,7 +47,7 @@ public class Hud extends GuiComponent {
 
     g.setColor(Color.RED);
 
-    if (Game.world().environment() == null || Player.instance().getState() != PlayerState.CONTROLLABLE) {
+    if (Game.world().environment() == null || Player.instance().getState() != PlayerState.CONTROLLABLE || GameManager.getState() != GameState.INGAME) {
       return;
     }
 

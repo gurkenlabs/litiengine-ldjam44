@@ -1,7 +1,5 @@
 package de.gurkenlabs.ldjam44;
 
-import java.awt.event.KeyEvent;
-
 import de.gurkenlabs.ldjam44.ui.IngameScreen;
 import de.gurkenlabs.ldjam44.ui.MenuScreen;
 import de.gurkenlabs.litiengine.Game;
@@ -44,11 +42,6 @@ public class Program {
     PlayerInput.init();
 
     Game.screens().display("MENU");
-
-    // make the game exit upon pressing ESCAPE (by default there is no such key
-    // binding and the window needs to be shutdown otherwise, e.g. ALT-F4 on
-    // Windows)
-    Input.keyboard().onKeyPressed(KeyEvent.VK_ESCAPE, e -> System.exit(0));
 
     Game.start();
   }

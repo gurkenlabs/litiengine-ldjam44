@@ -2,6 +2,7 @@ package de.gurkenlabs.ldjam44.entities;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
 import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 
@@ -55,7 +56,13 @@ public class Player extends Creature implements IRenderable, IUpdateable {
 
     this.strike = new Strike(this);
     this.dash = new JumpAbility(this);
-    this.setController(IMovementController.class, new KeyboardEntityController<>(this));
+    KeyboardEntityController<Player> movementController = new KeyboardEntityController<>(this);
+    movementController.addUpKey(KeyEvent.VK_UP);
+    movementController.addDownKey(KeyEvent.VK_DOWN);
+    movementController.addLeftKey(KeyEvent.VK_LEFT);
+    movementController.addRightKey(KeyEvent.VK_RIGHT);
+
+    this.setController(IMovementController.class, movementController);
     this.getMovementController().onMoved(this::spawnWalkDust);
     this.getMovementController().onMovementCheck(e -> {
       return this.getState() == PlayerState.CONTROLLABLE;
@@ -64,7 +71,7 @@ public class Player extends Creature implements IRenderable, IUpdateable {
     this.addHitListener(e -> {
       spawnHitEmitter(e.getEntity(), e);
     });
-    
+
     this.setMapId(100000);
   }
 

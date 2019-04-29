@@ -5,7 +5,8 @@ import java.awt.Shape;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.abilities.Ability;
 import de.gurkenlabs.litiengine.abilities.effects.Effect;
-
+import de.gurkenlabs.litiengine.abilities.effects.EffectApplication;
+import de.gurkenlabs.litiengine.entities.ICombatEntity;
 
 public class ScreenShakeEffect extends Effect {
 
@@ -23,5 +24,13 @@ public class ScreenShakeEffect extends Effect {
   public void apply(final Shape impactArea) {
     super.apply(impactArea);
     Game.world().camera().shake(this.intensity, 30, this.duration);
+  }
+
+  @Override
+  public void cease(ICombatEntity entity) {
+    super.cease(entity);
+    if (Game.world().environment().getMap().getName().equals("level0")) {
+      Game.world().camera().setFocus(Game.world().environment().getCenter());
+    }
   }
 }

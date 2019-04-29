@@ -12,7 +12,7 @@ import de.gurkenlabs.ldjam44.entities.Gatekeeper;
 import de.gurkenlabs.ldjam44.entities.HealthPot;
 import de.gurkenlabs.ldjam44.entities.Player;
 import de.gurkenlabs.ldjam44.entities.Slave;
-import de.gurkenlabs.ldjam44.entities.Enemy.EnemyType;
+import de.gurkenlabs.ldjam44.ui.IngameScreen;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Spawnpoint;
 import de.gurkenlabs.litiengine.environment.CreatureMapObjectLoader;
@@ -25,8 +25,17 @@ import de.gurkenlabs.litiengine.gui.SpeechBubbleAppearance;
 import de.gurkenlabs.litiengine.resources.Resources;
 
 public final class GameManager {
+  public enum GameState {
+    INGAME,
+    MENU,
+    INGAME_MENU
+  }
+
   public static final Font GUI_FONT = Resources.fonts().get("fsex300.ttf").deriveFont(32f);
   public static final Font SPEECH_BUBBLE_FONT = GUI_FONT.deriveFont(4f);
+  public static final Font MENU_FONT = Resources.fonts().get("CAESAR.ttf").deriveFont(40f);
+  public static final Font GUI_FONT_ALT = Resources.fonts().get("Roman.ttf").deriveFont(40f);
+
   public static final SpeechBubbleAppearance SPEECH_BUBBLE_APPEARANCE = new SpeechBubbleAppearance(new Color(16, 20, 19), new Color(255, 255, 255, 150), new Color(16, 20, 19), 5);
 
   private static final Map<String, String> cityNames = new ConcurrentHashMap<>();
@@ -49,13 +58,15 @@ public final class GameManager {
       cam.setFocus(Game.world().environment().getCenter());
       Game.world().setCamera(cam);
     });
-    
+
     startups.put("level1", () -> {
       Camera camera = new PositionLockCamera(Player.instance());
       camera.setClampToMap(true);
       Game.world().setCamera(camera);
     });
   }
+
+  private static GameState state = GameState.MENU;
 
   private GameManager() {
   }
@@ -80,15 +91,16 @@ public final class GameManager {
     // add default game logic for when a level was loaded
 
     Game.world().addLoadedListener(e -> {
+      Game.loop().perform(500, () -> Game.window().getRenderComponent().fadeIn(500));
+
       if (startups.containsKey(e.getMap().getName())) {
         startups.get(e.getMap().getName()).run();
       }
-
+      Player.instance().getHitPoints().setToMaxValue();
       // spawn the player instance on the spawn point with the name "enter"
       Spawnpoint enter = e.getSpawnpoint("enter");
       if (enter != null) {
         enter.spawn(Player.instance());
-        Player.instance().getHitPoints().setToMaxValue();
       }
     });
   }
@@ -120,5 +132,21 @@ public final class GameManager {
     }
 
     return cityNames.get(levelName);
+  }
+
+  public static GameState getState() {
+    return state;
+  }
+
+  public static void setState(GameState state) {
+    GameManager.state = state;
+
+    if (getState() == GameState.INGAME_MENU) {
+      Game.loop().setTimeScale(0);
+      IngameScreen.ingameMenu.setVisible(true);
+    } else {
+      Game.loop().setTimeScale(1);
+      IngameScreen.ingameMenu.setVisible(false);
+    }
   }
 }

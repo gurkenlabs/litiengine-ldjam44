@@ -1,29 +1,24 @@
 package de.gurkenlabs.ldjam44.ui;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
+import de.gurkenlabs.ldjam44.GameManager;
+import de.gurkenlabs.ldjam44.GameManager.GameState;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.IUpdateable;
 import de.gurkenlabs.litiengine.graphics.ImageRenderer;
 import de.gurkenlabs.litiengine.graphics.TextRenderer;
-import de.gurkenlabs.litiengine.gui.Menu;
 import de.gurkenlabs.litiengine.gui.screens.Screen;
 import de.gurkenlabs.litiengine.resources.Resources;
 import de.gurkenlabs.litiengine.util.Imaging;
 import de.gurkenlabs.litiengine.util.MathUtilities;
 
 public class MenuScreen extends Screen implements IUpdateable {
-  public static final Font MENU_FONT = Resources.fonts().get("CAESAR.ttf").deriveFont(40f);
-  public static final Font GUI_FONT = Resources.fonts().get("Roman.ttf").deriveFont(40f);
-  public static final Color ROMAN_RED = new Color(140, 16, 16);
-  public static final Color BUTTON_RED = new Color(140, 16, 16, 200);
-  public static final Color BUTTON_BLACK = new Color(0, 0, 0, 200);
 
-  private static final BufferedImage LOGO_COIN = Resources.images().get("logo_pass2.png");
+  public static final BufferedImage LOGO_COIN = Resources.images().get("logo_pass2.png");
   private static final BufferedImage BG = Imaging.scale(Resources.images().get("menu_bg.png"), Game.window().getWidth(), Game.window().getHeight());
   private static final BufferedImage CLOUD1 = Imaging.scale(Resources.images().get("cloud1.png"), 6f);
   private static final BufferedImage CLOUD2 = Imaging.scale(Resources.images().get("cloud2.png"), 6f);
@@ -38,7 +33,7 @@ public class MenuScreen extends Screen implements IUpdateable {
 
   public long lastPlayed;
 
-  private Menu mainMenu;
+  private KeyboardMenu mainMenu;
 
   public MenuScreen() {
     super("MENU");
@@ -54,18 +49,13 @@ public class MenuScreen extends Screen implements IUpdateable {
     final double centerY = Game.window().getResolution().getHeight() * 1 / 2;
     final double buttonWidth = 450;
 
-    this.mainMenu = new Menu(centerX - buttonWidth / 2, centerY * 1.3, buttonWidth, centerY / 2, "Play", "Instructions", "Exit");
+    this.mainMenu = new KeyboardMenu(centerX - buttonWidth / 2, centerY * 1.3, buttonWidth, centerY / 2, "Play", "Instructions", "Exit");
 
     this.getComponents().add(this.mainMenu);
-    this.mainMenu.onChange(c -> {
+    this.mainMenu.onConfirm(c -> {
       switch (c.intValue()) {
       case 0:
         this.startGame();
-        // load the first level (resources for the map were implicitly loaded
-        // from
-        // the
-        // game file)
-        Game.world().loadEnvironment("level0");
         break;
       case 1:
         this.showInstructions();
@@ -85,17 +75,6 @@ public class MenuScreen extends Screen implements IUpdateable {
     Game.loop().attach(this);
     Game.window().getRenderComponent().setBackground(Color.BLACK);
     Game.graphics().setBaseRenderScale(6f * Game.window().getResolutionScale());
-
-    this.mainMenu.getCellComponents().forEach(comp -> {
-      comp.setFont(MENU_FONT);
-      comp.getAppearance().setForeColor(Color.WHITE);
-      comp.getAppearance().setBackgroundColor1(BUTTON_BLACK);
-      comp.getAppearanceHovered().setBackgroundColor1(BUTTON_RED);
-      comp.getAppearance().setTransparentBackground(false);
-      comp.getAppearanceHovered().setTransparentBackground(false);
-      comp.getAppearance().setTextAntialiasing(RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-      comp.getAppearanceHovered().setTextAntialiasing(RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-    });
   }
 
   @Override
@@ -107,7 +86,7 @@ public class MenuScreen extends Screen implements IUpdateable {
     final double logoY = Game.window().getResolution().getHeight() * 1 / 12;
     ImageRenderer.render(g, LOGO_COIN, logoX, logoY);
     // ImageRenderer.render(g, LOGO_TEXT, logoX, logoY);
-    g.setFont(GUI_FONT.deriveFont(20f));
+    g.setFont(GameManager.GUI_FONT_ALT.deriveFont(20f));
     final double stringWidth = g.getFontMetrics().stringWidth(COPYRIGHT);
     g.setColor(Color.WHITE);
     TextRenderer.renderWithOutline(g, COPYRIGHT, centerX - stringWidth / 2, Game.window().getResolution().getHeight() * 19 / 20, Color.BLACK, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -120,8 +99,13 @@ public class MenuScreen extends Screen implements IUpdateable {
 
   private void startGame() {
     this.mainMenu.setEnabled(false);
-    // Game.window().getRenderComponent().fadeOut(2500);
-    Game.screens().display("INGAME-SCREEN");
+    Game.window().getRenderComponent().fadeOut(2500);
+
+    Game.loop().perform(3500, () -> {
+      Game.screens().display("INGAME-SCREEN");
+      Game.world().loadEnvironment("level0");
+      GameManager.setState(GameState.INGAME);
+    });
   }
 
   @Override

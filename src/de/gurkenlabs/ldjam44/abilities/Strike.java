@@ -32,7 +32,7 @@ public class Strike extends OffensiveAbility {
     this.addEffect(this.hitEffect);
 
     if (executor instanceof Player) {
-      this.addEffect(new ScreenShakeEffect(this, 1, 100));
+      this.addEffect(new ScreenShakeEffect(this, 0.5, 100));
     }
 
     this.onCast(e -> {

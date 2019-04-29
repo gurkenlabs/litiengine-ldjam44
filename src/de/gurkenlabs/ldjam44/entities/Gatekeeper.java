@@ -38,7 +38,7 @@ public class Gatekeeper extends Creature {
       }
 
       if (l.getMessage().equals(MESSAGE_FINISH)) {
-        String text = "You need to trade me " + this.requiredSlaves + " slaves to advance!";
+        String text = "You need to trade me " + this.requiredSlaves + " slave" + (this.requiredSlaves > 1 ? "s" : "") + " to advance!";
         if (GameManager.getOwnSlaveCount() >= this.getRequiredSlaves()) {
           text = "WELL DONE! Now I can take you to " + GameManager.getCity(this.getNextLevel()) + ".";
           Game.audio().playSound(Resources.sounds().get("success"));
@@ -50,9 +50,13 @@ public class Gatekeeper extends Creature {
             @Override
             public void hidden() {
 
-              // remove player before unloading the environment or the instance's animation controller will be disposed
-              Game.world().environment().remove(Player.instance());
-              Game.world().loadEnvironment(getNextLevel());
+              Game.window().getRenderComponent().fadeOut(1000);
+
+              Game.loop().perform(1500, () -> {
+                // remove player before unloading the environment or the instance's animation controller will be disposed
+                Game.world().environment().remove(Player.instance());
+                Game.world().loadEnvironment(getNextLevel());
+              });
             }
           });
         } else {
@@ -94,14 +98,17 @@ public class Gatekeeper extends Creature {
 
   private void performIntroduction() {
     SpeechBubble bubble1 = SpeechBubble.create(this, "Welcome to " + GameManager.getCity(Game.world().environment().getMap().getName()) + "! It's dusty around here...", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
+    bubble1.setTextDisplayTime(3000);
     bubble1.addListener(new SpeechBubbleListener() {
       @Override
       public void hidden() {
         SpeechBubble bubble2 = SpeechBubble.create(Gatekeeper.this, "You need to proove your worth to me!", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
+        bubble2.setTextDisplayTime(3000);
         bubble2.addListener(new SpeechBubbleListener() {
           @Override
           public void hidden() {
             SpeechBubble bubble3 = SpeechBubble.create(Gatekeeper.this, "Bring me a slave and I will transport you to a more gloryous settlement.", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
+            bubble3.setTextDisplayTime(5000);
             bubble3.addListener(new SpeechBubbleListener() {
               @Override
               public void hidden() {
