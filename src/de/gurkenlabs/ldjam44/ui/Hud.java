@@ -53,7 +53,7 @@ public class Hud extends GuiComponent {
 
     g.setColor(Color.RED);
 
-    if (Game.world().environment() == null || Player.instance().getState() != PlayerState.CONTROLLABLE || GameManager.getState() != GameState.INGAME) {
+    if (Game.world().environment() == null || Player.instance().isDead() || Player.instance().getState() != PlayerState.CONTROLLABLE || GameManager.getState() != GameState.INGAME) {
       return;
     }
 
@@ -61,16 +61,6 @@ public class Hud extends GuiComponent {
     this.renderKeeperUI(g);
     this.renderHP(g);
     this.renderSlaves(g);
-
-    if (Player.instance().isDead()) {
-      g.setFont(g.getFont().deriveFont(20f));
-      TextRenderer.render(g, "YOU ARE DEAD!", Game.window().getCenter());
-    }
-
-    if (GameManager.getState() == GameState.SLAVES_DEAD) {
-      g.setFont(g.getFont().deriveFont(20f));
-      TextRenderer.render(g, "TOO MANY SLAVES KILLED!", Game.window().getCenter());
-    }
 
     this.renderUseButton(g);
   }
@@ -133,7 +123,7 @@ public class Hud extends GuiComponent {
   private void renderHP(Graphics2D g) {
 
     double y = Game.window().getResolution().getHeight() - PADDING * 2 - HEART.getHeight();
-    double x = Game.window().getResolution().getWidth() / 2.0 - ((Player.instance().getHitPoints().getMaxValue() * (HEART.getWidth() + PADDING) * 0.5)- PADDING);
+    double x = Game.window().getResolution().getWidth() / 2.0 - ((Player.instance().getHitPoints().getMaxValue() * (HEART.getWidth() + PADDING) * 0.5) - PADDING);
     for (int i = 0; i < Player.instance().getHitPoints().getMaxValue(); i++) {
       BufferedImage img = i < Player.instance().getHitPoints().getCurrentValue() ? HEART : HEART_EMPTY;
       ImageRenderer.render(g, img, x + i * img.getWidth() + PADDING, y);

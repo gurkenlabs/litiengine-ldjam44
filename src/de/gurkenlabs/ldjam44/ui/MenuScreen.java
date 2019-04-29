@@ -19,6 +19,7 @@ import de.gurkenlabs.litiengine.util.MathUtilities;
 public class MenuScreen extends Screen implements IUpdateable {
 
   public static final BufferedImage LOGO_COIN = Resources.images().get("logo_pass2.png");
+  public static final BufferedImage CONTROLS = Resources.images().get("controls.png");
   private static final BufferedImage BG = Imaging.scale(Resources.images().get("menu_bg.png"), Game.window().getWidth(), Game.window().getHeight());
   private static final BufferedImage CLOUD1 = Imaging.scale(Resources.images().get("cloud1.png"), 6f);
   private static final BufferedImage CLOUD2 = Imaging.scale(Resources.images().get("cloud2.png"), 6f);
@@ -34,6 +35,7 @@ public class MenuScreen extends Screen implements IUpdateable {
   public long lastPlayed;
 
   private KeyboardMenu mainMenu;
+  private boolean renderInstructions;
 
   public MenuScreen() {
     super("MENU");
@@ -52,13 +54,15 @@ public class MenuScreen extends Screen implements IUpdateable {
     this.mainMenu = new KeyboardMenu(centerX - buttonWidth / 2, centerY * 1.3, buttonWidth, centerY / 2, "Play", "Instructions", "Exit");
 
     this.getComponents().add(this.mainMenu);
+
+    this.mainMenu.onChange(c -> {
+      this.renderInstructions = c == 1;
+    });
+
     this.mainMenu.onConfirm(c -> {
       switch (c.intValue()) {
       case 0:
         this.startGame();
-        break;
-      case 1:
-        this.showInstructions();
         break;
       case 2:
         this.exit();
@@ -75,6 +79,7 @@ public class MenuScreen extends Screen implements IUpdateable {
     Game.loop().attach(this);
     Game.window().getRenderComponent().setBackground(Color.BLACK);
     Game.graphics().setBaseRenderScale(6f * Game.window().getResolutionScale());
+    this.mainMenu.incFocus();
   }
 
   @Override
@@ -86,19 +91,21 @@ public class MenuScreen extends Screen implements IUpdateable {
     final double logoY = Game.window().getResolution().getHeight() * 1 / 12;
     ImageRenderer.render(g, LOGO_COIN, logoX, logoY);
     // ImageRenderer.render(g, LOGO_TEXT, logoX, logoY);
-    g.setFont(GameManager.GUI_FONT_ALT.deriveFont(20f));
+    g.setFont(GameManager.GUI_FONT);
     final double stringWidth = g.getFontMetrics().stringWidth(COPYRIGHT);
     g.setColor(Color.WHITE);
     TextRenderer.renderWithOutline(g, COPYRIGHT, centerX - stringWidth / 2, Game.window().getResolution().getHeight() * 19 / 20, Color.BLACK, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-    super.render(g);
-  }
 
-  private void showInstructions() {
-    System.out.println("settings");
+    if (this.renderInstructions) {
+      final double controlsY = Game.window().getResolution().getHeight() - MenuScreen.CONTROLS.getHeight() - 20;
+      ImageRenderer.render(g, MenuScreen.CONTROLS, 20, controlsY);
+    }
+    super.render(g);
   }
 
   private void startGame() {
     this.mainMenu.setEnabled(false);
+    Game.audio().playSound("confirm.ogg");
     Game.window().getRenderComponent().fadeOut(2500);
 
     Game.loop().perform(3500, () -> {

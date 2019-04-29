@@ -30,13 +30,15 @@ public class KeyboardMenu extends Menu {
     super(x, y, width, height, items);
     this.confirmConsumer = new CopyOnWriteArrayList<>();
 
-    Input.keyboard().onKeyPressed(KeyEvent.VK_ENTER, e -> {
-      if (this.menuInputIsLocked()) {
-        return;
-      }
+    Input.keyboard().onKeyPressed(e -> {
+      if (e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_E) {
+        if (this.menuInputIsLocked()) {
+          return;
+        }
 
-      this.confirm();
-      lastMenuInput = Game.time().now();
+        this.confirm();
+        lastMenuInput = Game.time().now();
+      }
     });
 
     Input.keyboard().onKeyPressed(KeyEvent.VK_UP, e -> {
@@ -76,7 +78,7 @@ public class KeyboardMenu extends Menu {
       this.currentFocus = 0;
       this.getCellComponents().get(0).setHovered(true);
     }
-    
+
     this.getCellComponents().forEach(comp -> {
       comp.setFont(GameManager.MENU_FONT);
       comp.getAppearance().setForeColor(Color.WHITE);
@@ -99,17 +101,18 @@ public class KeyboardMenu extends Menu {
     }
   }
 
-  private void decFocus() {
+  protected void decFocus() {
     this.currentFocus = Math.floorMod(--this.currentFocus, this.getCellComponents().size());
     this.updateFocus();
   }
 
-  private void incFocus() {
+  protected void incFocus() {
     this.currentFocus = ++this.currentFocus % this.getCellComponents().size();
     this.updateFocus();
   }
 
   protected void updateFocus() {
+    this.setCurrentSelection(this.currentFocus);
     for (int i = 0; i < this.getCellComponents().size(); i++) {
       this.getCellComponents().get(i).setHovered(i == this.currentFocus);
     }

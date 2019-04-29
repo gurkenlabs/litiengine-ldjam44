@@ -111,6 +111,9 @@ public class IngameScreen extends Screen {
       final double logoX = Game.window().getCenter().getX() - MenuScreen.LOGO_COIN.getWidth() / 2;
       final double logoY = Game.window().getResolution().getHeight() * 1 / 12;
       ImageRenderer.render(g, MenuScreen.LOGO_COIN, logoX, logoY);
+
+      final double controlsY = Game.window().getResolution().getHeight() - MenuScreen.CONTROLS.getHeight() - 20;
+      ImageRenderer.render(g, MenuScreen.CONTROLS, 20, controlsY);
     }
 
     if (GameManager.getState() == GameState.SLAVES_DEAD) {
@@ -126,37 +129,39 @@ public class IngameScreen extends Screen {
     super.render(g);
 
     // render level name
-    if (Game.world().environment() != null && levelNameTick != 0) {
+    if (Game.world().environment() != null && levelNameTick != 0 && GameManager.getState() == GameState.INGAME) {
       long deltaTime = Game.time().since(levelNameTick);
 
       if (deltaTime > 1000 && deltaTime < LEVELNAME_DURATION) {
         // fade out status color
         final double fadeOutTime = 0.75 * LEVELNAME_DURATION;
+
+        int alpha = 255;
         if (deltaTime > fadeOutTime) {
           double fade = deltaTime - fadeOutTime;
-          int alpha = (int) (255 - (fade / (LEVELNAME_DURATION - fadeOutTime)) * 255);
-          g.setColor(new Color(0, 0, 0, MathUtilities.clamp(alpha, 0, 255)));
+          alpha = (int) (255 - (fade / (LEVELNAME_DURATION - fadeOutTime)) * 255);
+          alpha = MathUtilities.clamp(alpha, 0, 255);
         }
 
-        g.setColor(new Color(0, 0, 0));
+        g.setColor(new Color(255, 255, 255, alpha));
 
         // TITLE
         Font old = g.getFont();
-        g.setFont(GameManager.GUI_FONT_ALT.deriveFont(60f));
+        g.setFont(GameManager.GUI_FONT.deriveFont(60f));
         FontMetrics fm = g.getFontMetrics();
 
         String cityName = GameManager.getCity(Game.world().environment().getMap().getName());
         double x = Game.window().getCenter().getX() - fm.stringWidth(cityName) / 2.0;
-        TextRenderer.render(g, cityName, x, 150, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        TextRenderer.renderWithOutline(g, cityName, x, 150, new Color(0, 0, 0, alpha), RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
         // DESCRIPTION
         String description = Game.world().environment().getMap().getStringValue(MapProperty.MAP_DESCRIPTION);
         if (description != null && !description.isEmpty()) {
-          g.setFont(GameManager.GUI_FONT_ALT.deriveFont(32f));
+          g.setFont(GameManager.GUI_FONT.deriveFont(32f));
           FontMetrics fm2 = g.getFontMetrics();
 
           double x2 = Game.window().getCenter().getX() - fm2.stringWidth(description) / 2.0;
-          TextRenderer.render(g, description, x2, 210, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+          TextRenderer.renderWithOutline(g, description, x2, 210, new Color(0, 0, 0, alpha), RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
           g.setFont(old);
         }
       }
