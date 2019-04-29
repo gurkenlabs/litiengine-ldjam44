@@ -110,24 +110,24 @@ public class Gatekeeper extends Creature {
 
     SpeechBubble bubble1 = SpeechBubble.create(this, String.format("%s is a terrible dust pit. Let us seek fortune together in Rome, the heart of this glorious empire!", Game.world().environment().getMap().getStringValue(MapProperty.MAP_TITLE)), GameManager.SPEECH_BUBBLE_APPEARANCE,
         GameManager.SPEECH_BUBBLE_FONT);
-    bubble1.setTextDisplayTime(5000);
+    bubble1.setTextDisplayTime(6500);
     bubble1.addListener(new SpeechBubbleListener() {
       @Override
       public void hidden() {
 
         SpeechBubble bubble2 = SpeechBubble.create(Gatekeeper.this, "First, you need to prove your worth to me!", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
-        bubble2.setTextDisplayTime(3000);
+        bubble2.setTextDisplayTime(4500);
         bubble2.addListener(new SpeechBubbleListener() {
           @Override
           public void hidden() {
             SpeechBubble bubble3 = SpeechBubble.create(Gatekeeper.this, "Bring me a slave and I will help you travel to a more glorious place.", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
-            bubble3.setTextDisplayTime(4000);
+            bubble3.setTextDisplayTime(5500);
             bubble3.addListener(new SpeechBubbleListener() {
               @Override
               public void hidden() {
 
                 SpeechBubble bubble4 = SpeechBubble.create(Gatekeeper.this, "Maybe you could ask that Roman soldier over there nicely to hand over his slave to you.", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
-                bubble4.setTextDisplayTime(6000);
+                bubble4.setTextDisplayTime(6500);
                 bubble4.addListener(new SpeechBubbleListener() {
                   @Override
                   public void hidden() {
