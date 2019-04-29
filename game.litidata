@@ -4797,7 +4797,7 @@
       <property name="collisionboxWidth" value="6.0"/>
       <property name="indestructible" type="bool" value="true"/>
       <property name="spawnDirection" value="DOWN"/>
-      <property name="spritesheetName" value="enemy_silver"/>
+      <property name="spritesheetName" value="enemy_gold"/>
      </properties>
     </object>
     <object id="17" type="CREATURE" x="82" y="41" width="7" height="13">
@@ -5312,7 +5312,7 @@
      <properties>
       <property name="addShadow" type="bool" value="true"/>
       <property name="collision" type="bool" value="true"/>
-      <property name="collisionboxHeight" value="20.0"/>
+      <property name="collisionboxHeight" type="float" value="8.0"/>
       <property name="collisionboxWidth" value="16.0"/>
       <property name="indestructible" type="bool" value="false"/>
       <property name="spritesheetName" value="table1"/>
