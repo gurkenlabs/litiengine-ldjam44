@@ -6,7 +6,6 @@ import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.abilities.Ability;
 import de.gurkenlabs.litiengine.abilities.effects.Effect;
 import de.gurkenlabs.litiengine.abilities.effects.EffectApplication;
-import de.gurkenlabs.litiengine.entities.ICombatEntity;
 
 public class ScreenShakeEffect extends Effect {
 

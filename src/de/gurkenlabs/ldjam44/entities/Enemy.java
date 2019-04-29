@@ -25,7 +25,6 @@ import de.gurkenlabs.litiengine.annotation.CollisionInfo;
 import de.gurkenlabs.litiengine.annotation.CombatInfo;
 import de.gurkenlabs.litiengine.annotation.EntityInfo;
 import de.gurkenlabs.litiengine.annotation.MovementInfo;
-import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.entities.ICollisionEntity;
 import de.gurkenlabs.litiengine.environment.Environment;
 import de.gurkenlabs.litiengine.graphics.IRenderable;
@@ -267,9 +266,9 @@ public class Enemy extends Mob implements IRenderable {
   public void setEngaging(boolean engaging) {
     this.engaging = engaging;
   }
-  
+
   @Override
   public boolean canCollideWith(final ICollisionEntity otherEntity) {
-    return  !(otherEntity instanceof DecorMob);
+    return !(otherEntity instanceof DecorMob) && !(otherEntity instanceof Enemy);
   }
 }

@@ -102,6 +102,7 @@ public final class GameManager {
       setState(GameState.INGAME);
       Player.instance().getHitPoints().setToMaxValue();
       Player.instance().setIndestructible(false);
+      Player.instance().setCollision(true);
       // spawn the player instance on the spawn point with the name "enter"
       Spawnpoint enter = e.getSpawnpoint("enter");
       if (enter != null) {

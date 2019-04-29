@@ -3,6 +3,7 @@ package de.gurkenlabs.ldjam44.ui;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
 
 import de.gurkenlabs.ldjam44.GameManager;
 import de.gurkenlabs.ldjam44.GameManager.GameState;
@@ -12,8 +13,12 @@ import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.environment.Environment;
 import de.gurkenlabs.litiengine.graphics.ImageRenderer;
 import de.gurkenlabs.litiengine.gui.screens.Screen;
+import de.gurkenlabs.litiengine.resources.Resources;
 
 public class IngameScreen extends Screen {
+  private final BufferedImage NOTE_DEATH = Resources.images().get("died.png");
+  private final BufferedImage NOTE_SLAVES = Resources.images().get("slaves-killed.png");
+
   public static final String NAME = "INGAME-SCREEN";
   private static final int CINEMATIC_BORDER = 100;
 
@@ -98,9 +103,16 @@ public class IngameScreen extends Screen {
       final double logoY = Game.window().getResolution().getHeight() * 1 / 12;
       ImageRenderer.render(g, MenuScreen.LOGO_COIN, logoX, logoY);
     }
-    
-    // TODO RENDER MESSAGE FOR GameManager.getState() == GameState.SLAVES_DEAD
-    // TODO RENDER MESSAGE FOR GameManager.getState() == GameState.INGAME && Player.instance().isDead()
+
+    if (GameManager.getState() == GameState.SLAVES_DEAD) {
+      double x = Game.window().getCenter().getX() - NOTE_SLAVES.getWidth() / 2.0;
+      double y = Game.window().getCenter().getY() - NOTE_SLAVES.getHeight();
+      ImageRenderer.render(g, NOTE_SLAVES, x, y);
+    } else if (GameManager.getState() == GameState.INGAME && Player.instance().isDead()) {
+      double x = Game.window().getCenter().getX() - NOTE_DEATH.getWidth() / 2.0;
+      double y = Game.window().getCenter().getY() - NOTE_DEATH.getHeight();
+      ImageRenderer.render(g, NOTE_DEATH, x, y);
+    }
 
     super.render(g);
   }
