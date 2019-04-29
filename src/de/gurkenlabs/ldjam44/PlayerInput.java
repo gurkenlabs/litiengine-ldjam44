@@ -27,7 +27,7 @@ public final class PlayerInput {
       }
     });
 
-    Input.keyboard().onKeyPressed(KeyEvent.VK_SPACE, e -> {
+    Input.keyboard().onKeyPressed(KeyEvent.VK_CONTROL, e -> {
       if (Player.instance().getState() != PlayerState.CONTROLLABLE) {
         return;
       }
@@ -35,7 +35,7 @@ public final class PlayerInput {
       Player.instance().getStrike().cast();
     });
 
-    Input.keyboard().onKeyPressed(KeyEvent.VK_SHIFT, e -> {
+    Input.keyboard().onKeyPressed(KeyEvent.VK_SPACE, e -> {
       if (Player.instance().getState() != PlayerState.CONTROLLABLE) {
         return;
       }

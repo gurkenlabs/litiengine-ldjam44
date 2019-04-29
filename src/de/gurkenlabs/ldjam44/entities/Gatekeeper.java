@@ -1,5 +1,6 @@
 package de.gurkenlabs.ldjam44.entities;
 
+import java.awt.event.KeyEvent;
 import java.text.MessageFormat;
 
 import de.gurkenlabs.ldjam44.GameManager;
@@ -14,6 +15,7 @@ import de.gurkenlabs.litiengine.environment.Environment;
 import de.gurkenlabs.litiengine.environment.tilemap.MapProperty;
 import de.gurkenlabs.litiengine.gui.SpeechBubble;
 import de.gurkenlabs.litiengine.gui.SpeechBubbleListener;
+import de.gurkenlabs.litiengine.input.Input;
 import de.gurkenlabs.litiengine.resources.Resources;
 import de.gurkenlabs.litiengine.util.ArrayUtilities;
 
@@ -30,12 +32,25 @@ public class Gatekeeper extends Creature {
 
   private boolean transitioning;
 
+  private boolean tutorial;
+
+  private SpeechBubble tutorialBubble;
+
   static {
     rudeLines = Resources.strings().getList("rude.txt");
     goalLines = Resources.strings().getList("goal.txt");
   }
 
   public Gatekeeper() {
+
+    Input.keyboard().onKeyReleased(e -> {
+      if (e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_E) {
+        if (this.isTutorial() && this.tutorialBubble != null) {
+          this.tutorialBubble.hide();
+        }
+      }
+    });
+
     this.addMessageListener(l -> {
       if (l.getMessage() == null) {
         return;
@@ -107,31 +122,37 @@ public class Gatekeeper extends Creature {
   }
 
   private void performIntroduction() {
-
+    this.tutorial = true;
     SpeechBubble bubble1 = SpeechBubble.create(this, String.format("%s is a terrible dust pit. Let us seek fortune together in Rome, the heart of this glorious empire!", Game.world().environment().getMap().getStringValue(MapProperty.MAP_TITLE)), GameManager.SPEECH_BUBBLE_APPEARANCE,
         GameManager.SPEECH_BUBBLE_FONT);
     bubble1.setTextDisplayTime(6500);
+    tutorialBubble = bubble1;
     bubble1.addListener(new SpeechBubbleListener() {
       @Override
       public void hidden() {
 
         SpeechBubble bubble2 = SpeechBubble.create(Gatekeeper.this, "First, you need to prove your worth to me!", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
         bubble2.setTextDisplayTime(4500);
+        tutorialBubble = bubble2;
         bubble2.addListener(new SpeechBubbleListener() {
           @Override
           public void hidden() {
             SpeechBubble bubble3 = SpeechBubble.create(Gatekeeper.this, "Bring me a slave and I will help you travel to a more glorious place.", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
             bubble3.setTextDisplayTime(5500);
+            tutorialBubble = bubble3;
             bubble3.addListener(new SpeechBubbleListener() {
               @Override
               public void hidden() {
 
                 SpeechBubble bubble4 = SpeechBubble.create(Gatekeeper.this, "Maybe you could ask that Roman soldier over there nicely to hand over his slave to you.", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
                 bubble4.setTextDisplayTime(6500);
+                tutorialBubble = bubble4;
                 bubble4.addListener(new SpeechBubbleListener() {
                   @Override
                   public void hidden() {
                     Player.instance().setState(PlayerState.CONTROLLABLE);
+                    tutorial = false;
+                    tutorialBubble = null;
                   }
                 });
               }
@@ -157,5 +178,13 @@ public class Gatekeeper extends Creature {
 
   public void setTransitioning(boolean transitioning) {
     this.transitioning = transitioning;
+  }
+
+  public boolean isTutorial() {
+    return tutorial;
+  }
+
+  public void setTutorial(boolean tutorial) {
+    this.tutorial = tutorial;
   }
 }
