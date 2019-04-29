@@ -437,7 +437,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="10" name="collision" visible="1">
+ <objectgroup id="10" name="collision">
   <object id="59" type="COLLISIONBOX" x="288" y="80" width="8" height="48"/>
   <object id="60" type="COLLISIONBOX" x="0" y="0" width="8" height="144"/>
   <object id="61" type="COLLISIONBOX" x="320" y="0" width="8" height="144"/>
@@ -461,7 +461,7 @@
   <object id="85" type="COLLISIONBOX" x="305" y="108" width="15" height="3"/>
   <object id="86" type="COLLISIONBOX" x="305" y="119" width="15" height="4"/>
  </objectgroup>
- <objectgroup id="11" name="spawnpoints" visible="0">
+ <objectgroup id="11" name="spawnpoints" visible="1">
   <object id="7" name="enter" type="SPAWNPOINT" x="73" y="122" width="11" height="20"/>
   <object id="8" name="keeper" type="CREATURE" x="59" y="116" width="11" height="20">
    <properties>
@@ -521,7 +521,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="12" name="props" visible="1">
+ <objectgroup id="12" name="props">
   <object id="24" type="CREATURE" x="32" y="112" width="4" height="4">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
