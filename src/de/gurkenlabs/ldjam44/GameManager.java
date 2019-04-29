@@ -146,6 +146,7 @@ public final class GameManager {
     }
 
     if (getState() == GameState.SLAVES_DEAD) {
+      Game.audio().playSound("fail.ogg");
       Player.instance().setState(PlayerState.LOCKED);
       Player.instance().setIndestructible(true);
     }

@@ -35,6 +35,7 @@ import de.gurkenlabs.litiengine.graphics.animation.Animation;
 import de.gurkenlabs.litiengine.graphics.animation.IAnimationController;
 import de.gurkenlabs.litiengine.gui.SpeechBubble;
 import de.gurkenlabs.litiengine.resources.Resources;
+import de.gurkenlabs.litiengine.sound.Sound;
 import de.gurkenlabs.litiengine.util.ArrayUtilities;
 import de.gurkenlabs.litiengine.util.Imaging;
 import de.gurkenlabs.litiengine.util.MathUtilities;
@@ -46,6 +47,8 @@ import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 @CollisionInfo(collisionBoxWidth = 5f, collisionBoxHeight = 8f, collision = true)
 @EntityInfo(width = 17, height = 21)
 public class Enemy extends Mob implements IRenderable {
+  private static final Sound[] deathSounds = new Sound[] { Resources.sounds().get("enemy-death1.ogg"), Resources.sounds().get("enemy-death2.ogg"), Resources.sounds().get("enemy-death3.ogg"), Resources.sounds().get("enemy-death4.ogg"), Resources.sounds().get("enemy-death5.ogg") };
+
   public static int GCD = 2000;
 
   private long lastCast;
@@ -120,6 +123,8 @@ public class Enemy extends Mob implements IRenderable {
         this.setCollisionBoxValign(Valign.TOP);
       }
 
+      Game.audio().playSound(ArrayUtilities.getRandom(deathSounds));
+
       // despawn owned slaves
       List<Slave> ownedSlaves = Game.world().environment().getByType(Slave.class).stream().filter(sla -> sla.getOwner() != null && sla.getOwner().getMapId() == this.getMapId()).collect(Collectors.toList());
       for (Slave s : ownedSlaves) {
@@ -133,7 +138,7 @@ public class Enemy extends Mob implements IRenderable {
       // spawn player slaves
       int spawns = !ownedSlaves.isEmpty() ? ownedSlaves.size() : slaves.get(this.getType());
       for (int i = 0; i < spawns; i++) {
-        
+
         // TODO: ensure that slaves don't spawn in collisionboxes
         Point2D spawn = new Point2D.Double(this.getCenter().getX() + MathUtilities.randomInRange(-10, 10), this.getCenter().getY() + MathUtilities.randomInRange(-10, 10));
 
@@ -142,6 +147,7 @@ public class Enemy extends Mob implements IRenderable {
           newSlave.setSpritePrefix("slave-monger");
           Game.world().environment().add(new SpawnEmitter(newSlave));
           Game.world().environment().add(newSlave);
+          Game.audio().playSound(Resources.sounds().get("slave-spawn.ogg"));
         });
       }
     });

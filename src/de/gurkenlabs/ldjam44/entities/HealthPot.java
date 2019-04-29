@@ -20,7 +20,7 @@ public class HealthPot extends Prop implements IUpdateable {
     if (this.getBoundingBox().intersects(Player.instance().getCollisionBox()) && Player.instance().getHitPoints().getCurrentValue() < Player.instance().getHitPoints().getMaxValue()) {
       Game.world().environment().remove(this);
       Player.instance().getHitPoints().setToMaxValue();
-      Game.audio().playSound(Resources.sounds().get("pot"));
+      Game.audio().playSound(Resources.sounds().get("pot.ogg"));
     }
   }
 }

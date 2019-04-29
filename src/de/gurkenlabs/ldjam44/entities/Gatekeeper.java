@@ -39,10 +39,12 @@ public class Gatekeeper extends Creature {
       }
 
       if (l.getMessage().equals(MESSAGE_FINISH)) {
+
         String text = String.format("You need to trade me %d slave%s or I won't help you travel to Rome.", this.requiredSlaves, (this.requiredSlaves > 1 ? "s" : ""));
         if (GameManager.getOwnSlaveCount() >= this.getRequiredSlaves()) {
           text = String.format("WELL DONE! Now I can take you to %s.", GameManager.getCity(this.getNextLevel()));
-          Game.audio().playSound(Resources.sounds().get("success"));
+
+          Game.audio().playSound(Resources.sounds().get("success.ogg"));
           SpeechBubble bubble = SpeechBubble.create(this, text, GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
           bubble.setTextDisplayTime(4000);
           Player.instance().setState(PlayerState.LOCKED);
@@ -85,6 +87,7 @@ public class Gatekeeper extends Creature {
         return;
       }
       String rude = ArrayUtilities.getRandom(rudeLines);
+
       String goal = MessageFormat.format(ArrayUtilities.getRandom(goalLines), GameManager.getCurrentCity(), this.getRequiredSlaves());
       SpeechBubble bubble = SpeechBubble.create(this, rude + " " + goal, GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
       bubble.setTextDisplayTime(5000);
@@ -98,12 +101,15 @@ public class Gatekeeper extends Creature {
   }
 
   private void performIntroduction() {
+
+
     SpeechBubble bubble1 = SpeechBubble.create(this, String.format("%s is a terrible dust pit. Let us seek fortune together in Rome, the heart of this glorious empire!", Game.world().environment().getMap().getStringValue(MapProperty.MAP_TITLE)), GameManager.SPEECH_BUBBLE_APPEARANCE,
         GameManager.SPEECH_BUBBLE_FONT);
     bubble1.setTextDisplayTime(5000);
     bubble1.addListener(new SpeechBubbleListener() {
       @Override
       public void hidden() {
+
         SpeechBubble bubble2 = SpeechBubble.create(Gatekeeper.this, "First, you need to prove your worth to me!", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
         bubble2.setTextDisplayTime(3000);
         bubble2.addListener(new SpeechBubbleListener() {
@@ -114,6 +120,7 @@ public class Gatekeeper extends Creature {
             bubble3.addListener(new SpeechBubbleListener() {
               @Override
               public void hidden() {
+
                 SpeechBubble bubble4 = SpeechBubble.create(Gatekeeper.this, "Maybe you could ask that Roman soldier over there nicely to hand over his slave to you.", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
                 bubble4.setTextDisplayTime(6000);
                 bubble4.addListener(new SpeechBubbleListener() {

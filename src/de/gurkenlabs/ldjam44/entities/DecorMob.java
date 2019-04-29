@@ -18,6 +18,10 @@ public class DecorMob extends Creature {
 
     this.getVelocity().setBaseValue(Float.valueOf(2f));
     this.setController(IMovementController.class, new ShyDecorMobMovementController(this));
+
+    this.addDeathListener(e -> {
+      Game.audio().playSound("decor-death.ogg");
+    });
   }
 
   private class ShyDecorMobMovementController extends MovementController<DecorMob> {
