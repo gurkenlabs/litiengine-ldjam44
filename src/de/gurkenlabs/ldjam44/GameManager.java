@@ -36,8 +36,8 @@ public final class GameManager {
 
   public static final Font GUI_FONT = Resources.fonts().get("fsex300.ttf").deriveFont(32f);
   public static final Font SPEECH_BUBBLE_FONT = GUI_FONT.deriveFont(4f);
-  public static final Font MENU_FONT = Resources.fonts().get("CAESAR.ttf").deriveFont(40f);
-  public static final Font GUI_FONT_ALT = Resources.fonts().get("Roman.ttf").deriveFont(40f);
+  public static final Font MENU_FONT = Resources.fonts().get("caesar.ttf").deriveFont(40f);
+  public static final Font GUI_FONT_ALT = Resources.fonts().get("roman.ttf").deriveFont(40f);
   public static String START_LEVEL = "level0";
 
   public static final SpeechBubbleAppearance SPEECH_BUBBLE_APPEARANCE = new SpeechBubbleAppearance(new Color(16, 20, 19), new Color(255, 255, 255, 150), new Color(16, 20, 19), 5);
