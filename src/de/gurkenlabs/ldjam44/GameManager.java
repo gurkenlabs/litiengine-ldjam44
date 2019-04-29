@@ -30,6 +30,7 @@ public final class GameManager {
   public static final SpeechBubbleAppearance SPEECH_BUBBLE_APPEARANCE = new SpeechBubbleAppearance(new Color(16, 20, 19), new Color(255, 255, 255, 150), new Color(16, 20, 19), 5);
 
   private static final Map<String, String> cityNames = new ConcurrentHashMap<>();
+  private static final Map<String, Runnable> startups = new ConcurrentHashMap<>();
   static {
     SPEECH_BUBBLE_APPEARANCE.setBackgroundColor2(new Color(255, 255, 255, 220));
     cityNames.put("level0", "Belum");
@@ -42,6 +43,18 @@ public final class GameManager {
     cityNames.put("level7", "Ariminum");
     cityNames.put("level8", "Florentia");
     cityNames.put("level9", "Roma");
+
+    startups.put("level0", () -> {
+      Camera cam = new Camera();
+      cam.setFocus(Game.world().environment().getCenter());
+      Game.world().setCamera(cam);
+    });
+    
+    startups.put("level1", () -> {
+      Camera camera = new PositionLockCamera(Player.instance());
+      camera.setClampToMap(true);
+      Game.world().setCamera(camera);
+    });
   }
 
   private GameManager() {
@@ -67,11 +80,15 @@ public final class GameManager {
     // add default game logic for when a level was loaded
 
     Game.world().addLoadedListener(e -> {
+      if (startups.containsKey(e.getMap().getName())) {
+        startups.get(e.getMap().getName()).run();
+      }
 
       // spawn the player instance on the spawn point with the name "enter"
       Spawnpoint enter = e.getSpawnpoint("enter");
       if (enter != null) {
         enter.spawn(Player.instance());
+        Player.instance().getHitPoints().setToMaxValue();
       }
     });
   }

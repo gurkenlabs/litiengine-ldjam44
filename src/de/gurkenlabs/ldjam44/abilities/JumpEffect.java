@@ -24,8 +24,20 @@ public class JumpEffect extends Effect {
     Game.physics().move(Player.instance(), this.angle, maxPixelsPerTick);
 
     if (this.factor != 0) {
-      Player.instance().setWidth(Player.instance().getWidth() * this.factor);
-      Player.instance().setHeight(Player.instance().getHeight() * this.factor);
+      double newWidth = Player.instance().getWidth() * this.factor;
+      double newHeight = Player.instance().getHeight() * this.factor;
+
+      double diffX = Player.instance().getWidth() - newWidth;
+      double diffY = Player.instance().getHeight() - newHeight;
+
+      Player.instance().setX(Player.instance().getX() + diffX / 2.0);
+      Player.instance().setY(Player.instance().getY() + diffY / 2.0);
+
+      Player.instance().setWidth(newWidth);
+      Player.instance().setHeight(newHeight);
+      Player.instance().setCollisionBoxWidth(Player.instance().getCollisionBoxWidth() * this.factor);
+      Player.instance().setCollisionBoxHeight(Player.instance().getCollisionBoxHeight() * this.factor);
+
     }
     super.update();
   }
@@ -33,8 +45,10 @@ public class JumpEffect extends Effect {
   @Override
   protected void apply(final ICombatEntity entity) {
     this.angle = Player.instance().getAngle();
-    Player.instance().setWidth(14);
+    Player.instance().setWidth(11);
     Player.instance().setHeight(20);
+    Player.instance().setCollisionBoxWidth(5);
+    Player.instance().setCollisionBoxHeight(8);
     this.factor = 1.025;
     Game.loop().perform(this.getAbility().getAttributes().getDuration().getCurrentValue() / 2, () -> {
       this.factor = 0.975;
@@ -55,6 +69,8 @@ public class JumpEffect extends Effect {
   protected void cease(EffectApplication appliance) {
     Player.instance().setWidth(11);
     Player.instance().setHeight(20);
+    Player.instance().setCollisionBoxWidth(5);
+    Player.instance().setCollisionBoxHeight(8);
     Player.instance().setScaling(false);
 
     Game.world().environment().add(new LandEmitter(Player.instance()));

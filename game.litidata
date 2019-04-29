@@ -1143,12 +1143,12 @@
    </layer>
    <layer id="2" name="ground-detail1" width="15" height="15">
     <data encoding="csv">
-100,100,101,100,101,101,100,101,101,68,101,68,100,68,68,
-101,229,230,230,230,230,227,227,230,228,305,306,307,308,101,
-227,231,132,195,133,0,0,0,0,226,337,338,339,340,230,
-132,195,196,68,197,199,0,0,0,0,369,370,371,372,0,
-196,100,101,101,101,197,195,199,0,0,0,0,0,0,0,
-101,100,68,68,229,230,230,231,0,0,0,0,0,0,0,
+100,100,101,100,101,101,100,101,101,68,101,101,100,101,68,
+101,229,230,230,228,101,101,100,68,68,68,101,100,101,101,
+227,231,132,195,226,230,230,230,228,100,68,68,100,101,68,
+132,195,196,68,197,199,0,0,226,230,305,306,307,308,68,
+196,100,101,101,101,197,195,199,0,0,337,338,339,340,101,
+101,100,68,68,229,230,230,231,0,0,369,370,371,372,227,
 100,68,68,101,261,0,0,0,0,0,0,0,0,0,0,
 101,100,100,100,197,199,0,0,0,0,0,0,0,0,0,
 101,101,101,100,101,261,0,0,0,0,0,0,0,0,0,
@@ -1369,6 +1369,8 @@
     <object id="1" type="COLLISIONBOX" x="64" y="24" width="16" height="5"/>
     <object id="3" type="COLLISIONBOX" x="60" y="16" width="4" height="13"/>
     <object id="4" type="COLLISIONBOX" x="60" y="11" width="20" height="5"/>
+    <object id="11" type="COLLISIONBOX" x="8" y="40" width="16" height="20"/>
+    <object id="10" type="COLLISIONBOX" x="80" y="11" width="5" height="18"/>
    </objectgroup>
    <objectgroup id="11" name="spawnpoints">
     <object id="5" name="enter" type="SPAWNPOINT" x="43" y="66" width="11" height="20"/>
@@ -1376,7 +1378,7 @@
      <properties>
       <property name="addShadow" type="bool" value="true"/>
       <property name="collision" type="bool" value="true"/>
-      <property name="collisionboxHeight" type="float" value="8.0"/>
+      <property name="collisionboxHeight" type="float" value="8"/>
       <property name="collisionboxWidth" value="5.0"/>
       <property name="indestructible" type="bool" value="true"/>
       <property name="next" value="level1"/>
@@ -1396,7 +1398,7 @@
       <property name="spritesheetName" value="slave-centurio"/>
      </properties>
     </object>
-    <object id="8" name="incontinentius" type="CREATURE" x="87" y="5" width="17" height="21">
+    <object id="8" name="incontinentius" type="CREATURE" x="87.7273" y="18.8182" width="17" height="21">
      <properties>
       <property name="addShadow" type="bool" value="true"/>
       <property name="collision" type="bool" value="true"/>
@@ -1410,6 +1412,7 @@
    </objectgroup>
    <objectgroup id="12" name="props">
     <object id="9" type="COLLISIONBOX" x="0" y="89" width="120" height="12"/>
+    <object id="12" type="COLLISIONBOX" x="0" y="16" width="40" height="8"/>
    </objectgroup>
   </map>
   <map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="8" tileheight="8" infinite="0" nextobjectid="34" nextlayerid="12" name="level1">

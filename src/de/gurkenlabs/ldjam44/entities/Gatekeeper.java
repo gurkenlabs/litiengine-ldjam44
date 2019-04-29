@@ -59,7 +59,6 @@ public class Gatekeeper extends Creature {
           SpeechBubble.create(this, text, GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
         }
       }
-
     });
   }
 
@@ -76,7 +75,10 @@ public class Gatekeeper extends Creature {
     super.loaded(environment);
 
     Game.loop().perform(1000, () -> {
-
+      if (Game.world().environment().getMap().getName().equals("level0")) {
+        performIntroduction();
+        return;
+      }
       String rude = ArrayUtilities.getRandom(rudeLines);
       String goal = MessageFormat.format(ArrayUtilities.getRandom(goalLines), GameManager.getCity(Game.world().environment().getMap().getName()), this.getRequiredSlaves());
       SpeechBubble bubble = SpeechBubble.create(this, rude + " " + goal, GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
@@ -88,6 +90,29 @@ public class Gatekeeper extends Creature {
         }
       });
     });
+  }
+
+  private void performIntroduction() {
+    SpeechBubble bubble1 = SpeechBubble.create(this, "Welcome to " + GameManager.getCity(Game.world().environment().getMap().getName()) + "! It's dusty around here...", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
+    bubble1.addListener(new SpeechBubbleListener() {
+      @Override
+      public void hidden() {
+        SpeechBubble bubble2 = SpeechBubble.create(Gatekeeper.this, "You need to proove your worth to me!", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
+        bubble2.addListener(new SpeechBubbleListener() {
+          @Override
+          public void hidden() {
+            SpeechBubble bubble3 = SpeechBubble.create(Gatekeeper.this, "Bring me a slave and I will transport you to a more gloryous settlement.", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
+            bubble3.addListener(new SpeechBubbleListener() {
+              @Override
+              public void hidden() {
+                Player.instance().setState(PlayerState.CONTROLLABLE);
+              }
+            });
+          }
+        });
+      }
+    });
+
   }
 
   public String getNextLevel() {

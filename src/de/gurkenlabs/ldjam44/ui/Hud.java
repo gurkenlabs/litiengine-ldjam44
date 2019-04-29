@@ -42,7 +42,7 @@ public class Hud extends GuiComponent {
 
     g.setColor(Color.RED);
 
-    if (Game.world().environment() == null) {
+    if (Game.world().environment() == null || Player.instance().getState() != PlayerState.CONTROLLABLE) {
       return;
     }
 
@@ -51,7 +51,7 @@ public class Hud extends GuiComponent {
         RenderEngine.renderText(g, enemy.getHitPoints().getCurrentValue().toString(), enemy.getCenter());
       }
 
-      if (Player.instance().getState() == PlayerState.CONTROLLABLE && !enemy.isEngaged() && !enemy.isEngaging()) {
+      if (!enemy.isEngaged() && !enemy.isEngaging()) {
         BufferedImage arrow = this.arrowAnimationController.getCurrentSprite(46, 56);
 
         final Point2D loc = Game.world().camera().getViewportLocation(enemy.getCenter());
