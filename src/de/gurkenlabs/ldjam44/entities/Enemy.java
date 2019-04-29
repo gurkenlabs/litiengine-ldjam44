@@ -84,8 +84,8 @@ public class Enemy extends Mob implements IRenderable {
     slaves.put(EnemyType.silver, 2);
     slaves.put(EnemyType.gold, 3);
 
-    velocity.put(EnemyType.leather, 30);
-    velocity.put(EnemyType.silver, 30);
+    velocity.put(EnemyType.leather, 31);
+    velocity.put(EnemyType.silver, 33);
     velocity.put(EnemyType.gold, 33);
   }
 

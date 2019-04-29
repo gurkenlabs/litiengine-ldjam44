@@ -4,6 +4,7 @@ import java.text.MessageFormat;
 
 import de.gurkenlabs.ldjam44.GameManager;
 import de.gurkenlabs.ldjam44.entities.Player.PlayerState;
+import de.gurkenlabs.ldjam44.ui.IngameScreen;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.annotation.CollisionInfo;
 import de.gurkenlabs.litiengine.annotation.CombatInfo;
@@ -95,6 +96,7 @@ public class Gatekeeper extends Creature {
         @Override
         public void hidden() {
           Player.instance().setState(PlayerState.CONTROLLABLE);
+          IngameScreen.levelNameTick = Game.time().now();
         }
       });
     });
