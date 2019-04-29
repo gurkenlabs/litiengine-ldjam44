@@ -103,7 +103,7 @@ public class MenuScreen extends Screen implements IUpdateable {
 
     Game.loop().perform(3500, () -> {
       Game.screens().display("INGAME-SCREEN");
-      Game.world().loadEnvironment("level0");
+      Game.world().loadEnvironment(GameManager.START_LEVEL);
       GameManager.setState(GameState.INGAME);
     });
   }

@@ -508,64 +508,64 @@
 </data>
  </layer>
  <objectgroup id="10" name="collision" visible="0">
-  <object id="16" type="COLLISIONBOX" x="0" y="168" width="40" height="3">
+  <object id="1" type="COLLISIONBOX" x="0" y="168" width="40" height="3">
    <properties>
     <property name="collisionType" value="STATIC"/>
    </properties>
   </object>
-  <object id="17" type="COLLISIONBOX" x="40" y="168" width="3" height="35">
+  <object id="2" type="COLLISIONBOX" x="40" y="168" width="3" height="35">
    <properties>
     <property name="collisionType" value="STATIC"/>
    </properties>
   </object>
-  <object id="18" type="COLLISIONBOX" x="0" y="200" width="40" height="3">
+  <object id="3" type="COLLISIONBOX" x="0" y="200" width="40" height="3">
    <properties>
     <property name="collisionType" value="STATIC"/>
    </properties>
   </object>
-  <object id="19" type="COLLISIONBOX" x="341" y="128" width="3" height="27">
+  <object id="4" type="COLLISIONBOX" x="341" y="128" width="3" height="27">
    <properties>
     <property name="collisionType" value="STATIC"/>
    </properties>
   </object>
-  <object id="34" type="COLLISIONBOX" x="344" y="128" width="40" height="3">
+  <object id="5" type="COLLISIONBOX" x="344" y="128" width="40" height="3">
    <properties>
     <property name="collisionType" value="STATIC"/>
    </properties>
   </object>
-  <object id="35" type="COLLISIONBOX" x="384" y="128" width="3" height="27">
+  <object id="6" type="COLLISIONBOX" x="384" y="128" width="3" height="27">
    <properties>
     <property name="collisionType" value="STATIC"/>
    </properties>
   </object>
-  <object id="36" type="COLLISIONBOX" x="344" y="152" width="40" height="3">
+  <object id="7" type="COLLISIONBOX" x="344" y="152" width="40" height="3">
    <properties>
     <property name="collisionType" value="STATIC"/>
    </properties>
   </object>
-  <object id="37" type="COLLISIONBOX" x="288" y="269" width="40" height="3">
+  <object id="8" type="COLLISIONBOX" x="288" y="269" width="40" height="3">
    <properties>
     <property name="collisionType" value="STATIC"/>
    </properties>
   </object>
-  <object id="38" type="COLLISIONBOX" x="328" y="269" width="3" height="30">
+  <object id="9" type="COLLISIONBOX" x="328" y="269" width="3" height="30">
    <properties>
     <property name="collisionType" value="STATIC"/>
    </properties>
   </object>
-  <object id="39" type="COLLISIONBOX" x="285" y="296" width="43" height="3">
+  <object id="10" type="COLLISIONBOX" x="285" y="296" width="43" height="3">
    <properties>
     <property name="collisionType" value="STATIC"/>
    </properties>
   </object>
-  <object id="40" type="COLLISIONBOX" x="285" y="269" width="3" height="27">
+  <object id="11" type="COLLISIONBOX" x="285" y="269" width="3" height="27">
    <properties>
     <property name="collisionType" value="STATIC"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="11" name="spawnpoints">
-  <object id="7" type="CREATURE" x="104" y="257" width="17" height="21">
+  <object id="12" type="CREATURE" x="104" y="257" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -575,7 +575,7 @@
     <property name="spritesheetName" value="enemy_gold"/>
    </properties>
   </object>
-  <object id="8" type="CREATURE" x="232" y="272" width="17" height="21">
+  <object id="13" type="CREATURE" x="232" y="272" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -585,7 +585,7 @@
     <property name="spritesheetName" value="enemy_gold"/>
    </properties>
   </object>
-  <object id="9" type="CREATURE" x="50" y="131.5" width="17" height="21">
+  <object id="14" type="CREATURE" x="50" y="131.5" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -595,7 +595,7 @@
     <property name="spritesheetName" value="enemy_gold"/>
    </properties>
   </object>
-  <object id="10" type="CREATURE" x="280" y="48" width="17" height="21">
+  <object id="15" type="CREATURE" x="280" y="48" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -605,7 +605,7 @@
     <property name="spritesheetName" value="enemy_gold"/>
    </properties>
   </object>
-  <object id="11" name="centurio1" type="CREATURE" x="8" y="200" width="17" height="21">
+  <object id="16" name="centurio1" type="CREATURE" x="8" y="200" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -616,7 +616,7 @@
     <property name="spritesheetName" value="enemy_silver"/>
    </properties>
   </object>
-  <object id="12" type="CREATURE" x="355" y="152" width="17" height="21">
+  <object id="17" type="CREATURE" x="355" y="152" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -627,7 +627,7 @@
     <property name="spritesheetName" value="enemy_leather"/>
    </properties>
   </object>
-  <object id="14" type="CREATURE" x="10" y="177" width="7" height="13">
+  <object id="18" type="CREATURE" x="10" y="177" width="7" height="13">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -638,7 +638,7 @@
     <property name="spritesheetName" value="slave-centurio"/>
    </properties>
   </object>
-  <object id="15" type="CREATURE" x="21" y="176" width="7" height="13">
+  <object id="19" type="CREATURE" x="21" y="176" width="7" height="13">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -649,8 +649,8 @@
     <property name="spritesheetName" value="slave-centurio"/>
    </properties>
   </object>
-  <object id="22" name="enter" type="SPAWNPOINT" x="160" y="300" width="11" height="20"/>
-  <object id="41" type="CREATURE" x="29" y="185" width="7" height="13">
+  <object id="20" name="enter" type="SPAWNPOINT" x="160" y="300" width="11" height="20"/>
+  <object id="21" type="CREATURE" x="29" y="185" width="7" height="13">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -661,7 +661,7 @@
     <property name="spritesheetName" value="slave-centurio"/>
    </properties>
   </object>
-  <object id="42" type="CREATURE" x="2" y="169" width="7" height="13">
+  <object id="22" type="CREATURE" x="2" y="169" width="7" height="13">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -672,7 +672,7 @@
     <property name="spritesheetName" value="slave-centurio"/>
    </properties>
   </object>
-  <object id="43" name="keeper" type="CREATURE" x="144" y="300" width="11" height="20">
+  <object id="23" name="keeper" type="CREATURE" x="144" y="300" width="11" height="20">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -685,7 +685,7 @@
     <property name="spritesheetName" value="gatekeeper"/>
    </properties>
   </object>
-  <object id="44" type="PROP" x="320" y="104" width="8" height="8">
+  <object id="24" type="PROP" x="320" y="104" width="8" height="8">
    <properties>
     <property name="addShadow" type="bool" value="false"/>
     <property name="collision" type="bool" value="false"/>
@@ -696,7 +696,7 @@
     <property name="spritesheetName" value="pot"/>
    </properties>
   </object>
-  <object id="45" type="CREATURE" x="192" y="144" width="4" height="4">
+  <object id="25" type="CREATURE" x="192" y="144" width="4" height="4">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="false"/>
@@ -709,7 +709,7 @@
     <property name="spritesheetName" value="decormob-cockroach"/>
    </properties>
   </object>
-  <object id="46" type="CREATURE" x="80" y="171" width="4" height="4">
+  <object id="26" type="CREATURE" x="80" y="171" width="4" height="4">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="false"/>
@@ -722,7 +722,7 @@
     <property name="spritesheetName" value="decormob-cockroach"/>
    </properties>
   </object>
-  <object id="47" type="CREATURE" x="186" y="286" width="4" height="4">
+  <object id="27" type="CREATURE" x="186" y="286" width="4" height="4">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="false"/>
@@ -735,7 +735,7 @@
     <property name="spritesheetName" value="decormob-cockroach"/>
    </properties>
   </object>
-  <object id="48" type="CREATURE" x="370" y="74" width="4" height="4">
+  <object id="28" type="CREATURE" x="370" y="74" width="4" height="4">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="false"/>
@@ -748,7 +748,7 @@
     <property name="spritesheetName" value="decormob-cockroach"/>
    </properties>
   </object>
-  <object id="49" type="CREATURE" x="339" y="240" width="4" height="4">
+  <object id="29" type="CREATURE" x="339" y="240" width="4" height="4">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="false"/>
@@ -761,7 +761,7 @@
     <property name="spritesheetName" value="decormob-cockroach"/>
    </properties>
   </object>
-  <object id="50" type="CREATURE" x="124" y="84" width="17" height="21">
+  <object id="30" type="CREATURE" x="124" y="84" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -772,7 +772,7 @@
     <property name="spritesheetName" value="enemy_silver"/>
    </properties>
   </object>
-  <object id="51" type="CREATURE" x="104" y="60" width="17" height="21">
+  <object id="31" type="CREATURE" x="104" y="60" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -783,7 +783,7 @@
     <property name="spritesheetName" value="enemy_leather"/>
    </properties>
   </object>
-  <object id="52" type="CREATURE" x="124" y="60" width="17" height="21">
+  <object id="32" type="CREATURE" x="124" y="60" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -794,7 +794,7 @@
     <property name="spritesheetName" value="enemy_leather"/>
    </properties>
   </object>
-  <object id="53" type="CREATURE" x="104" y="84" width="17" height="21">
+  <object id="33" type="CREATURE" x="104" y="84" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -805,7 +805,7 @@
     <property name="spritesheetName" value="enemy_leather"/>
    </properties>
   </object>
-  <object id="54" type="CREATURE" x="104" y="108" width="17" height="21">
+  <object id="34" type="CREATURE" x="104" y="108" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -816,7 +816,7 @@
     <property name="spritesheetName" value="enemy_leather"/>
    </properties>
   </object>
-  <object id="55" type="CREATURE" x="124" y="108" width="17" height="21">
+  <object id="35" type="CREATURE" x="124" y="108" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -827,7 +827,7 @@
     <property name="spritesheetName" value="enemy_leather"/>
    </properties>
   </object>
-  <object id="56" type="CREATURE" x="144" y="108" width="17" height="21">
+  <object id="36" type="CREATURE" x="144" y="108" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -838,7 +838,7 @@
     <property name="spritesheetName" value="enemy_silver"/>
    </properties>
   </object>
-  <object id="57" type="CREATURE" x="104" y="36" width="17" height="21">
+  <object id="37" type="CREATURE" x="104" y="36" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -849,7 +849,7 @@
     <property name="spritesheetName" value="enemy_leather"/>
    </properties>
   </object>
-  <object id="58" type="CREATURE" x="104" y="132" width="17" height="21">
+  <object id="38" type="CREATURE" x="104" y="132" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -860,7 +860,7 @@
     <property name="spritesheetName" value="enemy_silver"/>
    </properties>
   </object>
-  <object id="59" type="CREATURE" x="124" y="132" width="17" height="21">
+  <object id="39" type="CREATURE" x="124" y="132" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -871,7 +871,7 @@
     <property name="spritesheetName" value="enemy_silver"/>
    </properties>
   </object>
-  <object id="60" type="CREATURE" x="104" y="158" width="17" height="21">
+  <object id="40" type="CREATURE" x="104" y="158" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -881,7 +881,7 @@
     <property name="spritesheetName" value="enemy_gold"/>
    </properties>
   </object>
-  <object id="61" type="CREATURE" x="104" y="183" width="17" height="21">
+  <object id="41" type="CREATURE" x="104" y="183" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -892,7 +892,7 @@
     <property name="spritesheetName" value="enemy_silver"/>
    </properties>
   </object>
-  <object id="62" type="CREATURE" x="124" y="183" width="17" height="21">
+  <object id="42" type="CREATURE" x="124" y="183" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -902,7 +902,7 @@
     <property name="spritesheetName" value="enemy_gold"/>
    </properties>
   </object>
-  <object id="63" type="CREATURE" x="104" y="208" width="17" height="21">
+  <object id="43" type="CREATURE" x="104" y="208" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -912,7 +912,7 @@
     <property name="spritesheetName" value="enemy_gold"/>
    </properties>
   </object>
-  <object id="64" type="CREATURE" x="124" y="208" width="17" height="21">
+  <object id="44" type="CREATURE" x="124" y="208" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -922,7 +922,7 @@
     <property name="spritesheetName" value="enemy_gold"/>
    </properties>
   </object>
-  <object id="65" type="CREATURE" x="124" y="158" width="17" height="21">
+  <object id="45" type="CREATURE" x="124" y="158" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -933,7 +933,7 @@
     <property name="spritesheetName" value="enemy_leather"/>
    </properties>
   </object>
-  <object id="66" type="CREATURE" x="144" y="158" width="17" height="21">
+  <object id="46" type="CREATURE" x="144" y="158" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -944,7 +944,7 @@
     <property name="spritesheetName" value="enemy_leather"/>
    </properties>
   </object>
-  <object id="67" type="CREATURE" x="144" y="183" width="17" height="21">
+  <object id="47" type="CREATURE" x="144" y="183" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -955,7 +955,7 @@
     <property name="spritesheetName" value="enemy_silver"/>
    </properties>
   </object>
-  <object id="68" type="CREATURE" x="104" y="233" width="17" height="21">
+  <object id="48" type="CREATURE" x="104" y="233" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -965,7 +965,7 @@
     <property name="spritesheetName" value="enemy_gold"/>
    </properties>
   </object>
-  <object id="69" type="CREATURE" x="124" y="233" width="17" height="21">
+  <object id="49" type="CREATURE" x="124" y="233" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -975,7 +975,7 @@
     <property name="spritesheetName" value="enemy_gold"/>
    </properties>
   </object>
-  <object id="71" type="CREATURE" x="144" y="209" width="17" height="21">
+  <object id="50" type="CREATURE" x="144" y="209" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -986,7 +986,7 @@
     <property name="spritesheetName" value="enemy_leather"/>
    </properties>
   </object>
-  <object id="72" type="CREATURE" x="164" y="209" width="17" height="21">
+  <object id="51" type="CREATURE" x="164" y="209" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -997,7 +997,7 @@
     <property name="spritesheetName" value="enemy_leather"/>
    </properties>
   </object>
-  <object id="73" type="CREATURE" x="124" y="257" width="17" height="21">
+  <object id="52" type="CREATURE" x="124" y="257" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1007,7 +1007,7 @@
     <property name="spritesheetName" value="enemy_gold"/>
    </properties>
   </object>
-  <object id="74" type="CREATURE" x="144" y="257" width="17" height="21">
+  <object id="53" type="CREATURE" x="144" y="257" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1017,7 +1017,7 @@
     <property name="spritesheetName" value="enemy_gold"/>
    </properties>
   </object>
-  <object id="75" type="CREATURE" x="164" y="257" width="17" height="21">
+  <object id="54" type="CREATURE" x="164" y="257" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1027,7 +1027,7 @@
     <property name="spritesheetName" value="enemy_gold"/>
    </properties>
   </object>
-  <object id="76" type="CREATURE" x="144" y="233" width="17" height="21">
+  <object id="55" type="CREATURE" x="144" y="233" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1038,7 +1038,7 @@
     <property name="spritesheetName" value="enemy_silver"/>
    </properties>
   </object>
-  <object id="77" type="CREATURE" x="164" y="233" width="17" height="21">
+  <object id="56" type="CREATURE" x="164" y="233" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>

@@ -41,6 +41,11 @@ public class Program {
     GameManager.init();
     PlayerInput.init();
 
+    if (args.length > 0) {
+      if (Game.isDebug()) {
+        GameManager.START_LEVEL = args[0];
+      }
+    }
     Game.screens().display("MENU");
 
     Game.start();
