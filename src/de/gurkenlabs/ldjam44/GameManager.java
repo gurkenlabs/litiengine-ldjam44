@@ -12,9 +12,11 @@ import de.gurkenlabs.ldjam44.entities.Gatekeeper;
 import de.gurkenlabs.ldjam44.entities.HealthPot;
 import de.gurkenlabs.ldjam44.entities.Player;
 import de.gurkenlabs.ldjam44.entities.Player.PlayerState;
+import de.gurkenlabs.ldjam44.graphics.SpawnEmitter;
 import de.gurkenlabs.ldjam44.entities.Slave;
 import de.gurkenlabs.ldjam44.ui.IngameScreen;
 import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.entities.Spawnpoint;
 import de.gurkenlabs.litiengine.environment.CreatureMapObjectLoader;
 import de.gurkenlabs.litiengine.environment.Environment;
@@ -23,7 +25,9 @@ import de.gurkenlabs.litiengine.environment.tilemap.MapProperty;
 import de.gurkenlabs.litiengine.graphics.Camera;
 import de.gurkenlabs.litiengine.graphics.PositionLockCamera;
 import de.gurkenlabs.litiengine.gui.GuiProperties;
+import de.gurkenlabs.litiengine.gui.SpeechBubble;
 import de.gurkenlabs.litiengine.gui.SpeechBubbleAppearance;
+import de.gurkenlabs.litiengine.gui.SpeechBubbleListener;
 import de.gurkenlabs.litiengine.resources.Resources;
 
 public final class GameManager {
@@ -57,6 +61,36 @@ public final class GameManager {
       camera.setClampToMap(true);
       Game.world().setCamera(camera);
     });
+
+    startups.put("end", () -> {
+      Camera cam = new Camera();
+
+      Spawnpoint water = Game.world().environment().getSpawnpoint("water-spawn");
+      cam.setFocus(water.getCenter());
+      Game.world().setCamera(cam);
+      Game.loop().perform(1000, () -> {
+        Game.world().environment().add(new SpawnEmitter(water));
+        Game.audio().playSound("water-splash.ogg");
+        Creature waterMonger = new Creature("monger_water");
+        waterMonger.setWidth(11);
+        waterMonger.setHeight(15);
+        water.spawn(waterMonger);
+        Game.loop().perform(2500, () -> {
+          SpeechBubble bubble = SpeechBubble.create(waterMonger, "....", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
+          bubble.addListener(new SpeechBubbleListener() {
+            @Override
+            public void hidden() {
+              Game.audio().playSound("success.ogg");
+              SpeechBubble bubble2 = SpeechBubble.create(waterMonger, ":) ", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
+              bubble2.setTextDisplayTime(5000);
+              Game.loop().perform(5000, () -> {
+                Game.window().getRenderComponent().fadeOut(5000);
+              });
+            }
+          });
+        });
+      });
+    });
   }
 
   private static GameState state = GameState.MENU;
@@ -84,11 +118,20 @@ public final class GameManager {
     // add default game logic for when a level was loaded
 
     Game.world().addLoadedListener(e -> {
+      if (e.getMap().getName().equals("title")) {
+        return;
+      }
+
       Game.loop().perform(500, () -> Game.window().getRenderComponent().fadeIn(500));
 
       if (startups.containsKey(e.getMap().getName())) {
         startups.get(e.getMap().getName()).run();
       }
+
+      if (e.getMap().getName().equals("end")) {
+        return;
+      }
+
       setState(GameState.INGAME);
       Player.instance().getHitPoints().setToMaxValue();
       Player.instance().setIndestructible(false);

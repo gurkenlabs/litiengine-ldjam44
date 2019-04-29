@@ -1,6 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <litidata version="1.0">
  <maps>
+  <map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="8" tileheight="8" infinite="0" nextobjectid="1" nextlayerid="3" name="end">
+   <layer id="1" name="Tile Layer 1" width="40" height="23">
+    <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+   </layer>
+   <imagelayer id="2" name="bg">
+    <image source="menu_bg.png" width="320" height="180"/>
+   </imagelayer>
+   <objectgroup id="0" name="default">
+    <object id="1" type="CREATURE" x="189" y="154" width="11" height="13">
+     <properties>
+      <property name="addShadow" type="bool" value="true"/>
+      <property name="collision" type="bool" value="true"/>
+      <property name="collisionboxHeight" type="float" value="5.2"/>
+      <property name="collisionboxWidth" type="float" value="4.4"/>
+      <property name="indestructible" type="bool" value="false"/>
+      <property name="spritesheetName" value="female_water"/>
+     </properties>
+    </object>
+    <object id="2" type="CREATURE" x="212" y="156" width="11" height="13">
+     <properties>
+      <property name="addShadow" type="bool" value="true"/>
+      <property name="collision" type="bool" value="true"/>
+      <property name="collisionboxHeight" type="float" value="5.2"/>
+      <property name="collisionboxWidth" type="float" value="4.4"/>
+      <property name="indestructible" type="bool" value="false"/>
+      <property name="spritesheetName" value="female_water"/>
+     </properties>
+    </object>
+    <object id="3" type="CREATURE" x="243" y="156" width="11" height="13">
+     <properties>
+      <property name="addShadow" type="bool" value="true"/>
+      <property name="collision" type="bool" value="true"/>
+      <property name="collisionboxHeight" type="float" value="5.2"/>
+      <property name="collisionboxWidth" type="float" value="4.4"/>
+      <property name="indestructible" type="bool" value="false"/>
+      <property name="spritesheetName" value="female_water"/>
+     </properties>
+    </object>
+    <object id="4" type="CREATURE" x="103" y="154" width="11" height="13">
+     <properties>
+      <property name="addShadow" type="bool" value="true"/>
+      <property name="collision" type="bool" value="true"/>
+      <property name="collisionboxHeight" type="float" value="5.2"/>
+      <property name="collisionboxWidth" type="float" value="4.4"/>
+      <property name="indestructible" type="bool" value="false"/>
+      <property name="spritesheetName" value="male_water"/>
+     </properties>
+    </object>
+    <object id="6" name="water-spawn" type="SPAWNPOINT" x="227" y="156" width="11" height="15"/>
+   </objectgroup>
+  </map>
   <map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="41" height="23" tilewidth="8" tileheight="8" infinite="0" nextobjectid="5" nextlayerid="89" name="level0">
    <properties>
     <property name="AMBIENTLIGHT" value="#00ffffff"/>
@@ -3487,7 +3562,7 @@
       <property name="collisionboxHeight" type="float" value="8"/>
       <property name="collisionboxWidth" value="5.0"/>
       <property name="indestructible" type="bool" value="true"/>
-      <property name="next" value="level4"/>
+      <property name="next" value="end"/>
       <property name="required" value="6"/>
       <property name="scaling" type="bool" value="true"/>
       <property name="spritesheetName" value="gatekeeper"/>
@@ -4007,6 +4082,7 @@
       <property name="spritesheetName" value="male_water"/>
      </properties>
     </object>
+    <object id="6" name="water-spawn" type="SPAWNPOINT" x="227" y="156" width="11" height="15"/>
    </objectgroup>
   </map>
  </maps>
@@ -4133,6 +4209,10 @@
   <sprite width="11" height="20" name="monger-walk-down">
    <image>iVBORw0KGgoAAAANSUhEUgAAACEAAAAUCAYAAAADU1RxAAABCUlEQVR42u2UvwrCMBDG+wAuFlx1c2k33V1chYIP4nv4MM6+jyAOrq5GvsBBuNwld63g4sHR/Pny9Zf0mqb5hxL9sg2UPwewgHiATVpMXk9DltoiD7BZi4nVYhYTL6c2cgqwa3MYPB82Yb47RhGe6GvGHmCr1r07D7BVG0OCmFo/3lqLAUrKUrVbgV3a92UbkKmQxizAmpbGq5vjL+0fr8ChLMBcW/LNgCEEYbqATGmc6yVjrtV8yTuDKH07CYIb0zGnO6Q2gRTrgsSakB8d+utunyUHprakFT+HJtZOQgqtgCWt+oeMMb7dn1/VusRphVsh+LqqseWOkNbVfPla8b4o9Ws36Jg5xAdks8KU75z2QwAAAABJRU5ErkJggg==</image>
    <keyframes>200,240,240</keyframes>
+  </sprite>
+  <sprite width="11" height="15" name="monger_water-idle">
+   <image>iVBORw0KGgoAAAANSUhEUgAAACEAAAAPCAYAAABqQqYpAAAAz0lEQVR42mNgGAU4gI6c0H8YpqZashxAyHBS1BLtYJDkjvwADIxNEylqSXIwSEJelAeMQQbC2CBMqVqiHQwS7PI1/i9oHwxWBKJBfFwhQYpaYh1Ms+ggxcFgAFKEDEB8XGkIZjEhtSRFx791Jv9BGORKGIaJ4XIIslp8OYMoz8FcB7NU58VXOBsmh83ByD7D5WCiPQcyBCSJbBjMEpg4uQ7GpxbDEcgWIGNkeXIcTJTauQ+egiVANDZHIMvD1OBTC6NJUQt3CIxGx8jytFILAJtjaKK1pyX5AAAAAElFTkSuQmCC</image>
+   <keyframes>240,200,200</keyframes>
   </sprite>
   <sprite width="8" height="12" name="prop-amphora1">
    <image>iVBORw0KGgoAAAANSUhEUgAAAAgAAAAMCAYAAABfnvydAAAAWklEQVR42mNggILjhw78f/z4MRwzIIO2xvr/IAXIGEURNgUgMbiCXHv9/8iKQOxZfsb/4ZIgzpFUZ7AECN/vKwRjsCJkBciYngrQHYohia4AxQfIACSAjGHiAFjpxTvqFDlbAAAAAElFTkSuQmCC</image>

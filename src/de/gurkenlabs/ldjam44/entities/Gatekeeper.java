@@ -102,6 +102,10 @@ public class Gatekeeper extends Creature {
     super.loaded(environment);
 
     Game.loop().perform(1000, () -> {
+      if (Game.world().environment().getMap().getName().equals("end")) {
+        return;
+      }
+
       if (Game.world().environment().getMap().getName().equals("level0")) {
         performIntroduction();
         return;

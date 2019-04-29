@@ -504,7 +504,7 @@
     <property name="collisionboxHeight" type="float" value="8"/>
     <property name="collisionboxWidth" value="5.0"/>
     <property name="indestructible" type="bool" value="true"/>
-    <property name="next" value="level4"/>
+    <property name="next" value="end"/>
     <property name="required" value="6"/>
     <property name="scaling" type="bool" value="true"/>
     <property name="spritesheetName" value="gatekeeper"/>
