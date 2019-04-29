@@ -61,7 +61,12 @@ public class Hud extends GuiComponent {
 
     if (Player.instance().isDead()) {
       g.setFont(g.getFont().deriveFont(20f));
-      TextRenderer.render(g, "YOU ARE DEAD", Game.window().getCenter());
+      TextRenderer.render(g, "YOU ARE DEAD!", Game.window().getCenter());
+    }
+    
+    if(GameManager.getState() == GameState.SLAVES_DEAD) {
+      g.setFont(g.getFont().deriveFont(20f));
+      TextRenderer.render(g, "TOO MANY SLAVES KILLED!", Game.window().getCenter());
     }
 
     this.renderUseButton(g);

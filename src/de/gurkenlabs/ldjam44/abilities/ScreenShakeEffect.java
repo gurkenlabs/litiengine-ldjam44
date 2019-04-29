@@ -25,12 +25,13 @@ public class ScreenShakeEffect extends Effect {
     super.apply(impactArea);
     Game.world().camera().shake(this.intensity, 30, this.duration);
   }
-
+  
   @Override
-  public void cease(ICombatEntity entity) {
-    super.cease(entity);
+  protected void cease(EffectApplication appliance) {
     if (Game.world().environment().getMap().getName().equals("level0")) {
       Game.world().camera().setFocus(Game.world().environment().getCenter());
     }
+    
+    super.cease(appliance);
   }
 }

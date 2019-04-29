@@ -11,7 +11,6 @@ import de.gurkenlabs.ldjam44.entities.Player.PlayerState;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.environment.Environment;
 import de.gurkenlabs.litiengine.graphics.ImageRenderer;
-import de.gurkenlabs.litiengine.gui.screens.GameScreen;
 import de.gurkenlabs.litiengine.gui.screens.Screen;
 
 public class IngameScreen extends Screen {
@@ -89,7 +88,7 @@ public class IngameScreen extends Screen {
       Game.world().environment().render(g);
     }
 
-    deathMenu.setVisible(GameManager.getState() == GameState.INGAME && Player.instance().isDead());
+    deathMenu.setVisible(GameManager.getState() == GameState.INGAME && Player.instance().isDead() || GameManager.getState() == GameState.SLAVES_DEAD);
 
     if (GameManager.getState() == GameState.INGAME_MENU) {
       g.setColor(new Color(0, 0, 0, 100));
@@ -99,6 +98,9 @@ public class IngameScreen extends Screen {
       final double logoY = Game.window().getResolution().getHeight() * 1 / 12;
       ImageRenderer.render(g, MenuScreen.LOGO_COIN, logoX, logoY);
     }
+    
+    // TODO RENDER MESSAGE FOR GameManager.getState() == GameState.SLAVES_DEAD
+    // TODO RENDER MESSAGE FOR GameManager.getState() == GameState.INGAME && Player.instance().isDead()
 
     super.render(g);
   }

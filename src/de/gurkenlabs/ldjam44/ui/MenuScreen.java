@@ -121,7 +121,6 @@ public class MenuScreen extends Screen implements IUpdateable {
       Game.audio().playMusic(Resources.sounds().get("menumusic.ogg"));
       this.lastPlayed = Game.loop().getTicks();
     }
-
   }
 
   private void renderScrollingStuff(Graphics2D g) {

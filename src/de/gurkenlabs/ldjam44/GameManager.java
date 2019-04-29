@@ -11,6 +11,7 @@ import de.gurkenlabs.ldjam44.entities.Enemy;
 import de.gurkenlabs.ldjam44.entities.Gatekeeper;
 import de.gurkenlabs.ldjam44.entities.HealthPot;
 import de.gurkenlabs.ldjam44.entities.Player;
+import de.gurkenlabs.ldjam44.entities.Player.PlayerState;
 import de.gurkenlabs.ldjam44.entities.Slave;
 import de.gurkenlabs.ldjam44.ui.IngameScreen;
 import de.gurkenlabs.litiengine.Game;
@@ -28,7 +29,8 @@ public final class GameManager {
   public enum GameState {
     INGAME,
     MENU,
-    INGAME_MENU
+    INGAME_MENU,
+    SLAVES_DEAD
   }
 
   public static final Font GUI_FONT = Resources.fonts().get("fsex300.ttf").deriveFont(32f);
@@ -96,7 +98,9 @@ public final class GameManager {
       if (startups.containsKey(e.getMap().getName())) {
         startups.get(e.getMap().getName()).run();
       }
+      setState(GameState.INGAME);
       Player.instance().getHitPoints().setToMaxValue();
+      Player.instance().setIndestructible(false);
       // spawn the player instance on the spawn point with the name "enter"
       Spawnpoint enter = e.getSpawnpoint("enter");
       if (enter != null) {
@@ -147,6 +151,11 @@ public final class GameManager {
     } else {
       Game.loop().setTimeScale(1);
       IngameScreen.ingameMenu.setVisible(false);
+    }
+
+    if (getState() == GameState.SLAVES_DEAD) {
+      Player.instance().setState(PlayerState.LOCKED);
+      Player.instance().setIndestructible(true);
     }
   }
 }

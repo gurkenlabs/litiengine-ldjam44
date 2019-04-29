@@ -2,6 +2,8 @@ package de.gurkenlabs.ldjam44.entities;
 
 import java.awt.geom.Point2D;
 
+import de.gurkenlabs.ldjam44.GameManager;
+import de.gurkenlabs.ldjam44.GameManager.GameState;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.annotation.AnimationInfo;
 import de.gurkenlabs.litiengine.annotation.CollisionInfo;
@@ -22,6 +24,11 @@ public class Slave extends Mob {
     this.addController(new SlaveController(this));
     this.addDeathListener(l -> {
       SlaveController.KILL_TICK = Game.time().now();
+
+      Gatekeeper keeper = GameManager.getGateKeeper();
+      if (keeper != null && GameManager.getAliveSlaveCount() < GameManager.getGateKeeper().getRequiredSlaves()) {
+        GameManager.setState(GameState.SLAVES_DEAD);
+      }
     });
   }
 
