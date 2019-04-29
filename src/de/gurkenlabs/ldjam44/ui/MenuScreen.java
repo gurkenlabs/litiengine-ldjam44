@@ -54,8 +54,7 @@ public class MenuScreen extends Screen implements IUpdateable {
     final double centerY = Game.window().getResolution().getHeight() * 1 / 2;
     final double buttonWidth = 450;
 
-    this.mainMenu = new Menu(centerX - buttonWidth / 2, centerY * 1.3, buttonWidth, centerY / 2, "Play", "Instructions",
-        "Exit");
+    this.mainMenu = new Menu(centerX - buttonWidth / 2, centerY * 1.3, buttonWidth, centerY / 2, "Play", "Instructions", "Exit");
 
     this.getComponents().add(this.mainMenu);
     this.mainMenu.onChange(c -> {
@@ -66,7 +65,7 @@ public class MenuScreen extends Screen implements IUpdateable {
         // from
         // the
         // game file)
-        Game.world().loadEnvironment("SlaveMarket_Nubia");
+        Game.world().loadEnvironment("level0");
         break;
       case 1:
         this.showInstructions();
