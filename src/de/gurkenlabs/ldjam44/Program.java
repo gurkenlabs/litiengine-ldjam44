@@ -28,7 +28,7 @@ public class Program {
     // because
     // the ScreenManager will not be present otherwise)
     Game.window().setIconImage(Resources.images().get("iconx32_pass2.png"));
-    Game.graphics().setBaseRenderScale(5f);
+    Game.graphics().setBaseRenderScale(6f);
 
     // load data from the utiLITI game file
     Resources.load("game.litidata");

@@ -39,7 +39,7 @@ public class Slave extends Mob {
 
   @Override
   public boolean canCollideWith(final ICollisionEntity otherEntity) {
-    return !(otherEntity instanceof Player) && !(otherEntity instanceof Slave) && !(otherEntity instanceof Enemy);
+    return !(otherEntity instanceof Player) && !(otherEntity instanceof Slave) && !(otherEntity instanceof Enemy) && !(otherEntity instanceof DecorMob);
   }
 
   public Enemy getOwner() {

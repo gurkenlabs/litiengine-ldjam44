@@ -103,7 +103,7 @@ public class Player extends Creature implements IRenderable, IUpdateable {
       return !(otherEntity instanceof Creature);
     }
 
-    return !(otherEntity instanceof Slave);
+    return !(otherEntity instanceof Slave) && !(otherEntity instanceof DecorMob);
   }
 
   private void spawnWalkDust(Point2D delta) {
