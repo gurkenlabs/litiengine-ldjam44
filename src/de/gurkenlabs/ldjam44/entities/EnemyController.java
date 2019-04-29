@@ -1,5 +1,6 @@
 package de.gurkenlabs.ldjam44.entities;
 
+import de.gurkenlabs.ldjam44.GameManager;
 import de.gurkenlabs.ldjam44.entities.Enemy.EnemyType;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.physics.MovementController;
@@ -44,7 +45,7 @@ public class EnemyController extends MovementController<Enemy> {
 
     switch (this.state) {
     case STRIKE:
-      if (this.getEntity().canCast()) {
+      if (this.getEntity().canCast() && !Player.instance().isDead() && !(GameManager.getGateKeeper() != null && GameManager.getGateKeeper().isTransitioning())) {
         this.getEntity().setAngle(GeometricUtilities.calcRotationAngleInDegrees(this.getEntity().getCenter(), Player.instance().getCenter()));
         this.getEntity().getStrike().cast();
       }

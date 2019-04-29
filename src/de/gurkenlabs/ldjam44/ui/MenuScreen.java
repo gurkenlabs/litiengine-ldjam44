@@ -89,7 +89,7 @@ public class MenuScreen extends Screen implements IUpdateable {
     g.setFont(GameManager.GUI_FONT_ALT.deriveFont(20f));
     final double stringWidth = g.getFontMetrics().stringWidth(COPYRIGHT);
     g.setColor(Color.WHITE);
-    TextRenderer.renderWithOutline(g, COPYRIGHT, centerX - stringWidth / 2, Game.window().getResolution().getHeight() * 19 / 20, Color.BLACK, RenderingHints.VALUE_ANTIALIAS_ON);
+    TextRenderer.renderWithOutline(g, COPYRIGHT, centerX - stringWidth / 2, Game.window().getResolution().getHeight() * 19 / 20, Color.BLACK, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
     super.render(g);
   }
 

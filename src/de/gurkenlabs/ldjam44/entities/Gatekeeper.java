@@ -28,6 +28,8 @@ public class Gatekeeper extends Creature {
   private int requiredSlaves;
   private String nextLevel;
 
+  private boolean transitioning;
+
   static {
     rudeLines = Resources.strings().getList("rude.txt");
     goalLines = Resources.strings().getList("goal.txt");
@@ -43,6 +45,7 @@ public class Gatekeeper extends Creature {
 
         String text = String.format("You need to trade me %d slave%s or I won't help you travel to Rome.", this.requiredSlaves, (this.requiredSlaves > 1 ? "s" : ""));
         if (GameManager.getOwnSlaveCount() >= this.getRequiredSlaves()) {
+          this.setTransitioning(true);
           text = String.format("WELL DONE! Now I can take you to %s.", GameManager.getCity(this.getNextLevel()));
 
           Game.audio().playSound(Resources.sounds().get("success.ogg"));
@@ -60,6 +63,7 @@ public class Gatekeeper extends Creature {
                 // remove player before unloading the environment or the instance's animation controller will be disposed
                 Game.world().environment().remove(Player.instance());
                 Game.world().loadEnvironment(getNextLevel());
+                setTransitioning(false);
               });
             }
           });
@@ -104,7 +108,6 @@ public class Gatekeeper extends Creature {
 
   private void performIntroduction() {
 
-
     SpeechBubble bubble1 = SpeechBubble.create(this, String.format("%s is a terrible dust pit. Let us seek fortune together in Rome, the heart of this glorious empire!", Game.world().environment().getMap().getStringValue(MapProperty.MAP_TITLE)), GameManager.SPEECH_BUBBLE_APPEARANCE,
         GameManager.SPEECH_BUBBLE_FONT);
     bubble1.setTextDisplayTime(5000);
@@ -146,5 +149,13 @@ public class Gatekeeper extends Creature {
 
   public void setNextLevel(String nextLevel) {
     this.nextLevel = nextLevel;
+  }
+
+  public boolean isTransitioning() {
+    return transitioning;
+  }
+
+  public void setTransitioning(boolean transitioning) {
+    this.transitioning = transitioning;
   }
 }

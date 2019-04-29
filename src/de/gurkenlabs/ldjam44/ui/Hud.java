@@ -1,7 +1,9 @@
 package de.gurkenlabs.ldjam44.ui;
 
 import java.awt.Color;
+import java.awt.FontMetrics;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.geom.Point2D;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
@@ -25,6 +27,9 @@ import de.gurkenlabs.litiengine.util.Imaging;
 public class Hud extends GuiComponent {
   private final BufferedImage HEART = Imaging.scale(Resources.images().get("heart.png"), 5.0);
   private final BufferedImage HEART_EMPTY = Imaging.scale(Resources.images().get("heart-empty.png"), 5.0);
+  private final BufferedImage SLAVE = Imaging.scale(Resources.images().get("slave.png"), 5.0);
+
+  private static final int PADDING = 10;
   private final AnimationController useButtonAnimationController = new AnimationController(Resources.spritesheets().get("hud-use-button"));
   private final AnimationController arrowAnimationController;
   private final AnimationController questAnimationController;
@@ -56,9 +61,6 @@ public class Hud extends GuiComponent {
     this.renderKeeperUI(g);
     this.renderHP(g);
     this.renderSlaves(g);
-    TextRenderer.render(g, "Slaves: " + GameManager.getAliveSlaveCount(), 250, 150);
-    TextRenderer.render(g, "My slaves: " + GameManager.getOwnSlaveCount(), 250, 180);
-    TextRenderer.render(g, "Required: " + GameManager.getRequiredSlaveCount(), 250, 210);
 
     if (Player.instance().isDead()) {
       g.setFont(g.getFont().deriveFont(20f));
@@ -120,13 +122,18 @@ public class Hud extends GuiComponent {
   }
 
   private void renderSlaves(Graphics2D g) {
-
+    double x = Game.window().getResolution().getWidth() / 2.0 - SLAVE.getWidth() * 0.5;
+    double y = Game.window().getResolution().getHeight() - (PADDING * 4) - HEART.getHeight() - SLAVE.getHeight();
+    ImageRenderer.render(g, SLAVE, x, y);
+    g.setFont(GameManager.SPEECH_BUBBLE_FONT.deriveFont(55f));
+    g.setColor(Color.WHITE);
+    TextRenderer.renderWithOutline(g, "x" + GameManager.getOwnSlaveCount(), x, y + SLAVE.getHeight(), Color.BLACK, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
   }
 
   private void renderHP(Graphics2D g) {
-    final int PADDING = 10;
+
     double y = Game.window().getResolution().getHeight() - PADDING * 2 - HEART.getHeight();
-    double x = Game.window().getResolution().getWidth() / 2.0 - (Player.instance().getHitPoints().getMaxValue() * (HEART.getWidth() + PADDING) * 0.5);
+    double x = Game.window().getResolution().getWidth() / 2.0 - ((Player.instance().getHitPoints().getMaxValue() * (HEART.getWidth() + PADDING) * 0.5)- PADDING);
     for (int i = 0; i < Player.instance().getHitPoints().getMaxValue(); i++) {
       BufferedImage img = i < Player.instance().getHitPoints().getCurrentValue() ? HEART : HEART_EMPTY;
       ImageRenderer.render(g, img, x + i * img.getWidth() + PADDING, y);
