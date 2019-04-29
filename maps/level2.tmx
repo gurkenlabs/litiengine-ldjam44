@@ -626,7 +626,7 @@
    </properties>
   </object>
   <object id="26" type="COLLISIONBOX" x="256" y="32" width="4" height="32"/>
-  <object id="27" type="COLLISIONBOX" x="120" y="29" width="32" height="11"/>
+  <object id="27" type="COLLISIONBOX" x="120" y="24" width="32" height="16"/>
   <object id="28" type="COLLISIONBOX" x="152" y="40" width="8" height="24"/>
   <object id="29" type="CREATURE" x="121" y="98" width="4" height="4">
    <properties>
