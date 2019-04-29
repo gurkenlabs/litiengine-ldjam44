@@ -9,6 +9,7 @@ import com.jcraft.jogg.Buffer;
 
 import de.gurkenlabs.ldjam44.GameManager;
 import de.gurkenlabs.ldjam44.entities.Enemy;
+import de.gurkenlabs.ldjam44.entities.Gatekeeper;
 import de.gurkenlabs.ldjam44.entities.Player;
 import de.gurkenlabs.ldjam44.entities.Player.PlayerState;
 import de.gurkenlabs.litiengine.Game;
@@ -26,6 +27,7 @@ public class Hud extends GuiComponent {
   private final BufferedImage HEART_EMPTY = Imaging.scale(Resources.images().get("heart-empty.png"), 5.0);
   private final AnimationController useButtonAnimationController = new AnimationController(Resources.spritesheets().get("hud-use-button"));
   private final AnimationController arrowAnimationController;
+  private final AnimationController questAnimationController;
 
   protected Hud() {
     super(0, 0, Game.window().getResolution().getWidth(), Game.window().getResolution().getHeight());
@@ -34,6 +36,10 @@ public class Hud extends GuiComponent {
     Spritesheet arrow = Resources.spritesheets().load(Resources.images().get("arrow.png"), "arrow", 23, 28);
     this.arrowAnimationController = new AnimationController(arrow);
     Game.loop().attach(this.arrowAnimationController);
+
+    Spritesheet quest = Resources.spritesheets().load(Resources.images().get("quest.png"), "arrow", 23, 28);
+    this.questAnimationController = new AnimationController(quest);
+    Game.loop().attach(this.questAnimationController);
   }
 
   @Override
@@ -46,19 +52,8 @@ public class Hud extends GuiComponent {
       return;
     }
 
-    for (Enemy enemy : Game.world().environment().getByType(Enemy.class)) {
-      if (enemy.isEngaged()) {
-        RenderEngine.renderText(g, enemy.getHitPoints().getCurrentValue().toString(), enemy.getCenter());
-      }
-
-      if (!enemy.isEngaged() && !enemy.isEngaging()) {
-        BufferedImage arrow = this.arrowAnimationController.getCurrentSprite(46, 56);
-
-        final Point2D loc = Game.world().camera().getViewportLocation(enemy.getCenter());
-        ImageRenderer.render(g, arrow, (loc.getX() * Game.world().camera().getRenderScale() - arrow.getWidth() / 2.0), loc.getY() * Game.world().camera().getRenderScale() - (arrow.getHeight() * 2.5));
-      }
-    }
-
+    this.renderEnemyUI(g);
+    this.renderKeeperUI(g);
     this.renderHP(g);
     this.renderSlaves(g);
     TextRenderer.render(g, "Slaves: " + GameManager.getAliveSlaveCount(), 250, 150);
@@ -71,6 +66,39 @@ public class Hud extends GuiComponent {
     }
 
     this.renderUseButton(g);
+  }
+
+  private void renderKeeperUI(Graphics2D g) {
+    final Gatekeeper keeper = GameManager.getGateKeeper();
+    if (keeper == null) {
+      return;
+    }
+
+    if (keeper.getRequiredSlaves() > GameManager.getOwnSlaveCount()) {
+      return;
+    }
+
+    // display exclamation icon as soon as slave count is met
+    BufferedImage arrow = this.questAnimationController.getCurrentSprite(46, 56);
+
+    final Point2D loc = Game.world().camera().getViewportLocation(keeper.getCenter());
+    ImageRenderer.render(g, arrow, (loc.getX() * Game.world().camera().getRenderScale() - arrow.getWidth() / 2.0), loc.getY() * Game.world().camera().getRenderScale() - (arrow.getHeight() * 2.5));
+
+  }
+
+  private void renderEnemyUI(Graphics2D g) {
+    for (Enemy enemy : Game.world().environment().getByType(Enemy.class)) {
+      if (enemy.isEngaged()) {
+        RenderEngine.renderText(g, enemy.getHitPoints().getCurrentValue().toString(), enemy.getCenter());
+      }
+
+      if (!enemy.isEngaged() && !enemy.isEngaging()) {
+        BufferedImage arrow = this.arrowAnimationController.getCurrentSprite(46, 56);
+
+        final Point2D loc = Game.world().camera().getViewportLocation(enemy.getCenter());
+        ImageRenderer.render(g, arrow, (loc.getX() * Game.world().camera().getRenderScale() - arrow.getWidth() / 2.0), loc.getY() * Game.world().camera().getRenderScale() - (arrow.getHeight() * 2.5));
+      }
+    }
   }
 
   private void renderSlaves(Graphics2D g) {
