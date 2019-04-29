@@ -1,7 +1,10 @@
 package de.gurkenlabs.ldjam44.ui;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
@@ -11,20 +14,26 @@ import de.gurkenlabs.ldjam44.entities.Player;
 import de.gurkenlabs.ldjam44.entities.Player.PlayerState;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.environment.Environment;
+import de.gurkenlabs.litiengine.environment.tilemap.MapProperty;
 import de.gurkenlabs.litiengine.graphics.ImageRenderer;
+import de.gurkenlabs.litiengine.graphics.TextRenderer;
 import de.gurkenlabs.litiengine.gui.screens.Screen;
 import de.gurkenlabs.litiengine.resources.Resources;
+import de.gurkenlabs.litiengine.util.MathUtilities;
 
 public class IngameScreen extends Screen {
+  private static final int LEVELNAME_DURATION = 7000;
   private final BufferedImage NOTE_DEATH = Resources.images().get("died.png");
   private final BufferedImage NOTE_SLAVES = Resources.images().get("slaves-killed.png");
 
   public static final String NAME = "INGAME-SCREEN";
   private static final int CINEMATIC_BORDER = 100;
-
-  private Hud hud;
   public static KeyboardMenu ingameMenu;
   public static KeyboardMenu deathMenu;
+
+  private Hud hud;
+
+  public static long levelNameTick;
 
   public IngameScreen() {
     super(NAME);
@@ -115,5 +124,42 @@ public class IngameScreen extends Screen {
     }
 
     super.render(g);
+
+    // render level name
+    if (Game.world().environment() != null && levelNameTick != 0) {
+      long deltaTime = Game.time().since(levelNameTick);
+
+      if (deltaTime > 1000 && deltaTime < LEVELNAME_DURATION) {
+        // fade out status color
+        final double fadeOutTime = 0.75 * LEVELNAME_DURATION;
+        if (deltaTime > fadeOutTime) {
+          double fade = deltaTime - fadeOutTime;
+          int alpha = (int) (255 - (fade / (LEVELNAME_DURATION - fadeOutTime)) * 255);
+          g.setColor(new Color(0, 0, 0, MathUtilities.clamp(alpha, 0, 255)));
+        }
+
+        g.setColor(new Color(0, 0, 0));
+
+        // TITLE
+        Font old = g.getFont();
+        g.setFont(GameManager.GUI_FONT_ALT.deriveFont(60f));
+        FontMetrics fm = g.getFontMetrics();
+
+        String cityName = GameManager.getCity(Game.world().environment().getMap().getName());
+        double x = Game.window().getCenter().getX() - fm.stringWidth(cityName) / 2.0;
+        TextRenderer.render(g, cityName, x, 150, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
+        // DESCRIPTION
+        String description = Game.world().environment().getMap().getStringValue(MapProperty.MAP_DESCRIPTION);
+        if (description != null && !description.isEmpty()) {
+          g.setFont(GameManager.GUI_FONT_ALT.deriveFont(32f));
+          FontMetrics fm2 = g.getFontMetrics();
+
+          double x2 = Game.window().getCenter().getX() - fm2.stringWidth(description) / 2.0;
+          TextRenderer.render(g, description, x2, 210, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+          g.setFont(old);
+        }
+      }
+    }
   }
 }
