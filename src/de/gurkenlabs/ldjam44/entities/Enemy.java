@@ -48,6 +48,8 @@ import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 @EntityInfo(width = 17, height = 21)
 public class Enemy extends Mob implements IRenderable {
   private static final Sound[] deathSounds = new Sound[] { Resources.sounds().get("enemy-death1.ogg"), Resources.sounds().get("enemy-death2.ogg"), Resources.sounds().get("enemy-death3.ogg"), Resources.sounds().get("enemy-death4.ogg"), Resources.sounds().get("enemy-death5.ogg") };
+  private static final Sound[] engageSounds = new Sound[] { Resources.sounds().get("enemy-engage1.ogg"), Resources.sounds().get("enemy-engage2.ogg"), Resources.sounds().get("enemy-engage3.ogg"), Resources.sounds().get("enemy-engage4.ogg"), Resources.sounds().get("enemy-engage5.ogg"),
+      Resources.sounds().get("enemy-engage6.ogg"), Resources.sounds().get("enemy-engage7.ogg"), Resources.sounds().get("enemy-engage8.ogg"), Resources.sounds().get("enemy-engage9.ogg"), Resources.sounds().get("enemy-engage10.ogg"), };
 
   public static int GCD = 2000;
 
@@ -111,6 +113,7 @@ public class Enemy extends Mob implements IRenderable {
         this.setEngaging(true);
         Game.loop().perform(2000, () -> {
           this.setEngaged(true);
+          Game.audio().playSound(ArrayUtilities.getRandom(engageSounds));
           this.setIndestructible(false);
         });
       }
