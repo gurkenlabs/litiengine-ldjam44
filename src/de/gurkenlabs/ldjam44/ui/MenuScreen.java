@@ -20,7 +20,7 @@ public class MenuScreen extends Screen implements IUpdateable {
 
   public static final BufferedImage LOGO_COIN = Resources.images().get("logo_pass2.png");
   public static final BufferedImage CONTROLS = Resources.images().get("controls.png");
-  private static final BufferedImage BG = Imaging.scale(Resources.images().get("menu_bg.png"), Game.window().getWidth(), Game.window().getHeight());
+  //private static final BufferedImage BG = Imaging.scale(Resources.images().get("menu_bg.png"), Game.window().getWidth(), Game.window().getHeight());
   private static final BufferedImage CLOUD1 = Imaging.scale(Resources.images().get("cloud1.png"), 6f);
   private static final BufferedImage CLOUD2 = Imaging.scale(Resources.images().get("cloud2.png"), 6f);
   private static final BufferedImage CLOUD3 = Imaging.scale(Resources.images().get("cloud3.png"), 6f);
@@ -80,11 +80,12 @@ public class MenuScreen extends Screen implements IUpdateable {
     Game.window().getRenderComponent().setBackground(Color.BLACK);
     Game.graphics().setBaseRenderScale(6f * Game.window().getResolutionScale());
     this.mainMenu.incFocus();
+    Game.world().loadEnvironment("title");
   }
 
   @Override
   public void render(final Graphics2D g) {
-    ImageRenderer.render(g, BG, 0, 0);
+    Game.world().environment().render(g);
     this.renderScrollingStuff(g);
     final double centerX = Game.window().getResolution().getWidth() / 2.0;
     final double logoX = centerX - LOGO_COIN.getWidth() / 2;
