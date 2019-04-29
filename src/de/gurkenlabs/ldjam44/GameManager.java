@@ -76,7 +76,7 @@ public final class GameManager {
         waterMonger.setHeight(15);
         water.spawn(waterMonger);
         Game.loop().perform(2500, () -> {
-          SpeechBubble bubble = SpeechBubble.create(waterMonger, "....", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
+          SpeechBubble bubble = SpeechBubble.create(waterMonger, ".... ", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
           bubble.addListener(new SpeechBubbleListener() {
             @Override
             public void hidden() {
@@ -85,6 +85,10 @@ public final class GameManager {
               bubble2.setTextDisplayTime(5000);
               Game.loop().perform(5000, () -> {
                 Game.window().getRenderComponent().fadeOut(5000);
+                Game.loop().perform(5000, () -> {
+                  Game.screens().display("MENU");
+                  Game.window().getRenderComponent().fadeIn(1000);
+                });
               });
             }
           });

@@ -19,7 +19,7 @@ import de.gurkenlabs.litiengine.util.MathUtilities;
 public class MenuScreen extends Screen implements IUpdateable {
 
   public static final BufferedImage LOGO_COIN = Resources.images().get("logo_pass2.png");
-  public static final BufferedImage CONTROLS = Resources.images().get("controls.png");
+  public static final BufferedImage CONTROLS = Imaging.scale(Resources.images().get("controls.png"), (int) (Game.window().getResolution().getWidth() / 4.0), (int) (Game.window().getResolution().getHeight() / 2.0), true);
   //private static final BufferedImage BG = Imaging.scale(Resources.images().get("menu_bg.png"), Game.window().getWidth(), Game.window().getHeight());
   private static final BufferedImage CLOUD1 = Imaging.scale(Resources.images().get("cloud1.png"), 6f);
   private static final BufferedImage CLOUD2 = Imaging.scale(Resources.images().get("cloud2.png"), 6f);
@@ -75,12 +75,14 @@ public class MenuScreen extends Screen implements IUpdateable {
 
   @Override
   public void prepare() {
+    this.mainMenu.setEnabled(true);
     super.prepare();
     Game.loop().attach(this);
     Game.window().getRenderComponent().setBackground(Color.BLACK);
     Game.graphics().setBaseRenderScale(6f * Game.window().getResolutionScale());
     this.mainMenu.incFocus();
     Game.world().loadEnvironment("title");
+    Game.world().camera().setFocus(Game.world().environment().getCenter());
   }
 
   @Override
