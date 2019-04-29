@@ -13,30 +13,47 @@ import de.gurkenlabs.ldjam44.GameManager.GameState;
 import de.gurkenlabs.ldjam44.entities.Player;
 import de.gurkenlabs.ldjam44.entities.Player.PlayerState;
 import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.IUpdateable;
 import de.gurkenlabs.litiengine.environment.Environment;
 import de.gurkenlabs.litiengine.environment.tilemap.MapProperty;
 import de.gurkenlabs.litiengine.graphics.ImageRenderer;
 import de.gurkenlabs.litiengine.graphics.TextRenderer;
 import de.gurkenlabs.litiengine.gui.screens.Screen;
 import de.gurkenlabs.litiengine.resources.Resources;
+import de.gurkenlabs.litiengine.sound.Sound;
 import de.gurkenlabs.litiengine.util.MathUtilities;
 
-public class IngameScreen extends Screen {
+public class IngameScreen extends Screen implements IUpdateable {
   private static final int LEVELNAME_DURATION = 7000;
   private final BufferedImage NOTE_DEATH = Resources.images().get("died.png");
   private final BufferedImage NOTE_SLAVES = Resources.images().get("slaves-killed.png");
-
+  public static final Sound INGAME_MUSIC = Resources.sounds().get("ingamemusic.ogg");
   public static final String NAME = "INGAME-SCREEN";
   private static final int CINEMATIC_BORDER = 100;
   public static KeyboardMenu ingameMenu;
   public static KeyboardMenu deathMenu;
 
   private Hud hud;
+  public long lastPlayed;
 
   public static long levelNameTick;
 
   public IngameScreen() {
     super(NAME);
+  }
+
+  @Override
+  public void prepare() {
+    super.prepare();
+    Game.loop().attach(this);
+
+  }
+
+  @Override
+  public void suspend() {
+    super.suspend();
+    Game.loop().detach(this);
+    Game.audio().stopMusic();
   }
 
   @Override
@@ -68,7 +85,8 @@ public class IngameScreen extends Screen {
         Game.window().getRenderComponent().fadeOut(1000);
 
         Game.loop().perform(1500, () -> {
-          // remove player before unloading the environment or the instance's animation controller will be disposed
+          // remove player before unloading the environment or the instance's
+          // animation controller will be disposed
           Environment current = Game.world().environment();
           Player.instance().setState(PlayerState.LOCKED);
           current.remove(Player.instance());
@@ -165,6 +183,14 @@ public class IngameScreen extends Screen {
           g.setFont(old);
         }
       }
+    }
+  }
+
+  @Override
+  public void update() {
+    if (this.lastPlayed == 0) {
+      Game.audio().playMusic(INGAME_MUSIC);
+      this.lastPlayed = Game.loop().getTicks();
     }
   }
 }
