@@ -3,6 +3,7 @@ package de.gurkenlabs.ldjam44.ui;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
+import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 
 import de.gurkenlabs.ldjam44.GameManager;
@@ -63,8 +64,8 @@ public class Hud extends GuiComponent {
       g.setFont(g.getFont().deriveFont(20f));
       TextRenderer.render(g, "YOU ARE DEAD!", Game.window().getCenter());
     }
-    
-    if(GameManager.getState() == GameState.SLAVES_DEAD) {
+
+    if (GameManager.getState() == GameState.SLAVES_DEAD) {
       g.setFont(g.getFont().deriveFont(20f));
       TextRenderer.render(g, "TOO MANY SLAVES KILLED!", Game.window().getCenter());
     }
@@ -92,8 +93,21 @@ public class Hud extends GuiComponent {
 
   private void renderEnemyUI(Graphics2D g) {
     for (Enemy enemy : Game.world().environment().getByType(Enemy.class)) {
-      if (enemy.isEngaged()) {
-        RenderEngine.renderText(g, enemy.getHitPoints().getCurrentValue().toString(), enemy.getCenter());
+      if (enemy.isEngaged() && !enemy.isDead()) {
+        final double width = 16;
+        final double height = 2;
+        double x = enemy.getX() - (width - enemy.getWidth()) / 2.0;
+        double y = enemy.getY() - height * 2;
+        RoundRectangle2D rect = new RoundRectangle2D.Double(x, y, width, height, 1.5, 1.5);
+
+        final double currentWidth = width * (enemy.getHitPoints().getCurrentValue() / (double) enemy.getHitPoints().getMaxValue());
+        RoundRectangle2D actualRect = new RoundRectangle2D.Double(x, y, currentWidth, height, 1.5, 1.5);
+
+        g.setColor(KeyboardMenu.BUTTON_BLACK);
+        RenderEngine.renderShape(g, rect);
+
+        g.setColor(new Color(228, 59, 68));
+        RenderEngine.renderShape(g, actualRect);
       }
 
       if (!enemy.isEngaged() && !enemy.isEngaging()) {
