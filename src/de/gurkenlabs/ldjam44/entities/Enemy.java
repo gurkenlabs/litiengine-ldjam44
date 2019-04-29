@@ -133,6 +133,8 @@ public class Enemy extends Mob implements IRenderable {
       // spawn player slaves
       int spawns = !ownedSlaves.isEmpty() ? ownedSlaves.size() : slaves.get(this.getType());
       for (int i = 0; i < spawns; i++) {
+        
+        // TODO: ensure that slaves don't spawn in collisionboxes
         Point2D spawn = new Point2D.Double(this.getCenter().getX() + MathUtilities.randomInRange(-10, 10), this.getCenter().getY() + MathUtilities.randomInRange(-10, 10));
 
         Game.loop().perform(500 * (i + 1), () -> {
