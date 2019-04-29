@@ -5,6 +5,8 @@ import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 
+import com.jcraft.jogg.Buffer;
+
 import de.gurkenlabs.ldjam44.GameManager;
 import de.gurkenlabs.ldjam44.entities.Enemy;
 import de.gurkenlabs.ldjam44.entities.Player;
@@ -17,10 +19,13 @@ import de.gurkenlabs.litiengine.graphics.TextRenderer;
 import de.gurkenlabs.litiengine.graphics.animation.AnimationController;
 import de.gurkenlabs.litiengine.gui.GuiComponent;
 import de.gurkenlabs.litiengine.resources.Resources;
+import de.gurkenlabs.litiengine.util.Imaging;
 
 public class Hud extends GuiComponent {
-  public final AnimationController useButtonAnimationController = new AnimationController(Resources.spritesheets().get("hud-use-button"));
-  public final AnimationController arrowAnimationController;
+  private final BufferedImage HEART = Imaging.scale(Resources.images().get("heart.png"), 5.0);
+  private final BufferedImage HEART_EMPTY = Imaging.scale(Resources.images().get("heart-empty.png"), 5.0);
+  private final AnimationController useButtonAnimationController = new AnimationController(Resources.spritesheets().get("hud-use-button"));
+  private final AnimationController arrowAnimationController;
 
   protected Hud() {
     super(0, 0, Game.window().getResolution().getWidth(), Game.window().getResolution().getHeight());
@@ -54,7 +59,8 @@ public class Hud extends GuiComponent {
       }
     }
 
-    TextRenderer.render(g, "HP:" + Player.instance().getHitPoints().getCurrentValue() + "/" + Player.instance().getHitPoints().getMaxValue(), 250, 120);
+    this.renderHP(g);
+    this.renderSlaves(g);
     TextRenderer.render(g, "Slaves: " + GameManager.getAliveSlaveCount(), 250, 150);
     TextRenderer.render(g, "My slaves: " + GameManager.getOwnSlaveCount(), 250, 180);
     TextRenderer.render(g, "Required: " + GameManager.getRequiredSlaveCount(), 250, 210);
@@ -65,6 +71,20 @@ public class Hud extends GuiComponent {
     }
 
     this.renderUseButton(g);
+  }
+
+  private void renderSlaves(Graphics2D g) {
+
+  }
+
+  private void renderHP(Graphics2D g) {
+    final int PADDING = 10;
+    double y = Game.window().getResolution().getHeight() - PADDING * 2 - HEART.getHeight();
+    double x = Game.window().getResolution().getWidth() / 2.0 - (Player.instance().getHitPoints().getMaxValue() * (HEART.getWidth() + PADDING) * 0.5);
+    for (int i = 0; i < Player.instance().getHitPoints().getMaxValue(); i++) {
+      BufferedImage img = i < Player.instance().getHitPoints().getCurrentValue() ? HEART : HEART_EMPTY;
+      ImageRenderer.render(g, img, x + i * img.getWidth() + PADDING, y);
+    }
   }
 
   private void renderUseButton(Graphics2D g) {
