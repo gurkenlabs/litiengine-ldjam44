@@ -30,7 +30,7 @@ public class KeyboardMenu extends Menu {
     super(x, y, width, height, items);
     this.confirmConsumer = new CopyOnWriteArrayList<>();
 
-    Input.keyboard().onKeyPressed(e -> {
+    Input.keyboard().onKeyReleased(e -> {
       if (e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_E) {
         if (this.menuInputIsLocked()) {
           return;
