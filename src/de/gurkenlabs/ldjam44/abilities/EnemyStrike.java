@@ -13,11 +13,13 @@ import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.graphics.RenderType;
 import de.gurkenlabs.litiengine.graphics.emitters.SpritesheetEmitter;
 import de.gurkenlabs.litiengine.resources.Resources;
+import de.gurkenlabs.litiengine.sound.Sound;
+import de.gurkenlabs.litiengine.util.ArrayUtilities;
 import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 
 @AbilityInfo(name = "Strike", cooldown = 1500, range = 0, impact = 10, impactAngle = 360, value = 1, duration = 400, multiTarget = true, origin = AbilityOrigin.DIMENSION_CENTER)
 public class EnemyStrike extends OffensiveAbility {
-
+  private static final Sound[] strikeSounds = new Sound[] { Resources.sounds().get("enemy-strike1.ogg"), Resources.sounds().get("enemy-strike2.ogg") };
   private final HitEffect hitEffect;
 
   public EnemyStrike(Creature executor) {
@@ -63,6 +65,7 @@ public class EnemyStrike extends OffensiveAbility {
       SpritesheetEmitter dashEmitter = new StrikeEmitter(Resources.spritesheets().get(sprite), new Point2D.Double(x, y));
       dashEmitter.setRenderType(renderType);
       Game.world().environment().add(dashEmitter);
+      Game.audio().playSound(ArrayUtilities.getRandom(strikeSounds));
     });
   }
 

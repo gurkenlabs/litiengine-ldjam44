@@ -41,7 +41,7 @@ public class Gatekeeper extends Creature {
         String text = "You need to trade me " + this.requiredSlaves + " slave" + (this.requiredSlaves > 1 ? "s" : "") + " to advance!";
         if (GameManager.getOwnSlaveCount() >= this.getRequiredSlaves()) {
           text = "WELL DONE! Now I can take you to " + GameManager.getCity(this.getNextLevel()) + ".";
-          Game.audio().playSound(Resources.sounds().get("success"));
+          Game.audio().playSound(Resources.sounds().get("success.ogg"));
           SpeechBubble bubble = SpeechBubble.create(this, text, GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
           bubble.setTextDisplayTime(4000);
           Player.instance().setState(PlayerState.LOCKED);

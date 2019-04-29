@@ -8,6 +8,7 @@ import de.gurkenlabs.litiengine.abilities.effects.Effect;
 import de.gurkenlabs.litiengine.abilities.effects.EffectApplication;
 import de.gurkenlabs.litiengine.abilities.effects.EffectTarget;
 import de.gurkenlabs.litiengine.entities.ICombatEntity;
+import de.gurkenlabs.litiengine.resources.Resources;
 
 public class JumpEffect extends Effect {
   private double angle;
@@ -62,6 +63,7 @@ public class JumpEffect extends Effect {
 
     Player.instance().getAnimationController().playAnimation(jumpAnimation);
 
+    Game.audio().playSound(Resources.sounds().get("jump.ogg"));
     super.apply(entity);
   }
 

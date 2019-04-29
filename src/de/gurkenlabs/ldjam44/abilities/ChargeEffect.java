@@ -27,6 +27,7 @@ public class ChargeEffect extends Effect {
       for (ICombatEntity ent : Game.world().environment().findCombatEntities(this.getAbility().getExecutor().getHitBox(), e -> e.equals(Player.instance()))) {
         ent.hit(damage, this.getAbility());
         wasHit = true;
+        Game.audio().playSound("charge-hit.ogg");
       }
     }
 
@@ -43,6 +44,7 @@ public class ChargeEffect extends Effect {
   protected void apply(final ICombatEntity entity) {
     this.angle = GeometricUtilities.calcRotationAngleInDegrees(this.getAbility().getExecutor().getCenter(), Player.instance().getCenter());
     wasHit = false;
+    Game.audio().playSound("run.ogg");
     super.apply(entity);
   }
 }

@@ -72,6 +72,10 @@ public class Player extends Creature implements IRenderable, IUpdateable {
       spawnHitEmitter(e.getEntity(), e);
     });
 
+    this.addDeathListener(e -> {
+      Game.audio().playSound("fail.ogg");
+    });
+
     this.setMapId(100000);
   }
 
