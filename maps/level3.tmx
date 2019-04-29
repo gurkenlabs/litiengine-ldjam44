@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="41" height="23" tilewidth="8" tileheight="8" infinite="0" nextlayerid="90" nextobjectid="59">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="41" height="23" tilewidth="8" tileheight="8" infinite="0" nextobjectid="59" nextlayerid="90" name="level3">
  <properties>
   <property name="AMBIENTLIGHT" value="#00ffffff"/>
   <property name="GRAVITY" type="int" value="0"/>
-  <property name="MAP_DESCRIPTION" value="It will be a long journey to Rome."/>
-  <property name="MAP_TITLE" value="Memphis"/>
+  <property name="MAP_DESCRIPTION" value="I'm glad we survived the turbulent waters of the mare internum..."/>
+  <property name="MAP_TITLE" value="Agrigentum"/>
   <property name="SHADOWCOLOR" value="#28000000"/>
  </properties>
  <tileset firstgid="1" name="Tileset" tilewidth="8" tileheight="8" tilecount="1024" columns="32">
@@ -210,11 +210,11 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,313,0,0,0,0,0,0,0,0,0,0,0,0,313,0,0,313,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,345,0,0,0,0,0,0,0,0,0,0,0,0,345,0,0,345,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,377,0,0,0,0,0,0,0,0,0,0,0,0,377,0,0,377,0,0,0,0,0,0,0,0,0,0,0,0,313,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,345,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,377,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,221,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,221,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,221,0,0,0,0,
@@ -439,8 +439,7 @@
  </layer>
  <objectgroup id="10" name="collision">
   <object id="1" type="COLLISIONBOX" x="0" y="0" width="8" height="144"/>
-  <object id="46" type="COLLISIONBOX" x="288" y="58" width="16" height="70"/>
-  <object id="65" type="COLLISIONBOX" x="184" y="42" width="8" height="22"/>
+  <object id="46" type="COLLISIONBOX" x="288" y="80" width="8" height="48"/>
  </objectgroup>
  <objectgroup id="11" name="spawnpoints">
   <object id="7" name="enter" type="SPAWNPOINT" x="73" y="122" width="11" height="20"/>
@@ -658,6 +657,7 @@
     <property name="particleMinX" value="-2.0"/>
     <property name="particleMinY" value="-1.0"/>
     <property name="particlePhysics" value="NONE"/>
+    <property name="renderType" value="OVERLAY"/>
    </properties>
   </object>
   <object id="60" type="EMITTER" x="160" y="33" width="8" height="8">
@@ -698,6 +698,7 @@
     <property name="particleMinX" value="-2.0"/>
     <property name="particleMinY" value="-1.0"/>
     <property name="particlePhysics" value="NONE"/>
+    <property name="renderType" value="OVERLAY"/>
    </properties>
   </object>
   <object id="61" type="EMITTER" x="184" y="33" width="8" height="8">
@@ -738,6 +739,7 @@
     <property name="particleMinX" value="-2.0"/>
     <property name="particleMinY" value="-1.0"/>
     <property name="particlePhysics" value="NONE"/>
+    <property name="renderType" value="OVERLAY"/>
    </properties>
   </object>
   <object id="62" type="EMITTER" x="288" y="49" width="8" height="8">
@@ -778,6 +780,7 @@
     <property name="particleMinX" value="-2.0"/>
     <property name="particleMinY" value="-1.0"/>
     <property name="particlePhysics" value="NONE"/>
+    <property name="renderType" value="OVERLAY"/>
    </properties>
   </object>
   <object id="63" type="CREATURE" x="211" y="107" width="4" height="4">
@@ -806,8 +809,6 @@
     <property name="spritesheetName" value="decormob-cockroach"/>
    </properties>
   </object>
-  <object id="66" type="COLLISIONBOX" x="160" y="42" width="8" height="22"/>
-  <object id="67" type="COLLISIONBOX" x="56" y="40" width="8" height="24"/>
   <object id="68" type="PROP" x="256" y="32" width="8" height="8">
    <properties>
     <property name="addShadow" type="bool" value="false"/>
@@ -817,6 +818,78 @@
     <property name="indestructible" type="bool" value="false"/>
     <property name="scaling" type="bool" value="true"/>
     <property name="spritesheetName" value="pot"/>
+   </properties>
+  </object>
+  <object id="69" type="PROP" x="184" y="42" width="8" height="22">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="4.0"/>
+    <property name="collisionboxWidth" value="4.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="torch1"/>
+   </properties>
+  </object>
+  <object id="70" type="PROP" x="160" y="42" width="8" height="22">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="4.0"/>
+    <property name="collisionboxWidth" value="4.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="torch1"/>
+   </properties>
+  </object>
+  <object id="71" type="PROP" x="56" y="42" width="8" height="22">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="4.0"/>
+    <property name="collisionboxWidth" value="4.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="torch1"/>
+   </properties>
+  </object>
+  <object id="72" type="PROP" x="288" y="58" width="8" height="22">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="4.0"/>
+    <property name="collisionboxWidth" value="4.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="torch1"/>
+   </properties>
+  </object>
+  <object id="73" type="PROP" x="123" y="107" width="10" height="7">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="3.0"/>
+    <property name="collisionboxWidth" value="6.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="amphora4"/>
+   </properties>
+  </object>
+  <object id="74" type="PROP" x="122" y="99" width="8" height="11">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="4.0"/>
+    <property name="collisionboxWidth" value="4.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="amphora3"/>
+   </properties>
+  </object>
+  <object id="75" type="PROP" x="291" y="127" width="24" height="11">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionAlign" value="RIGHT"/>
+    <property name="collisionboxHeight" value="5.0"/>
+    <property name="collisionboxWidth" value="20.0"/>
+    <property name="flipHorizontally" type="bool" value="true"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="marketcart"/>
    </properties>
   </object>
  </objectgroup>

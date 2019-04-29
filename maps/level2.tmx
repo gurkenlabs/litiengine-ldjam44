@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="41" height="23" tilewidth="8" tileheight="8" infinite="0" nextlayerid="90" nextobjectid="39">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="41" height="23" tilewidth="8" tileheight="8" infinite="0" nextobjectid="39" nextlayerid="90" name="level2">
  <properties>
   <property name="AMBIENTLIGHT" value="#00ffffff"/>
   <property name="GRAVITY" type="int" value="0"/>
-  <property name="MAP_DESCRIPTION" value="It will be a long journey to Rome."/>
-  <property name="MAP_TITLE" value="Memphis"/>
+  <property name="MAP_DESCRIPTION" value="From here, we can board the vessel to Sicilia."/>
+  <property name="MAP_TITLE" value="Hadrumetum"/>
   <property name="SHADOWCOLOR" value="#28000000"/>
  </properties>
  <tileset firstgid="1" name="Tileset" tilewidth="8" tileheight="8" tilecount="1024" columns="32">
@@ -208,21 +208,21 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,192,192,192,192,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,224,224,224,224,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,221,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,221,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,221,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,190,31,32,31,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,313,0,0,0,0,31,32,222,63,31,32,64,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,345,0,0,0,0,63,64,0,95,63,64,96,190,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,377,0,0,0,0,95,96,0,0,95,96,0,222,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -237,9 +237,9 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,185,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,185,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,185,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -626,8 +626,6 @@
    </properties>
   </object>
   <object id="26" type="COLLISIONBOX" x="256" y="32" width="4" height="32"/>
-  <object id="27" type="COLLISIONBOX" x="120" y="24" width="32" height="16"/>
-  <object id="28" type="COLLISIONBOX" x="152" y="40" width="8" height="24"/>
   <object id="29" type="CREATURE" x="121" y="98" width="4" height="4">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
@@ -645,11 +643,6 @@
   <object id="31" type="COLLISIONBOX" x="260" y="32" width="32" height="6"/>
   <object id="32" type="COLLISIONBOX" x="108" y="16" width="104" height="8"/>
   <object id="33" type="COLLISIONBOX" x="12" y="32" width="40" height="8"/>
-  <object id="34" type="COLLISIONBOX" x="112" y="112" width="32" height="32"/>
-  <object id="35" type="COLLISIONBOX" x="144" y="132" width="8" height="12"/>
-  <object id="36" type="COLLISIONBOX" x="104" y="116" width="8" height="12"/>
-  <object id="37" type="COLLISIONBOX" x="88" y="120" width="16" height="24"/>
-  <object id="38" type="COLLISIONBOX" x="48" y="122" width="8" height="22"/>
   <object id="39" type="CREATURE" x="264" y="43" width="7" height="13">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
@@ -666,6 +659,7 @@
   <object id="42" type="COLLISIONBOX" x="108" y="0" width="104" height="6"/>
   <object id="43" type="EMITTER" x="48" y="113" width="8" height="8">
    <properties>
+    <property name="RENDERTYPE" value="OVERLAY"/>
     <property name="emitterAlphaDeviation" value="0.0"/>
     <property name="emitterColorDeviation" value="0.0"/>
     <property name="emitterColors" value="#dd190c|49,#c82010|71,#8b3c01|97"/>
@@ -702,6 +696,157 @@
     <property name="particleMinX" value="-2.0"/>
     <property name="particleMinY" value="-1.0"/>
     <property name="particlePhysics" value="NONE"/>
+    <property name="renderType" value="OVERLAY"/>
+   </properties>
+  </object>
+  <object id="44" type="PROP" x="86" y="124" width="16" height="19">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="10.0"/>
+    <property name="collisionboxWidth" value="16.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="crate1"/>
+   </properties>
+  </object>
+  <object id="45" type="PROP" x="112" y="112" width="16" height="19">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="10.0"/>
+    <property name="collisionboxWidth" value="16.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="crate1"/>
+   </properties>
+  </object>
+  <object id="46" type="PROP" x="128" y="111" width="16" height="19">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="10.0"/>
+    <property name="collisionboxWidth" value="16.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="crate1"/>
+   </properties>
+  </object>
+  <object id="47" type="PROP" x="121" y="119" width="16" height="19">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="10.0"/>
+    <property name="collisionboxWidth" value="16.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="crate1"/>
+   </properties>
+  </object>
+  <object id="48" type="PROP" x="108" y="123" width="8" height="12">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="6.0"/>
+    <property name="collisionboxWidth" value="4.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="amphora1"/>
+   </properties>
+  </object>
+  <object id="49" type="PROP" x="138" y="124" width="8" height="12">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="6.0"/>
+    <property name="collisionboxWidth" value="4.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="amphora1"/>
+   </properties>
+  </object>
+  <object id="50" type="PROP" x="144" y="114" width="8" height="12">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="6.0"/>
+    <property name="collisionboxWidth" value="4.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="amphora1"/>
+   </properties>
+  </object>
+  <object id="51" type="PROP" x="163" y="28" width="8" height="11">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="4.0"/>
+    <property name="collisionboxWidth" value="4.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="amphora3"/>
+   </properties>
+  </object>
+  <object id="52" type="PROP" x="136" y="29" width="8" height="11">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="4.0"/>
+    <property name="collisionboxWidth" value="4.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="amphora3"/>
+   </properties>
+  </object>
+  <object id="53" type="PROP" x="128" y="29" width="8" height="11">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="4.0"/>
+    <property name="collisionboxWidth" value="4.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="amphora3"/>
+   </properties>
+  </object>
+  <object id="54" type="PROP" x="122" y="28" width="8" height="11">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="4.0"/>
+    <property name="collisionboxWidth" value="4.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="amphora3"/>
+   </properties>
+  </object>
+  <object id="55" type="PROP" x="48" y="122" width="8" height="22">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="4.0"/>
+    <property name="collisionboxWidth" value="4.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="torch1"/>
+   </properties>
+  </object>
+  <object id="56" type="PROP" x="178" y="36" width="8" height="7">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="4.0"/>
+    <property name="collisionboxWidth" value="8.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="table3"/>
+   </properties>
+  </object>
+  <object id="57" type="PROP" x="170" y="36" width="8" height="7">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="4.0"/>
+    <property name="collisionboxWidth" value="8.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="table3"/>
+   </properties>
+  </object>
+  <object id="58" type="PROP" x="162" y="36" width="8" height="7">
+   <properties>
+    <property name="addShadow" type="bool" value="true"/>
+    <property name="collision" type="bool" value="true"/>
+    <property name="collisionboxHeight" value="4.0"/>
+    <property name="collisionboxWidth" value="8.0"/>
+    <property name="indestructible" type="bool" value="false"/>
+    <property name="spritesheetName" value="table3"/>
    </properties>
   </object>
  </objectgroup>

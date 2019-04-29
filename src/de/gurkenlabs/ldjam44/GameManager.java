@@ -19,6 +19,7 @@ import de.gurkenlabs.litiengine.entities.Spawnpoint;
 import de.gurkenlabs.litiengine.environment.CreatureMapObjectLoader;
 import de.gurkenlabs.litiengine.environment.Environment;
 import de.gurkenlabs.litiengine.environment.PropMapObjectLoader;
+import de.gurkenlabs.litiengine.environment.tilemap.MapProperty;
 import de.gurkenlabs.litiengine.graphics.Camera;
 import de.gurkenlabs.litiengine.graphics.PositionLockCamera;
 import de.gurkenlabs.litiengine.gui.GuiProperties;
@@ -38,23 +39,12 @@ public final class GameManager {
   public static final Font MENU_FONT = Resources.fonts().get("CAESAR.ttf").deriveFont(40f);
   public static final Font GUI_FONT_ALT = Resources.fonts().get("Roman.ttf").deriveFont(40f);
   public static String START_LEVEL = "level0";
-  
+
   public static final SpeechBubbleAppearance SPEECH_BUBBLE_APPEARANCE = new SpeechBubbleAppearance(new Color(16, 20, 19), new Color(255, 255, 255, 150), new Color(16, 20, 19), 5);
 
-  private static final Map<String, String> cityNames = new ConcurrentHashMap<>();
   private static final Map<String, Runnable> startups = new ConcurrentHashMap<>();
   static {
     SPEECH_BUBBLE_APPEARANCE.setBackgroundColor2(new Color(255, 255, 255, 220));
-    cityNames.put("level0", "Belum");
-    cityNames.put("level1", "Salernum");
-    cityNames.put("level2", "Forum Livii");
-    cityNames.put("level3", "Bononia");
-    cityNames.put("level4", "Aquileia");
-    cityNames.put("level5", "Pistoria");
-    cityNames.put("level6", "Placentia");
-    cityNames.put("level7", "Ariminum");
-    cityNames.put("level8", "Florentia");
-    cityNames.put("level9", "Roma");
 
     startups.put("level0", () -> {
       Camera cam = new Camera();
@@ -133,11 +123,11 @@ public final class GameManager {
   }
 
   public static String getCity(String levelName) {
-    if (!cityNames.containsKey(levelName)) {
-      return "this city";
-    }
+    return Game.world().getEnvironment(levelName).getMap().getStringValue(MapProperty.MAP_TITLE);
+  }
 
-    return cityNames.get(levelName);
+  public static String getCurrentCity() {
+    return getCity(Game.world().environment().getMap().getName());
   }
 
   public static GameState getState() {
