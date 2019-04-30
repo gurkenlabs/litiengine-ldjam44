@@ -703,7 +703,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="10" name="collision">
+ <objectgroup id="10" name="collision" visible="1">
   <object id="1" type="COLLISIONBOX" x="0" y="0" width="8" height="312"/>
   <object id="3" type="COLLISIONBOX" x="51" y="26" width="20" height="3"/>
   <object id="4" type="COLLISIONBOX" x="51" y="36" width="20" height="3"/>
@@ -818,7 +818,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="12" name="props">
+ <objectgroup id="12" name="props" visible="1">
   <object id="22" type="CREATURE" x="32" y="112" width="4" height="4">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
