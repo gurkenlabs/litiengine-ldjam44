@@ -967,17 +967,17 @@
   <object id="1" type="COLLISIONBOX" x="0" y="0" width="8" height="472"/>
   <object id="2" type="COLLISIONBOX" x="414" y="432" width="20" height="3"/>
   <object id="3" type="COLLISIONBOX" x="414" y="442" width="20" height="3"/>
-  <object id="5" type="COLLISIONBOX" x="472" y="16" width="8" height="464"/>
-  <object id="6" type="COLLISIONBOX" x="40" y="442" width="54" height="3"/>
-  <object id="7" type="COLLISIONBOX" x="42" y="431" width="54" height="3"/>
-  <object id="8" type="COLLISIONBOX" x="40" y="431" width="2" height="11"/>
-  <object id="9" type="COLLISIONBOX" x="94" y="434" width="2" height="11"/>
-  <object id="10" type="COLLISIONBOX" x="0" y="472" width="472" height="8"/>
-  <object id="11" type="COLLISIONBOX" x="267" y="340" width="54" height="3"/>
-  <object id="12" type="COLLISIONBOX" x="269" y="329" width="54" height="3"/>
-  <object id="13" type="COLLISIONBOX" x="267" y="329" width="2" height="11"/>
-  <object id="14" type="COLLISIONBOX" x="321" y="332" width="2" height="11"/>
-  <object id="15" type="CREATURE" x="275" y="326" width="7" height="13">
+  <object id="4" type="COLLISIONBOX" x="472" y="16" width="8" height="464"/>
+  <object id="5" type="COLLISIONBOX" x="40" y="442" width="54" height="3"/>
+  <object id="6" type="COLLISIONBOX" x="42" y="431" width="54" height="3"/>
+  <object id="7" type="COLLISIONBOX" x="40" y="431" width="2" height="11"/>
+  <object id="8" type="COLLISIONBOX" x="94" y="434" width="2" height="11"/>
+  <object id="9" type="COLLISIONBOX" x="0" y="472" width="472" height="8"/>
+  <object id="10" type="COLLISIONBOX" x="267" y="340" width="54" height="3"/>
+  <object id="11" type="COLLISIONBOX" x="269" y="329" width="54" height="3"/>
+  <object id="12" type="COLLISIONBOX" x="267" y="329" width="2" height="11"/>
+  <object id="13" type="COLLISIONBOX" x="321" y="332" width="2" height="11"/>
+  <object id="14" type="CREATURE" x="275" y="326" width="7" height="13">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -988,7 +988,7 @@
     <property name="spritesheetName" value="slave-centurio"/>
    </properties>
   </object>
-  <object id="16" type="CREATURE" x="293" y="326" width="7" height="13">
+  <object id="15" type="CREATURE" x="293" y="326" width="7" height="13">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -999,7 +999,7 @@
     <property name="spritesheetName" value="slave-centurio"/>
    </properties>
   </object>
-  <object id="17" type="PROP" x="267" y="316" width="56" height="27">
+  <object id="16" type="PROP" x="267" y="316" width="56" height="27">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="false"/>
@@ -1009,7 +1009,7 @@
     <property name="spritesheetName" value="cage2"/>
    </properties>
   </object>
-  <object id="18" type="CREATURE" x="309" y="326" width="7" height="13">
+  <object id="17" type="CREATURE" x="309" y="326" width="7" height="13">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1020,28 +1020,28 @@
     <property name="spritesheetName" value="slave-centurio"/>
    </properties>
   </object>
-  <object id="19" type="COLLISIONBOX" x="184" y="320" width="32" height="8"/>
-  <object id="20" type="COLLISIONBOX" x="328" y="336" width="32" height="8"/>
-  <object id="21" type="COLLISIONBOX" x="368" y="328" width="16" height="8"/>
-  <object id="22" type="COLLISIONBOX" x="368" y="288" width="16" height="8"/>
-  <object id="23" type="COLLISIONBOX" x="320" y="192" width="16" height="8"/>
-  <object id="24" type="COLLISIONBOX" x="368" y="192" width="16" height="8"/>
-  <object id="25" type="COLLISIONBOX" x="272" y="192" width="16" height="8"/>
-  <object id="26" type="COLLISIONBOX" x="248" y="192" width="16" height="8"/>
-  <object id="27" type="COLLISIONBOX" x="272" y="152" width="16" height="8"/>
-  <object id="28" type="COLLISIONBOX" x="248" y="152" width="16" height="8"/>
-  <object id="29" type="COLLISIONBOX" x="320" y="152" width="16" height="8"/>
-  <object id="30" type="COLLISIONBOX" x="368" y="152" width="16" height="8"/>
-  <object id="31" type="COLLISIONBOX" x="200" y="152" width="16" height="8"/>
-  <object id="32" type="COLLISIONBOX" x="152" y="152" width="16" height="8"/>
-  <object id="33" type="COLLISIONBOX" x="152" y="192" width="16" height="8"/>
-  <object id="34" type="COLLISIONBOX" x="200" y="192" width="16" height="8"/>
-  <object id="35" type="COLLISIONBOX" x="152" y="256" width="64" height="8"/>
-  <object id="36" type="COLLISIONBOX" x="248" y="256" width="40" height="8"/>
-  <object id="37" type="COLLISIONBOX" x="248" y="224" width="40" height="8"/>
-  <object id="38" type="COLLISIONBOX" x="320" y="224" width="64" height="8"/>
-  <object id="39" type="COLLISIONBOX" x="320" y="256" width="64" height="8"/>
-  <object id="4" type="COLLISIONBOX" x="434" y="432" width="2" height="14"/>
+  <object id="18" type="COLLISIONBOX" x="184" y="320" width="32" height="8"/>
+  <object id="19" type="COLLISIONBOX" x="328" y="336" width="32" height="8"/>
+  <object id="20" type="COLLISIONBOX" x="368" y="328" width="16" height="8"/>
+  <object id="21" type="COLLISIONBOX" x="368" y="288" width="16" height="8"/>
+  <object id="22" type="COLLISIONBOX" x="320" y="192" width="16" height="8"/>
+  <object id="23" type="COLLISIONBOX" x="368" y="192" width="16" height="8"/>
+  <object id="24" type="COLLISIONBOX" x="272" y="192" width="16" height="8"/>
+  <object id="25" type="COLLISIONBOX" x="248" y="192" width="16" height="8"/>
+  <object id="26" type="COLLISIONBOX" x="272" y="152" width="16" height="8"/>
+  <object id="27" type="COLLISIONBOX" x="248" y="152" width="16" height="8"/>
+  <object id="28" type="COLLISIONBOX" x="320" y="152" width="16" height="8"/>
+  <object id="29" type="COLLISIONBOX" x="368" y="152" width="16" height="8"/>
+  <object id="30" type="COLLISIONBOX" x="200" y="152" width="16" height="8"/>
+  <object id="31" type="COLLISIONBOX" x="152" y="152" width="16" height="8"/>
+  <object id="32" type="COLLISIONBOX" x="152" y="192" width="16" height="8"/>
+  <object id="33" type="COLLISIONBOX" x="200" y="192" width="16" height="8"/>
+  <object id="34" type="COLLISIONBOX" x="152" y="256" width="64" height="8"/>
+  <object id="35" type="COLLISIONBOX" x="248" y="256" width="40" height="8"/>
+  <object id="36" type="COLLISIONBOX" x="248" y="224" width="40" height="8"/>
+  <object id="37" type="COLLISIONBOX" x="320" y="224" width="64" height="8"/>
+  <object id="38" type="COLLISIONBOX" x="320" y="256" width="64" height="8"/>
+  <object id="39" type="COLLISIONBOX" x="434" y="432" width="2" height="14"/>
  </objectgroup>
  <objectgroup id="11" name="spawnpoints">
   <object id="40" name="enter" type="SPAWNPOINT" x="458" y="210" width="11" height="20"/>
@@ -1052,7 +1052,7 @@
     <property name="collisionboxHeight" type="float" value="8"/>
     <property name="collisionboxWidth" value="5.0"/>
     <property name="indestructible" type="bool" value="true"/>
-    <property name="next" value="level6"/>
+    <property name="next" value="end"/>
     <property name="required" value="8"/>
     <property name="scaling" type="bool" value="true"/>
     <property name="spritesheetName" value="gatekeeper"/>
@@ -1174,7 +1174,7 @@
     <property name="spritesheetName" value="decormob-cockroach"/>
    </properties>
   </object>
-  <object id="56" type="CREATURE" x="211" y="107" width="4" height="4">
+  <object id="52" type="CREATURE" x="211" y="107" width="4" height="4">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1187,7 +1187,7 @@
     <property name="spritesheetName" value="decormob-cockroach"/>
    </properties>
   </object>
-  <object id="57" type="CREATURE" x="41" y="43" width="4" height="4">
+  <object id="53" type="CREATURE" x="41" y="43" width="4" height="4">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1200,7 +1200,7 @@
     <property name="spritesheetName" value="decormob-cockroach"/>
    </properties>
   </object>
-  <object id="63" type="PROP" x="123" y="107" width="10" height="7">
+  <object id="54" type="PROP" x="123" y="107" width="10" height="7">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1210,7 +1210,7 @@
     <property name="spritesheetName" value="amphora4"/>
    </properties>
   </object>
-  <object id="64" type="PROP" x="122" y="99" width="8" height="11">
+  <object id="55" type="PROP" x="122" y="99" width="8" height="11">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1220,9 +1220,9 @@
     <property name="spritesheetName" value="amphora3"/>
    </properties>
   </object>
-  <object id="67" type="COLLISIONBOX" x="412" y="432" width="2" height="14"/>
-  <object id="68" type="COLLISIONBOX" x="8" y="0" width="472" height="16"/>
-  <object id="69" type="PROP" x="40" y="418" width="56" height="27">
+  <object id="56" type="COLLISIONBOX" x="412" y="432" width="2" height="14"/>
+  <object id="57" type="COLLISIONBOX" x="8" y="0" width="472" height="16"/>
+  <object id="58" type="PROP" x="40" y="418" width="56" height="27">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="false"/>
@@ -1232,7 +1232,7 @@
     <property name="spritesheetName" value="cage2"/>
    </properties>
   </object>
-  <object id="70" type="CREATURE" x="82" y="428" width="7" height="13">
+  <object id="59" type="CREATURE" x="82" y="428" width="7" height="13">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1243,7 +1243,7 @@
     <property name="spritesheetName" value="slave-centurio"/>
    </properties>
   </object>
-  <object id="71" type="PROP" x="147" y="59" width="28" height="31">
+  <object id="60" type="PROP" x="147" y="59" width="28" height="31">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="false"/>
@@ -1253,11 +1253,11 @@
     <property name="spritesheetName" value="cage3"/>
    </properties>
   </object>
-  <object id="72" type="COLLISIONBOX" x="147" y="88" width="28" height="3"/>
-  <object id="73" type="COLLISIONBOX" x="173" y="75" width="2" height="13"/>
-  <object id="74" type="COLLISIONBOX" x="147" y="75" width="2" height="13"/>
-  <object id="75" type="COLLISIONBOX" x="149" y="75" width="24" height="3"/>
-  <object id="76" type="PROP" x="405" y="411" width="8" height="12">
+  <object id="61" type="COLLISIONBOX" x="147" y="88" width="28" height="3"/>
+  <object id="62" type="COLLISIONBOX" x="173" y="75" width="2" height="13"/>
+  <object id="63" type="COLLISIONBOX" x="147" y="75" width="2" height="13"/>
+  <object id="64" type="COLLISIONBOX" x="149" y="75" width="24" height="3"/>
+  <object id="65" type="PROP" x="405" y="411" width="8" height="12">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1267,7 +1267,7 @@
     <property name="spritesheetName" value="amphora1"/>
    </properties>
   </object>
-  <object id="77" type="PROP" x="383" y="249" width="8" height="12">
+  <object id="66" type="PROP" x="383" y="249" width="8" height="12">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1277,7 +1277,7 @@
     <property name="spritesheetName" value="amphora1"/>
    </properties>
   </object>
-  <object id="78" type="PROP" x="226" y="44" width="8" height="12">
+  <object id="67" type="PROP" x="226" y="44" width="8" height="12">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1287,7 +1287,7 @@
     <property name="spritesheetName" value="amphora1"/>
    </properties>
   </object>
-  <object id="79" type="PROP" x="283" y="236" width="16" height="19">
+  <object id="68" type="PROP" x="283" y="236" width="16" height="19">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1297,7 +1297,7 @@
     <property name="spritesheetName" value="crate1"/>
    </properties>
   </object>
-  <object id="80" type="PROP" x="92" y="447" width="8" height="11">
+  <object id="69" type="PROP" x="92" y="447" width="8" height="11">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1307,7 +1307,7 @@
     <property name="spritesheetName" value="amphora3"/>
    </properties>
   </object>
-  <object id="81" type="PROP" x="208" y="205" width="16" height="19">
+  <object id="70" type="PROP" x="208" y="205" width="16" height="19">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1317,7 +1317,7 @@
     <property name="spritesheetName" value="crate1"/>
    </properties>
   </object>
-  <object id="82" type="PROP" x="160" y="313" width="16" height="10">
+  <object id="71" type="PROP" x="160" y="313" width="16" height="10">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1327,7 +1327,7 @@
     <property name="spritesheetName" value="crate3"/>
    </properties>
   </object>
-  <object id="83" type="PROP" x="149" y="310" width="16" height="10">
+  <object id="72" type="PROP" x="149" y="310" width="16" height="10">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1337,7 +1337,7 @@
     <property name="spritesheetName" value="crate3"/>
    </properties>
   </object>
-  <object id="84" type="PROP" x="191" y="324" width="16" height="20">
+  <object id="73" type="PROP" x="191" y="324" width="16" height="20">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1347,7 +1347,7 @@
     <property name="spritesheetName" value="table1"/>
    </properties>
   </object>
-  <object id="85" type="PROP" x="396" y="427" width="8" height="8">
+  <object id="74" type="PROP" x="396" y="427" width="8" height="8">
    <properties>
     <property name="addShadow" type="bool" value="false"/>
     <property name="collision" type="bool" value="false"/>
@@ -1360,7 +1360,7 @@
     <property name="spritesheetName" value="pot"/>
    </properties>
   </object>
-  <object id="86" type="PROP" x="147" y="327" width="8" height="8">
+  <object id="75" type="PROP" x="147" y="327" width="8" height="8">
    <properties>
     <property name="addShadow" type="bool" value="false"/>
     <property name="collision" type="bool" value="false"/>
@@ -1373,7 +1373,7 @@
     <property name="spritesheetName" value="pot"/>
    </properties>
   </object>
-  <object id="87" type="PROP" x="216" y="152" width="8" height="8">
+  <object id="76" type="PROP" x="216" y="152" width="8" height="8">
    <properties>
     <property name="addShadow" type="bool" value="false"/>
     <property name="collision" type="bool" value="false"/>
@@ -1386,7 +1386,7 @@
     <property name="spritesheetName" value="pot"/>
    </properties>
   </object>
-  <object id="88" name="flatteranus" type="CREATURE" x="287" y="298" width="17" height="21">
+  <object id="77" name="flatteranus" type="CREATURE" x="287" y="298" width="17" height="21">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1397,7 +1397,7 @@
     <property name="spritesheetName" value="enemy_gold"/>
    </properties>
   </object>
-  <object id="89" type="CREATURE" x="165" y="72" width="7" height="13">
+  <object id="78" type="CREATURE" x="165" y="72" width="7" height="13">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1408,7 +1408,7 @@
     <property name="spritesheetName" value="slave-centurio"/>
    </properties>
   </object>
-  <object id="90" type="CREATURE" x="158" y="73" width="7" height="13">
+  <object id="79" type="CREATURE" x="158" y="73" width="7" height="13">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1419,7 +1419,7 @@
     <property name="spritesheetName" value="slave-centurio"/>
    </properties>
   </object>
-  <object id="91" type="EMITTER" x="424" y="179" width="8" height="8">
+  <object id="80" type="EMITTER" x="424" y="179" width="8" height="8">
    <properties>
     <property name="emitterAlphaDeviation" value="0.0"/>
     <property name="emitterColorDeviation" value="0.0"/>
@@ -1460,7 +1460,7 @@
     <property name="renderType" value="OVERLAY"/>
    </properties>
   </object>
-  <object id="92" type="PROP" x="424" y="188" width="8" height="22">
+  <object id="81" type="PROP" x="424" y="188" width="8" height="22">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1470,7 +1470,7 @@
     <property name="spritesheetName" value="torch1"/>
    </properties>
   </object>
-  <object id="93" type="EMITTER" x="464" y="179" width="8" height="8">
+  <object id="82" type="EMITTER" x="464" y="179" width="8" height="8">
    <properties>
     <property name="emitterAlphaDeviation" value="0.0"/>
     <property name="emitterColorDeviation" value="0.0"/>
@@ -1511,7 +1511,7 @@
     <property name="renderType" value="OVERLAY"/>
    </properties>
   </object>
-  <object id="94" type="PROP" x="464" y="188" width="8" height="22">
+  <object id="83" type="PROP" x="464" y="188" width="8" height="22">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1521,7 +1521,7 @@
     <property name="spritesheetName" value="torch1"/>
    </properties>
   </object>
-  <object id="95" type="EMITTER" x="424" y="241" width="8" height="8">
+  <object id="84" type="EMITTER" x="424" y="241" width="8" height="8">
    <properties>
     <property name="emitterAlphaDeviation" value="0.0"/>
     <property name="emitterColorDeviation" value="0.0"/>
@@ -1562,7 +1562,7 @@
     <property name="renderType" value="OVERLAY"/>
    </properties>
   </object>
-  <object id="96" type="PROP" x="424" y="250" width="8" height="22">
+  <object id="85" type="PROP" x="424" y="250" width="8" height="22">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1572,7 +1572,7 @@
     <property name="spritesheetName" value="torch1"/>
    </properties>
   </object>
-  <object id="97" type="EMITTER" x="464" y="241" width="8" height="8">
+  <object id="86" type="EMITTER" x="464" y="241" width="8" height="8">
    <properties>
     <property name="emitterAlphaDeviation" value="0.0"/>
     <property name="emitterColorDeviation" value="0.0"/>
@@ -1613,7 +1613,7 @@
     <property name="renderType" value="OVERLAY"/>
    </properties>
   </object>
-  <object id="98" type="PROP" x="464" y="250" width="8" height="22">
+  <object id="87" type="PROP" x="464" y="250" width="8" height="22">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1623,7 +1623,7 @@
     <property name="spritesheetName" value="torch1"/>
    </properties>
   </object>
-  <object id="99" type="EMITTER" x="408" y="327" width="8" height="8">
+  <object id="88" type="EMITTER" x="408" y="327" width="8" height="8">
    <properties>
     <property name="emitterAlphaDeviation" value="0.0"/>
     <property name="emitterColorDeviation" value="0.0"/>
@@ -1664,7 +1664,7 @@
     <property name="renderType" value="OVERLAY"/>
    </properties>
   </object>
-  <object id="100" type="PROP" x="408" y="336" width="8" height="22">
+  <object id="89" type="PROP" x="408" y="336" width="8" height="22">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1674,7 +1674,7 @@
     <property name="spritesheetName" value="torch1"/>
    </properties>
   </object>
-  <object id="101" type="EMITTER" x="344" y="327" width="8" height="8">
+  <object id="90" type="EMITTER" x="344" y="327" width="8" height="8">
    <properties>
     <property name="emitterAlphaDeviation" value="0.0"/>
     <property name="emitterColorDeviation" value="0.0"/>
@@ -1715,7 +1715,7 @@
     <property name="renderType" value="OVERLAY"/>
    </properties>
   </object>
-  <object id="102" type="PROP" x="344" y="336" width="8" height="22">
+  <object id="91" type="PROP" x="344" y="336" width="8" height="22">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1725,7 +1725,7 @@
     <property name="spritesheetName" value="torch1"/>
    </properties>
   </object>
-  <object id="103" type="EMITTER" x="120" y="327" width="8" height="8">
+  <object id="92" type="EMITTER" x="120" y="327" width="8" height="8">
    <properties>
     <property name="emitterAlphaDeviation" value="0.0"/>
     <property name="emitterColorDeviation" value="0.0"/>
@@ -1766,7 +1766,7 @@
     <property name="renderType" value="OVERLAY"/>
    </properties>
   </object>
-  <object id="104" type="PROP" x="120" y="336" width="8" height="22">
+  <object id="93" type="PROP" x="120" y="336" width="8" height="22">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1776,7 +1776,7 @@
     <property name="spritesheetName" value="torch1"/>
    </properties>
   </object>
-  <object id="105" type="EMITTER" x="176" y="327" width="8" height="8">
+  <object id="94" type="EMITTER" x="176" y="327" width="8" height="8">
    <properties>
     <property name="emitterAlphaDeviation" value="0.0"/>
     <property name="emitterColorDeviation" value="0.0"/>
@@ -1817,7 +1817,7 @@
     <property name="renderType" value="OVERLAY"/>
    </properties>
   </object>
-  <object id="106" type="PROP" x="176" y="336" width="8" height="22">
+  <object id="95" type="PROP" x="176" y="336" width="8" height="22">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1827,7 +1827,7 @@
     <property name="spritesheetName" value="torch1"/>
    </properties>
   </object>
-  <object id="107" type="EMITTER" x="120" y="103" width="8" height="8">
+  <object id="96" type="EMITTER" x="120" y="103" width="8" height="8">
    <properties>
     <property name="emitterAlphaDeviation" value="0.0"/>
     <property name="emitterColorDeviation" value="0.0"/>
@@ -1868,7 +1868,7 @@
     <property name="renderType" value="OVERLAY"/>
    </properties>
   </object>
-  <object id="108" type="PROP" x="120" y="112" width="8" height="22">
+  <object id="97" type="PROP" x="120" y="112" width="8" height="22">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1878,7 +1878,7 @@
     <property name="spritesheetName" value="torch1"/>
    </properties>
   </object>
-  <object id="109" type="EMITTER" x="176" y="103" width="8" height="8">
+  <object id="98" type="EMITTER" x="176" y="103" width="8" height="8">
    <properties>
     <property name="emitterAlphaDeviation" value="0.0"/>
     <property name="emitterColorDeviation" value="0.0"/>
@@ -1919,7 +1919,7 @@
     <property name="renderType" value="OVERLAY"/>
    </properties>
   </object>
-  <object id="110" type="PROP" x="176" y="112" width="8" height="22">
+  <object id="99" type="PROP" x="176" y="112" width="8" height="22">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1929,7 +1929,7 @@
     <property name="spritesheetName" value="torch1"/>
    </properties>
   </object>
-  <object id="111" type="EMITTER" x="408" y="103" width="8" height="8">
+  <object id="100" type="EMITTER" x="408" y="103" width="8" height="8">
    <properties>
     <property name="emitterAlphaDeviation" value="0.0"/>
     <property name="emitterColorDeviation" value="0.0"/>
@@ -1970,7 +1970,7 @@
     <property name="renderType" value="OVERLAY"/>
    </properties>
   </object>
-  <object id="112" type="PROP" x="408" y="112" width="8" height="22">
+  <object id="101" type="PROP" x="408" y="112" width="8" height="22">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -1980,7 +1980,7 @@
     <property name="spritesheetName" value="torch1"/>
    </properties>
   </object>
-  <object id="113" type="EMITTER" x="352" y="103" width="8" height="8">
+  <object id="102" type="EMITTER" x="352" y="103" width="8" height="8">
    <properties>
     <property name="emitterAlphaDeviation" value="0.0"/>
     <property name="emitterColorDeviation" value="0.0"/>
@@ -2021,7 +2021,7 @@
     <property name="renderType" value="OVERLAY"/>
    </properties>
   </object>
-  <object id="114" type="PROP" x="352" y="112" width="8" height="22">
+  <object id="103" type="PROP" x="352" y="112" width="8" height="22">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="true"/>
@@ -2031,7 +2031,7 @@
     <property name="spritesheetName" value="torch1"/>
    </properties>
   </object>
-  <object id="66" type="PROP" x="412" y="420" width="24" height="23">
+  <object id="104" type="PROP" x="412" y="420" width="24" height="23">
    <properties>
     <property name="addShadow" type="bool" value="true"/>
     <property name="collision" type="bool" value="false"/>
