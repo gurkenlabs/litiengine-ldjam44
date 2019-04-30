@@ -18,7 +18,7 @@ public class Program {
     // set meta information about the game
     Game.info().setName("SERVUS BONUS");
     Game.info().setSubTitle("");
-    Game.info().setVersion("v0.0.1");
+    Game.info().setVersion("v1.0.0");
     Game.info().setWebsite("https://github.com/gurkenlabs/litiengine-ldjam44");
 
     // init the game infrastructure

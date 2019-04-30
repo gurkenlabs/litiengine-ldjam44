@@ -8,7 +8,7 @@ apply plugin: 'java'
 apply plugin: 'application'
 
 // give your project a name
-archivesBaseName = "LDJAM44 GAME"
+archivesBaseName = "SERVUS BONUS"
 version = "v1.0.0"
 targetCompatibility = "1.8.0"
 mainClassName = "de.gurkenlabs.ldjam44.Program"

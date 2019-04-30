@@ -62,6 +62,9 @@ public class Gatekeeper extends Creature {
         if (GameManager.getOwnSlaveCount() >= this.getRequiredSlaves()) {
           this.setTransitioning(true);
           text = String.format("WELL DONE! Now I can take you to %s.", GameManager.getCity(this.getNextLevel()));
+          if (this.getNextLevel().equals("end")) {
+            text = "Impressive! You have proven yourself worthy of entering the great city of Rome!";
+          }
 
           Game.audio().playSound(Resources.sounds().get("success.ogg"));
           SpeechBubble bubble = SpeechBubble.create(this, text, GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
@@ -71,6 +74,25 @@ public class Gatekeeper extends Creature {
           bubble.addListener(new SpeechBubbleListener() {
             @Override
             public void hidden() {
+
+              if (getNextLevel().equals("end")) {
+                SpeechBubble bubble2 = SpeechBubble.create(Gatekeeper.this, "I see great fortune and plentiful bitches, ummm.... I mean \"riches\" before us...", GameManager.SPEECH_BUBBLE_APPEARANCE, GameManager.SPEECH_BUBBLE_FONT);
+                bubble2.setTextDisplayTime(4000);
+                bubble2.addListener(new SpeechBubbleListener() {
+                  @Override
+                  public void hidden() {
+                    Game.window().getRenderComponent().fadeOut(1000);
+
+                    Game.loop().perform(1500, () -> {
+                      // remove player before unloading the environment or the instance's animation controller will be disposed
+                      Game.world().environment().remove(Player.instance());
+                      Game.world().loadEnvironment(getNextLevel());
+                      setTransitioning(false);
+                    });
+                  }
+                });
+                return;
+              }
 
               Game.window().getRenderComponent().fadeOut(1000);
 

@@ -5324,8 +5324,8 @@
    <properties>
     <property name="AMBIENTLIGHT" value="#00ffffff"/>
     <property name="GRAVITY" type="int" value="0"/>
-    <property name="MAP_DESCRIPTION" value="Finally... I see grass on the horizon!"/>
-    <property name="MAP_TITLE" value="Panormus"/>
+    <property name="MAP_DESCRIPTION" value="I can almost feel the decadence Rome here..."/>
+    <property name="MAP_TITLE" value="Paestum"/>
     <property name="SHADOWCOLOR" value="#28000000"/>
    </properties>
    <tileset firstgid="1" name="Tileset" tilewidth="8" tileheight="8" tilecount="1024" columns="32">
@@ -5495,7 +5495,7 @@
 134,134,134,134,134,134,162,163,163,163,163,163,163,163,162,134,134,134,134,134,134,134,134,71,71,71,71,71,71,71,134,130,193,193,193,193,193,193,193,193,193,193,193,193,130,134,134,134,134,134,
 134,134,134,134,134,134,162,162,162,162,162,162,162,162,162,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,130,130,130,130,130,130,130,193,193,130,130,130,130,130,134,134,613,614,614,
 611,614,611,614,614,612,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,130,193,193,130,134,134,134,134,613,611,615,132,195,
-387,390,390,390,325,548,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,130,193,193,130,134,134,134,134,645,324,391,260,68,
+387,390,390,390,325,5,6,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,130,193,193,130,134,134,134,134,645,324,391,260,68,
 34,135,135,135,357,610,611,611,611,611,614,614,614,611,614,614,614,614,614,614,614,614,611,614,614,614,611,611,611,611,614,614,614,614,614,614,614,130,193,193,130,611,614,614,611,677,356,357,164,101,
 130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,130,193,193,130,130,130,130,130,130,130,130,130,130,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,484,423,0,0,
@@ -7173,6 +7173,19 @@
     <object id="162" type="COLLISIONBOX" x="280" y="192" width="16" height="8"/>
     <object id="163" type="COLLISIONBOX" x="280" y="216" width="16" height="8"/>
     <object id="164" type="COLLISIONBOX" x="280" y="248" width="16" height="8"/>
+    <object id="165" type="PROP" x="44" y="120" width="8" height="8">
+     <properties>
+      <property name="addShadow" type="bool" value="false"/>
+      <property name="collision" type="bool" value="false"/>
+      <property name="collisionboxHeight" type="float" value="6.4"/>
+      <property name="collisionboxWidth" type="float" value="6.4"/>
+      <property name="flipHorizontally" type="bool" value="false"/>
+      <property name="flipVertically" type="bool" value="false"/>
+      <property name="indestructible" type="bool" value="false"/>
+      <property name="scaling" type="bool" value="true"/>
+      <property name="spritesheetName" value="pot"/>
+     </properties>
+    </object>
    </objectgroup>
   </map>
   <map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="8" tileheight="8" infinite="0" nextobjectid="1" nextlayerid="3" name="title">

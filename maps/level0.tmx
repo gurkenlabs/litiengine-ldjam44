@@ -451,7 +451,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="12" name="props" visible="1">
+ <objectgroup id="12" name="props">
   <object id="11" type="COLLISIONBOX" x="0" y="112" width="328" height="16"/>
   <object id="13" type="CREATURE" x="212" y="100" width="4" height="4">
    <properties>
