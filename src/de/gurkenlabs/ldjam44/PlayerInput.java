@@ -51,8 +51,10 @@ public final class PlayerInput {
       for (ICombatEntity entity : Game.world().environment().findCombatEntities(GeometricUtilities.extrude(Player.instance().getBoundingBox(), 2))) {
         if (entity instanceof Enemy) {
           Enemy enemy = (Enemy) entity;
-          enemy.sendMessage(Player.instance(), Enemy.SLAVE_TRIGGER);
-          triggered = true;
+          if (!enemy.isDead()) {
+            enemy.sendMessage(Player.instance(), Enemy.SLAVE_TRIGGER);
+            triggered = true;
+          }
         }
       }
 
