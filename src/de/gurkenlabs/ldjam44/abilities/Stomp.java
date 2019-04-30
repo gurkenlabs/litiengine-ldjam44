@@ -5,7 +5,7 @@ import de.gurkenlabs.litiengine.abilities.OffensiveAbility;
 import de.gurkenlabs.litiengine.annotation.AbilityInfo;
 import de.gurkenlabs.litiengine.entities.Creature;
 
-@AbilityInfo(name = "Stomp", cooldown = 10000, value = 5, impact = 100, impactAngle = 360, duration = 300)
+@AbilityInfo(name = "Stomp", cooldown = 10000, value = 5, impact = 100, impactAngle = 360, duration = 300, multiTarget = true)
 public class Stomp extends OffensiveAbility {
 
   public Stomp(Creature executor) {

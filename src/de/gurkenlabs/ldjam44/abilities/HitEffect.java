@@ -13,6 +13,7 @@ import de.gurkenlabs.litiengine.abilities.OffensiveAbility;
 import de.gurkenlabs.litiengine.abilities.effects.Effect;
 import de.gurkenlabs.litiengine.abilities.effects.EffectTarget;
 import de.gurkenlabs.litiengine.abilities.effects.EntityHitArgument;
+import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.entities.ICombatEntity;
 import de.gurkenlabs.litiengine.physics.Collision;
 
@@ -42,7 +43,7 @@ public class HitEffect extends Effect {
   @Override
   protected Collection<ICombatEntity> getEntitiesInImpactArea(final Shape impactArea) {
     final List<ICombatEntity> entities = new ArrayList<>();
-    for (final ICombatEntity entity : Game.world().environment().findCombatEntities(impactArea)) {
+    for (final ICombatEntity entity : Game.world().environment().findCombatEntities(impactArea, x -> x instanceof Creature)) {
       final Point2D collCenterExecutor = new Point2D.Double(
           this.getAbility().getExecutor().getCollisionBox().getCenterX(),
           this.getAbility().getExecutor().getCollisionBox().getCenterY());

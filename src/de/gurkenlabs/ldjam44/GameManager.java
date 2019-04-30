@@ -17,6 +17,7 @@ import de.gurkenlabs.ldjam44.entities.Slave;
 import de.gurkenlabs.ldjam44.ui.IngameScreen;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Creature;
+import de.gurkenlabs.litiengine.entities.Prop;
 import de.gurkenlabs.litiengine.entities.Spawnpoint;
 import de.gurkenlabs.litiengine.environment.CreatureMapObjectLoader;
 import de.gurkenlabs.litiengine.environment.Environment;
@@ -126,6 +127,10 @@ public final class GameManager {
         return;
       }
 
+      for (Prop prop : Game.world().environment().getProps()) {
+        prop.setIndestructible(true);
+      }
+      
       Game.loop().perform(500, () -> Game.window().getRenderComponent().fadeIn(500));
 
       if (startups.containsKey(e.getMap().getName())) {
